@@ -1,0 +1,204 @@
+:root {
+  --first-color: #002266;
+  --second-color: #001133;
+  --third-color: #003299;
+  --four-color: #0044CC;
+  --five-color: #0055FF;
+  --six-color: #BEBDBD;
+  --seven-color: #053263;
+  --background-color: #D3D2D2;
+  --text-color: #000;
+  --white-color: #fff;
+  --black-color: #000;
+  --font: Arial, Helvetica, sans-serif;
+  --max-width: 100%;
+  --header-height: 4rem;
+}
+
+
+html {
+  box-sizing: border-box;
+  font-family: var(--font);
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  color: var(--text-color);
+}
+
+.none {
+  display: none;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--max-width) !important;
+}
+
+label {
+  font-size: 17px;
+}
+
+.title {
+  font-weight: lighter;
+  margin: 0;
+  margin-top: 20px;
+}
+
+/**************** Menu *****************/
+
+.menu-btn {
+  outline: thin solid var(--third-color);
+  border: 0;
+  cursor: pointer;
+  background-color: var(--five-color);
+}
+
+.menu-btn svg {
+  fill: var(--first-color);
+}
+
+.menu {
+  position: fixed;
+  height: calc(100% - 15.8%);
+  left: 0;
+  top: var(--header-height);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--seven-color);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .5s ease;
+}
+
+.menu a {
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: var(--six-color);
+}
+
+.menu.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.menu a:hover {
+  color: var(--white-color);
+  background-color: var(--five-color);
+}
+
+/**************** Menu Responsive ****************/
+@media screen and (min-width:769px) {
+  .menu-btn {
+    display: none;
+  }
+
+  .menu {
+    position: static;
+    width: auto;
+    flex-direction: row;
+    background-color: var(--second-color);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .menu a {
+    padding: 0 1rem;
+  }
+
+  .menu a:hover {
+    background-color: transparent;
+  }
+
+  .menu a:last-child {
+    padding-right: 0;
+  }
+}
+
+/************ Navbar ************/
+.header {
+  position: inherit;
+  padding: 10px;
+  top: 0;
+  z-index: 9999;
+  width: 100%;
+  height: calc(var(--header-height)-0.5rem);
+  background-color: var(--second-color);
+}
+
+.header>.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo a {
+  color: var(--white-color);
+  font-weight: bold;
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+.icon {
+  width: 60%;
+}
+
+/**************** Navbar Responsive ****************/
+@media screen and (max-width: 1024px) {
+  .header {
+    position: sticky;
+    top: 0;
+    padding: .5rem;
+
+  }
+}
+
+/************ Footer ************/
+
+.footer {
+  width: 100%;
+  height: 150px;
+  background-color: var(--second-color);
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  align-items: center;
+  flex-direction: column;
+}
+
+.footer-content {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-section {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-text {
+  color: var(--white-color);
+  font-size: 1.2rem;
+  font-weight: 400;
+}
