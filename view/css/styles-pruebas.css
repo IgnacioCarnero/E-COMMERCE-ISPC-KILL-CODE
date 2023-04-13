@@ -1,0 +1,271 @@
+/* ************** Custom Properties ************* */
+:root {
+  --first-color: #002266;
+  --second-color: #001133;
+  --third-color: #003299;
+  --four-color: #0044CC;
+  --five-color: #0055FF;
+  --six-color: #BEBDBD;
+  --seven-color: #053263;
+  --background-color: #D3D2D2;
+  --text-color: #000;
+  --white-color: #fff;
+  --black-color: #000;
+  --font: Arial, Helvetica, sans-serif;
+  --max-width: 100%;
+  --header-height: 4rem;
+}
+
+/* *************Reseteos**************** */
+
+html {
+  box-sizing: border-box;
+  font-family: var(--font);
+  font-size: 16px;
+  scroll-behavior: smooth;
+  background-color: var(--white-color);
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  color: var(--text-color);
+}
+
+
+
+.none {
+  display: none;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--max-width);
+}
+
+.menu-btn {
+  outline: thin solid var(--third-color);
+  border: 0;
+  cursor: pointer;
+  background-color: var(--five-color);
+}
+
+.menu-btn svg {
+  fill: var(--first-color);
+}
+
+.menu {
+  position: fixed;
+  /* height: calc(100% - 15.8%); */
+  left: 0;
+  top: var(--header-height);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--second-color);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .5s ease;
+}
+
+.menu a {
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: var(--six-color);
+}
+
+.menu.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.menu a:hover {
+  color: var(--white-color);
+  background-color: var(--five-color);
+}
+
+
+/************ Navbar ************/
+.header {
+  position: inherit;
+  padding: 10px;
+  top: 0;
+  z-index: 9999;
+  width: 100%;
+  height: calc(var(--header-height)-0.5rem);
+  background-color: var(--second-color);
+}
+
+.header>.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo a {
+  color: var(--white-color);
+  font-weight: bold;
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+.icon {
+  width: 60%;
+}
+
+.alarm {
+  width: 18px;
+  margin-bottom: 3px;
+}
+
+
+
+@media screen and (min-width:1024px) {
+  .menu-btn {
+    display: none;
+  }
+
+  .menu {
+    position: static;
+    width: auto;
+    flex-direction: row;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .menu a {
+    padding: 0 1rem;
+  }
+
+  .menu a:hover {
+    background-color: transparent;
+  }
+
+  .menu a:last-child {
+    padding-right: 0;
+  }
+}
+
+/**************** Navbar Responsive ****************/
+@media screen and (max-width: 1024px) {
+  .header {
+    position: sticky;
+    top: 0;
+    padding: .5rem;
+
+  }
+}
+
+
+
+.title-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sub-title {
+  font-size: 12px;
+}
+
+.section-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.article-container {
+  width: 90vw;
+  margin: 1rem;
+  padding: 1rem;
+  text-align: left;
+  background-color: var(--white-color);
+  border-radius: 10px;
+  bottom: var(--header-height);
+}
+
+.article-container p {
+  text-align: justify;
+}
+
+.article-container h2 {
+  padding-bottom: 0.75rem;
+  border-bottom: thin solid rgb(192, 192, 192);
+}
+
+.article-container li {
+  text-indent: 1rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .title-container {
+    text-align: left;
+    display: inline-block;
+    padding-left: 1rem;
+  }
+
+  .title-container h1 {
+    font-size: 32px;
+  }
+
+  .article-container {
+    width: 60vw;
+    top: var(--header-height);
+  }
+
+}
+
+/************ Footer ************/
+
+.footer-container {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+.footer {
+  width: 100%;
+  height: 150px;
+  background-color: var(--second-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.footer-content {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-section {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-text {
+  color: var(--white-color);
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.svg-white {
+  filter: invert(100%);
+}
