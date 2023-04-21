@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/login/styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <title>Login</title>
+</head>
+
+<body>
+  <div id="page">
+    <header id="background">
+      <div class="container-sm">
+        <img src="../assets/killcode-icon.png" class="logo" alt="killcode logo">
+        <div class="title">
+          <h1 class="h1">Plataforma de Recibos de Sueldo</h1>
+        </div>
+      </div>
+    </header>
+    <section class="content">
+      <form name="login">
+        <div class="text-size">
+          <h1 class="subtitle">Login</h1>
+          <div class="mb-4">
+            <label for="exampleInputEmail1" class="form-label text">Correo electrónico</label>
+            <input name="email" type="email" class="form-control" value="" id="inputEmail" aria-describedby="emailHelp"
+              placeholder="Ingrese su correo electrónico">
+            <div id="emailHelp" class="form-text">Nunca vamos a compartir tu correo electrónico.</div>
+            <div class="alert alert-danger disabled" id="alert-msg" role="alert"></div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label text">Contraseña</label>
+            <input name="pass" type="password" class="form-control" value="" id="inputPass"
+              placeholder="Ingrese su contraseña">
+            <div class="alert alert-danger disabled" id="alert-msg" role="alert"></div>
+          </div>
+          <button type="button" class="btn btn-link no-padding" style="color: red" data-bs-toggle="collapse"
+            data-bs-target="#contact-rrhh" aria-expanded="false" aria-controls="collapseExample">¿Olvidaste tu
+            contraseña?</button>
+          <div class="collapse contact-rrhh" id="contact-rrhh">Contáctate con el área de RRHH para que te proporcionen
+            una nueva contraseña debido a cuestiones de seguridad.</div>
+          <div class="buttons">
+            <button type="button" class="btn btn-outline-danger" onclick="redirectToRegister()">Registrarme</button>
+            <button id="enter-site" type="button" class="btn btn-danger center">Ingresar</button>
+          </div>
+        </div>
+      </form>
+    </section>
+    <div id="footer"></div>
+  </div>
+  <script src="../js/login/controller.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="../js/header-footer/header-footer.js"></script>
+</body>
+
+</html>
