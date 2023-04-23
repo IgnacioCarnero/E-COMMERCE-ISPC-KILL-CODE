@@ -3,7 +3,9 @@
   id="mainNav"
 >
   <div class="container px-5">
-    <a class="navbar-brand fw-bold" href="#page-top">KILL CODE</a>
+    <a class="navbar-brand" routerLink="" routerLinkActive="active-link"
+      >KILL CODE</a
+    >
     <button
       class="navbar-toggler"
       type="button"
@@ -19,22 +21,35 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ms-auto me-4 my-3 my-lg-0">
         <li class="nav-item">
-          <a class="nav-link me-lg-3" routerLink="/perfil">Perfil</a>
+          <a
+            class="nav-link me-lg-3"
+            routerLink=""
+            routerLinkActive="active-link"
+            >Perfil</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link me-lg-3" routerLink="/recibo-de-sueldo"
+          <a
+            class="nav-link me-lg-3"
+            routerLink=""
+            routerLinkActive="active-link"
             >Recibo de Sueldo</a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link me-lg-3" routerLink="/sueldo">Ayuda</a>
+          <a
+            class="nav-link me-lg-3"
+            routerLink=""
+            routerLinkActive="active-link"
+            >Ayuda</a
+          >
         </li>
       </ul>
       <button
-        class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0"
+        type="button"
+        class="btn btn-primary"
         data-bs-toggle="modal"
-        data-bs-target="#feedbackModal"
-        routerLink="/login"
+        data-bs-target="#exampleModal"
       >
         <span class="d-flex align-items-center">
           <!-- <i class="bi-chat-text-fill me-2"></i> -->
@@ -44,3 +59,16 @@
     </div>
   </div>
 </nav>
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <app-login></app-login>
+    </div>
+  </div>
+</div>
