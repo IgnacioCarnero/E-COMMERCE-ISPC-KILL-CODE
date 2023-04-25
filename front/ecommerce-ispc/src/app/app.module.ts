@@ -11,6 +11,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { SectionComponent } from './pages/home/section/section.component';
 import { NavComponent } from './shared/nav/nav.component';
 import { HomeComponent } from './pages/home/home.component';
+import { ContactComponent } from './pages/home/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { HomeComponent } from './pages/home/home.component';
     SectionComponent,
     NavComponent,
     HomeComponent,
+    ContactComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, NgbModule],
   providers: [],
