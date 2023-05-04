@@ -12,6 +12,7 @@ import { SectionComponent } from './pages/home/section/section.component';
 import { NavComponent } from './shared/nav/nav.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ContactComponent } from './pages/home/contact/contact.component';
+import { ServiciosComponent } from './pages/home/servicios/servicios.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ContactComponent } from './pages/home/contact/contact.component';
     NavComponent,
     HomeComponent,
     ContactComponent,
+    ServiciosComponent
   ],
   imports: [BrowserModule, AppRoutingModule, NgbModule],
   providers: [],
