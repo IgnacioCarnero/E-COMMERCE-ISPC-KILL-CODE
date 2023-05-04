@@ -5,6 +5,7 @@ import { ContactComponent } from './home/contact/contact.component';
 import { SectionComponent } from './home/section/section.component';
 import { HeaderComponent } from './home/header/header.component';
 import { ServiciosComponent } from './home/servicios/servicios.component';
+import { GeneradorReciboDeSueldoComponent } from './generador-recibo-de-sueldo/generador-recibo-de-sueldo.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { ServiciosComponent } from './home/servicios/servicios.component';
     ContactComponent,
     HeaderComponent,
     ServiciosComponent,
+    GeneradorReciboDeSueldoComponent,
   ],
   imports: [CommonModule],
 
@@ -22,6 +24,8 @@ import { ServiciosComponent } from './home/servicios/servicios.component';
     ContactComponent,
     HeaderComponent,
     ServiciosComponent,
+    GeneradorReciboDeSueldoComponent,
+
   ],
 })
 export class PagesModule {}
