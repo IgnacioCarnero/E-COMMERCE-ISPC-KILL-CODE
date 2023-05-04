@@ -7,6 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { SharedModule } from './shared/shared.module';
 import { PagesModule } from './pages/pages.module';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +19,7 @@ import { PagesModule } from './pages/pages.module';
     NgbModule,
     SharedModule,
     PagesModule,
+    AuthModule,
   ],
 })
 export class AppModule {}

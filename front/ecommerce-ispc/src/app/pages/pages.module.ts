@@ -4,6 +4,9 @@ import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './home/contact/contact.component';
 import { SectionComponent } from './home/section/section.component';
 import { HeaderComponent } from './home/header/header.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SideBarComponent } from './dashboard/side-bar/side-bar.component';
+import { PrivacidadComponent } from './privacidad/privacidad.component';
 
 @NgModule({
   declarations: [
@@ -11,9 +14,20 @@ import { HeaderComponent } from './home/header/header.component';
     HomeComponent,
     ContactComponent,
     HeaderComponent,
+    DashboardComponent,
+    SideBarComponent,
+    PrivacidadComponent,
   ],
   imports: [CommonModule],
 
-  exports: [SectionComponent, HomeComponent, ContactComponent, HeaderComponent],
+  exports: [
+    SectionComponent,
+    HomeComponent,
+    ContactComponent,
+    HeaderComponent,
+    SideBarComponent,
+    DashboardComponent,
+    PrivacidadComponent,
+  ],
 })
 export class PagesModule {}
