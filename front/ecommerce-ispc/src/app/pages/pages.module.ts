@@ -26,16 +26,11 @@ import { GeneradorReciboDeSueldoComponent } from './generador-recibo-de-sueldo/g
 
   exports: [
     SectionComponent,
-
     HomeComponent,
-
     ContactComponent,
-
     HeaderComponent,
     ServiciosComponent,
     GeneradorReciboDeSueldoComponent,
-
-    ,
     SideBarComponent,
     DashboardComponent,
     PrivacidadComponent,
