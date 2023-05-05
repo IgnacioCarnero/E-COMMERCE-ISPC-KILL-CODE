@@ -8,7 +8,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SideBarComponent } from './dashboard/side-bar/side-bar.component';
 import { PrivacidadComponent } from './privacidad/privacidad.component';
 import { ServiciosComponent } from './home/servicios/servicios.component';
-import { GeneradorReciboDeSueldoComponent } from './generador-recibo-de-sueldo/generador-recibo-de-sueldo.component';
+import { GeneradorReciboDeSueldoComponent } from './dashboard/generador-recibo-de-sueldo/generador-recibo-de-sueldo.component';
 
 @NgModule({
   declarations: [
