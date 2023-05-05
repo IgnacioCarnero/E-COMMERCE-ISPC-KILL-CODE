@@ -7,6 +7,8 @@ import { HeaderComponent } from './home/header/header.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SideBarComponent } from './dashboard/side-bar/side-bar.component';
 import { PrivacidadComponent } from './privacidad/privacidad.component';
+import { ServiciosComponent } from './home/servicios/servicios.component';
+import { GeneradorReciboDeSueldoComponent } from './generador-recibo-de-sueldo/generador-recibo-de-sueldo.component';
 
 @NgModule({
   declarations: [
@@ -17,14 +19,23 @@ import { PrivacidadComponent } from './privacidad/privacidad.component';
     DashboardComponent,
     SideBarComponent,
     PrivacidadComponent,
+    ServiciosComponent,
+    GeneradorReciboDeSueldoComponent,
   ],
   imports: [CommonModule],
 
   exports: [
     SectionComponent,
+
     HomeComponent,
+
     ContactComponent,
+
     HeaderComponent,
+    ServiciosComponent,
+    GeneradorReciboDeSueldoComponent,
+
+    ,
     SideBarComponent,
     DashboardComponent,
     PrivacidadComponent,
