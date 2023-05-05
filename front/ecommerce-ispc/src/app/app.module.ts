@@ -7,10 +7,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { SharedModule } from './shared/shared.module';
 import { PagesModule } from './pages/pages.module';
-import { GeneradorReciboDeSueldoComponent } from './front/ecommerce-ispc/src/app/pages/home/generador-recibo-de-sueldo/generador-recibo-de-sueldo/generador-recibo-de-sueldo.component';
+
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
-  declarations: [AppComponent, GeneradorReciboDeSueldoComponent],
+  declarations: [AppComponent],
   providers: [],
   bootstrap: [AppComponent],
   imports: [
@@ -19,6 +20,7 @@ import { GeneradorReciboDeSueldoComponent } from './front/ecommerce-ispc/src/app
     NgbModule,
     SharedModule,
     PagesModule,
+    AuthModule,
   ],
 })
 export class AppModule {}

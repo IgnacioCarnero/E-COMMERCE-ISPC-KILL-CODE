@@ -4,7 +4,11 @@ import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './home/contact/contact.component';
 import { SectionComponent } from './home/section/section.component';
 import { HeaderComponent } from './home/header/header.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { SideBarComponent } from './dashboard/side-bar/side-bar.component';
+import { PrivacidadComponent } from './privacidad/privacidad.component';
 import { ServiciosComponent } from './home/servicios/servicios.component';
+import { GeneradorReciboDeSueldoComponent } from './dashboard/generador-recibo-de-sueldo/generador-recibo-de-sueldo.component';
 
 @NgModule({
   declarations: [
@@ -12,7 +16,11 @@ import { ServiciosComponent } from './home/servicios/servicios.component';
     HomeComponent,
     ContactComponent,
     HeaderComponent,
+    DashboardComponent,
+    SideBarComponent,
+    PrivacidadComponent,
     ServiciosComponent,
+    GeneradorReciboDeSueldoComponent,
   ],
   imports: [CommonModule],
 
@@ -22,6 +30,10 @@ import { ServiciosComponent } from './home/servicios/servicios.component';
     ContactComponent,
     HeaderComponent,
     ServiciosComponent,
+    GeneradorReciboDeSueldoComponent,
+    SideBarComponent,
+    DashboardComponent,
+    PrivacidadComponent,
   ],
 })
 export class PagesModule {}
