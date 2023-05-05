@@ -1,0 +1,128 @@
+/* ************** Custom Properties ************* */
+:root {
+  --first-color: #002266;
+  --second-color: #001133;
+  --third-color: #003299;
+  --four-color: #0044cc;
+  --five-color: #0055ff;
+  --six-color: #bebdbd;
+  --seven-color: #053263;
+  --background-color: #d3d2d2;
+  --text-color: #000;
+  --white-color: #fff;
+  --black-color: #000;
+  --font: Arial, Helvetica, sans-serif;
+  --max-width: 100%;
+  --header-height: 4rem;
+}
+
+/* *************Reseteos**************** */
+
+html {
+  box-sizing: border-box;
+  font-family: var(--font);
+  font-size: 16px;
+  scroll-behavior: smooth;
+  background-color: var(--white-color);
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  color: var(--text-color);
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: var(--max-width);
+}
+
+/************ Navbar ************/
+.header {
+  position: inherit;
+  padding: 10px;
+  top: 0;
+  z-index: 9999;
+  width: 100%;
+  height: calc(var(--header-height)-0.5rem);
+  background-color: var(--second-color);
+}
+
+.header > .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/**************** Navbar Responsive ****************/
+@media screen and (max-width: 1024px) {
+  .header {
+    position: sticky;
+    top: 0;
+    padding: 0.5rem;
+  }
+}
+
+.title-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.sub-title {
+  font-size: 12px;
+}
+
+.section-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.article-container {
+  width: 90vw;
+  margin: 1rem;
+  padding: 1rem;
+  text-align: left;
+  background-color: var(--white-color);
+  border-radius: 10px;
+  bottom: var(--header-height);
+}
+
+.article-container p {
+  text-align: justify;
+}
+
+.article-container h2 {
+  padding-bottom: 0.75rem;
+  border-bottom: thin solid rgb(192, 192, 192);
+}
+
+.article-container li {
+  text-indent: 1rem;
+}
+
+@media screen and (min-width: 1024px) {
+  .title-container {
+    text-align: left;
+    display: inline-block;
+    padding-left: 1rem;
+  }
+
+  .title-container h1 {
+    font-size: 32px;
+  }
+
+  .article-container {
+    width: 60vw;
+    top: var(--header-height);
+  }
+}
