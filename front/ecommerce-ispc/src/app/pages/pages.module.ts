@@ -9,6 +9,7 @@ import { SideBarComponent } from './dashboard/side-bar/side-bar.component';
 import { PrivacidadComponent } from './privacidad/privacidad.component';
 import { ServiciosComponent } from './home/servicios/servicios.component';
 import { GeneradorReciboDeSueldoComponent } from './generador-recibo-de-sueldo/generador-recibo-de-sueldo.component';
+import { AyudaComponent } from './ayuda/ayuda.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { GeneradorReciboDeSueldoComponent } from './generador-recibo-de-sueldo/g
     PrivacidadComponent,
     ServiciosComponent,
     GeneradorReciboDeSueldoComponent,
+    AyudaComponent,
   ],
   imports: [CommonModule],
 
@@ -34,6 +36,8 @@ import { GeneradorReciboDeSueldoComponent } from './generador-recibo-de-sueldo/g
     SideBarComponent,
     DashboardComponent,
     PrivacidadComponent,
+    AyudaComponent,
+
   ],
 })
 export class PagesModule {}
