@@ -10,6 +10,7 @@ import { PrivacidadComponent } from './privacidad/privacidad.component';
 import { ServiciosComponent } from './home/servicios/servicios.component';
 import { GeneradorReciboDeSueldoComponent } from './generador-recibo-de-sueldo/generador-recibo-de-sueldo.component';
 import { AyudaComponent } from './ayuda/ayuda.component';
+import { RegistroEmpleadosComponent } from './dashboard/registro-empleados/registro-empleados.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { AyudaComponent } from './ayuda/ayuda.component';
     ServiciosComponent,
     GeneradorReciboDeSueldoComponent,
     AyudaComponent,
+    RegistroEmpleadosComponent,
   ],
   imports: [CommonModule],
 
