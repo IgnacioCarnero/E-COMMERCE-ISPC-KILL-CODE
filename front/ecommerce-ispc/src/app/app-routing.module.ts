@@ -19,7 +19,7 @@ const routes: Routes = [
 
   {path: 'ayuda', component:AyudaComponent },
   { path: 'registro-empleados', component:RegistroEmpleadosComponent },
-  { path: 'terminos', component:TerminosComponent }
+  { path: 'terminos', component:TerminosComponent },
 
   { path: 'servicios', component: ServiciosComponent },
   { path: 'generador de recibo de sueldo', component: GeneradorReciboDeSueldoComponent}
