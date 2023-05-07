@@ -1,0 +1,15 @@
+h2 {
+  flex: auto;
+  font-size: 35px;
+  margin-left: 25px;
+  color: #001133;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
