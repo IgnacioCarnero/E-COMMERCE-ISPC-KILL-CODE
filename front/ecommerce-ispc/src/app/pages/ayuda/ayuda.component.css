@@ -1,3 +1,4 @@
+/*estilo al titulo*/
   .R-titulo {
     font-size: 100px;
     margin-bottom: 30px;
@@ -19,14 +20,14 @@
     padding: 0.5rem 0;
     margin-left:50px ;
     margin-right: 50px;
-    /* font-weight: lighter; */
     font-family: var(--font);
   }
-
+  /* Estilos para el bloque */
   .bloque{
     padding:30p;
     margin-left:50px;
     margin-right:30px;
+    margin-bottom:50px;;
     position:center;
 
   }
