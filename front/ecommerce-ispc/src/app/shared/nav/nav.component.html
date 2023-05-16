@@ -67,6 +67,17 @@
           <span class="small">Iniciar Sesion</span>
         </span>
       </button>
+      <button
+        type="button"
+        class="btn btn-primary mx-2"
+        data-bs-toggle="modal"
+        data-bs-target="#registerModal">
+        
+        <span class="d-flex align-items-center">
+          <!-- <i class="bi-chat-text-fill me-2"></i> -->
+          <span class="small">Registro</span>
+        </span>
+      </button>
     </div>
   </div>
 </nav>
@@ -80,6 +91,20 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <app-login></app-login>
+    </div>
+  </div>
+</div>
+
+<div
+class="modal fade"
+id="registerModal"
+tabindex="-1"
+aria-labelledby="registerModalLabel"
+aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <app-register></app-register>
     </div>
   </div>
 </div>
