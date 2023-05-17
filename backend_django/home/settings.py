@@ -74,7 +74,11 @@ WSGI_APPLICATION = 'home.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 
+<<<<<<< HEAD
+# Acá configuran ustedes para conectarse a mysql
+=======
 # Acá debajo pongan sus configuradores especificos para trabajar con mysql!!!!!
+>>>>>>> main
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
