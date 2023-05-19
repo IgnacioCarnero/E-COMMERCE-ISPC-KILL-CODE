@@ -17,9 +17,7 @@ export class EmpleadosApiComponent implements OnInit {
 
     this.empleadosService.cargarClientes()
       .subscribe(resp => {
-        console.log(resp);
-
-        this.clientes = resp.data
+        this.clientes = resp
       })
   }
 }
