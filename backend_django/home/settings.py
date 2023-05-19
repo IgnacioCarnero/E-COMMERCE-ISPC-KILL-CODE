@@ -76,16 +76,16 @@ WSGI_APPLICATION = 'home.wsgi.application'
 
 
 # Acá configuran ustedes para conectarse a mysql
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'EcommerceKillCode',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '3306'
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'ecommercekillcodeproject',
+#         'USER': 'root',
+#         'PASSWORD': 'Leoliebtargentina10',
+#         'HOST': '127.0.0.1',
+#         'PORT': '3306'
+#     }
+# }
 
 
 # Password validation
