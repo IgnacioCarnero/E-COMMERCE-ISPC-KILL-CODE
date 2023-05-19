@@ -11,7 +11,7 @@ export class EmpleadosService {
   constructor(private http : HttpClient) {   }
 
   cargarClientes() {
-    const url = 'https://reqres.in/api/users?page=2'
+    const url = 'http://localhost:3000/data'
 
     return this.http.get<ClientesResponse>(url)
   }

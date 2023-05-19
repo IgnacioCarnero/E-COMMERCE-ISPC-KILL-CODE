@@ -2,14 +2,14 @@ export class Clientes {
 
 
   constructor (
-    public id:         number,
-    public email:      string,
-    public first_name: string,
-    public last_name:  string,
-    public avatar:     string,
+    public id:          number,
+    public email:       string,
+    public nombre:      string,
+    public apellido:    string,
+    public avatar:      string,
   ) {}
 
   get fullName() {
-    return `${this.first_name} + ${this.last_name}`;
+    return `${this.nombre} + ${this.apellido}`;
   }
 }

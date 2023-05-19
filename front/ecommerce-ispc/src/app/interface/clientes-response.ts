@@ -1,23 +1,14 @@
 import { Clientes } from "./clientes";
 
 export interface ClientesResponse {
-  page:        number;
-  per_page:    number;
-  total:       number;
-  total_pages: number;
   data:        Clientes[];
-  support:     Support;
 }
 
- interface ReqUser {
+ interface ReqCliente {
   id:         number;
   email:      string;
-  first_name: string;
-  last_name:  string;
+  nombre:     string;
+  apellido:   string;
   avatar:     string;
 }
 
- interface Support {
-  url:  string;
-  text: string;
-}
