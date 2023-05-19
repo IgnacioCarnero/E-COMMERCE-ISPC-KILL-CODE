@@ -6,10 +6,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedModule } from './shared/shared.module';
 import { PagesModule } from './pages/pages.module';
 import { AuthModule } from './auth/auth.module';
+
+import { AddToCartComponent } from './add-to-cart/add-to-cart.component';
+
 import {HttpClientModule} from '@angular/common/http'
 
+
 @NgModule({
-  declarations: [AppComponent,],
+  declarations: [AppComponent, AddToCartComponent,],
   providers: [],
   bootstrap: [AppComponent],
   imports: [
