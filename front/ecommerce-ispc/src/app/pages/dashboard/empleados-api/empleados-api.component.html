@@ -1,0 +1,24 @@
+<h1>Empleados</h1>
+
+<div class="row">
+  <div class="col">
+    <table class="table table-dark">
+      <thead>
+      <tr>
+        <th>Id</th>
+        <th>Nombre Completo</th>
+        <th>Detalle</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cliente of clientes">
+        <td>
+          <img [src]="cliente.avatar" >
+        </td>
+        <td>{{cliente.first_name}}</td>
+        <td>{{cliente.email}}</td>
+      </tr>
+    </tbody>
+    </table>
+  </div>
+</div>
