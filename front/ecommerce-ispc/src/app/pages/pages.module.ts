@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AddToCartModule } from '../add-to-cart/add-to-cart.module';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './home/contact/contact.component';
 import { SectionComponent } from './home/section/section.component';
@@ -8,12 +9,13 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SideBarComponent } from './dashboard/side-bar/side-bar.component';
 import { PrivacidadComponent } from './privacidad/privacidad.component';
 import { ServiciosComponent } from './home/servicios/servicios.component';
-
 import { AyudaComponent } from './ayuda/ayuda.component';
 import { RegistroEmpleadosComponent } from './dashboard/registro-empleados/registro-empleados.component';
 import { TerminosComponent } from './terminos/terminos.component';
-
 import { GeneradorReciboDeSueldoComponent } from './dashboard/generador-recibo-de-sueldo/generador-recibo-de-sueldo.component';
+import { EmpleadosApiComponent } from './dashboard/empleados-api/empleados-api.component';
+import {EmpleadosService} from '../services/empleados.service';
+import { AppRoutingModule } from '../app-routing.module';
 
 
 @NgModule({
@@ -30,8 +32,9 @@ import { GeneradorReciboDeSueldoComponent } from './dashboard/generador-recibo-d
     AyudaComponent,
     RegistroEmpleadosComponent,
     TerminosComponent,
+    EmpleadosApiComponent,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, AddToCartModule, AppRoutingModule],
 
   exports: [
     SectionComponent,
@@ -44,6 +47,7 @@ import { GeneradorReciboDeSueldoComponent } from './dashboard/generador-recibo-d
     DashboardComponent,
     PrivacidadComponent,
     AyudaComponent,
+    EmpleadosApiComponent
 
   ],
 })

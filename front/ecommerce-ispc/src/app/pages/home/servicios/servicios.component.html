@@ -1,8 +1,7 @@
 <div class="conteiner-fluid masthead">
   <div class="text-center">
-    <h4>Conoce nuestras propuestas:</h4>
+    <h1>Conoce nuestras propuestas</h1>
   </div>
-  <b></b>
 </div>
 
 <!-- tarjetas -->
@@ -10,14 +9,14 @@
   <div class="row">
     <div class="d-flex justify-content-sm-center">
       <div class="col">
-        <div class="card" style="width: 20rem">
+        <div class="card">
           <img
             src="/assets/image/tarjeta_personal.jpg"
             class="card-img-top"
             alt="Persona usando tablet"
           />
           <div class="card-body">
-            <h5 class="card-title">Personal</h5>
+            <h5 class="card-title text-center h3">Personal</h5>
             <ul class="card-text-start">
               <li>10 legajos</li>
               <li>1 usuario</li>
@@ -27,22 +26,28 @@
               <li>Recibo digital</li>
               <li>Formularios AFIP</li>
             </ul>
-            <a href="#" class="btn btn-primary">Licencia mensual</a>
-            <a href="#" class="btn btn-secondary"
-              >Licencia anual con descuento!</a
-            >
+            <button
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#serviceModal"
+            class="btn btn-primary">Licencia mensual</button>
+            <button
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#serviceModal"
+            class="mt-2 btn btn-secondary">Licencia anual con descuento!</button>
           </div>
         </div>
       </div>
       <div class="col">
-        <div class="card" style="width: 20rem">
+        <div class="card">
           <img
             src="/assets/image/tarjeta_pyme1.jpg"
             class="card-img-top"
             alt="Trabajando en oficina"
           />
           <div class="card-body">
-            <h5 class="card-title">PyME</h5>
+            <h5 class="card-title text-center h3">PyME</h5>
             <ul class="card-text-start">
               <li>50 legajos</li>
               <li>2 usuarios</li>
@@ -52,22 +57,28 @@
               <li>Recibo digital</li>
               <li>Formularios AFIP</li>
             </ul>
-            <a href="#" class="btn btn-primary">Licencia mensual</a>
-            <a href="#" class="btn btn-secondary"
-              >Licencia anual con descuento!</a
-            >
+            <button
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#serviceModal"
+            class="btn btn-primary">Licencia mensual</button>
+            <button
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#serviceModal"
+            class="mt-2 btn btn-secondary">Licencia anual con descuento!</button>
           </div>
         </div>
       </div>
       <div class="col">
-        <div class="card" style="width: 20rem">
+        <div class="card">
           <img
             src="/assets/image/tarjeta_premium_pyme1.jpg"
             class="card-img-top"
             alt="Reunion directorio"
           />
           <div class="card-body">
-            <h5 class="card-title">Premium PyME</h5>
+            <h5 class="card-title text-center h3">Premium PyME</h5>
             <ul class="card-text-start">
               <li>100 legajos</li>
               <li>4 usuarios</li>
@@ -77,13 +88,34 @@
               <li>Recibo digital</li>
               <li>Formularios AFIP</li>
             </ul>
-            <a href="#" class="btn btn-primary">Licencia mensual</a>
-            <a href="#" class="btn btn-secondary"
-              >Licencia anual con descuento!</a
-            >
+            <button
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#serviceModal"
+            class="btn btn-primary">Licencia mensual</button>
+            <button
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#serviceModal"
+            class="mt-2 btn btn-secondary">Licencia anual con descuento!</button>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+
+<div
+  class="modal fade modal-xl"
+  id="serviceModal"
+  tabindex="-1"
+  aria-labelledby="serviceModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <app-add-to-cart></app-add-to-cart>
     </div>
   </div>
 </div>
