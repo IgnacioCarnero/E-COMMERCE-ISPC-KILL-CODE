@@ -126,4 +126,38 @@ class Ingresos(models.Model):
     diaFinDePago = models.DateField('dia de fin de pago')
     periodoDePago = models.CharField('periodo de ingresos',max_length=200)
     
+class ServiciosKillCode(models.Model):
+    idServicio = models.IntegerField(primary_key=True)
+    valor = models.DecimalField(max_digits=8, decimal_places=2)
+    detalle = models.CharField('detalle de servicio de kill code', max_length=200)
+    nombreServicio = models.CharField('nombre de servicio de kill code', max_length=200)
+
+class Pedidos(models.Model):
+    idPedido = models.IntegerField(primary_key=True)
+    valorTotal = models.DecimalField(max_digits=8, decimal_places=2)
+    detalle = models.CharField('detalle de pedidos',max_length=200)
+    cantidad = models.IntegerField()
+    idServicio_killCode = models.ForeignKey(ServiciosKillCode, blank=True, null=True, on_delete=models.CASCADE)
+    medioDePedido = models.CharField('medio de pago para pedidos', max_length=200)
+    idEmpresa = models.ForeignKey(Empresas, blank=True, null=True, on_delete=models.CASCADE)
+    fechaHora = models.DateTimeField()
+
+
+class Facturas(models.Model):
+    idFactura = models.IntegerField(primary_key=True)
+    valorFactura = models.DecimalField(max_digits=8, decimal_places=2)
+    detalleFactura = models.CharField('detalle de la factura', max_length=200)
+    idPedido_ped = models.ForeignKey(Pedidos, blank=True, null=True, on_delete=models.CASCADE)
+    cuitKillCode = models.IntegerField()
+    tipoFactura = models.CharField('tipo de factura', max_length=200)
+    IVA = models.DecimalField(max_digits=8, decimal_places=2)
+    fechaHora = models.DateTimeField()
+    
+
+
+
+
  
+    
+    
+    
