@@ -1,12 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AddToCartComponent } from './add-to-cart.component';
+
+import { AppRoutingModule } from '../app-routing.module';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [AddToCartComponent],
   imports: [
-    CommonModule
-  ]
+    CommonModule,
+    AppRoutingModule
+  ],
+  exports: [AddToCartComponent],
 })
 export class AddToCartModule { }
