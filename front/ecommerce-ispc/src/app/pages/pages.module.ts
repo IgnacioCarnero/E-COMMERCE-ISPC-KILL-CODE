@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AddToCartModule } from '../add-to-cart/add-to-cart.module';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './home/contact/contact.component';
 import { SectionComponent } from './home/section/section.component';
@@ -14,6 +15,8 @@ import { TerminosComponent } from './terminos/terminos.component';
 import { GeneradorReciboDeSueldoComponent } from './dashboard/generador-recibo-de-sueldo/generador-recibo-de-sueldo.component';
 import { EmpleadosApiComponent } from './dashboard/empleados-api/empleados-api.component';
 import {EmpleadosService} from '../services/empleados.service';
+import { AppRoutingModule } from '../app-routing.module';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +34,7 @@ import {EmpleadosService} from '../services/empleados.service';
     TerminosComponent,
     EmpleadosApiComponent,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, AddToCartModule, AppRoutingModule],
 
   exports: [
     SectionComponent,

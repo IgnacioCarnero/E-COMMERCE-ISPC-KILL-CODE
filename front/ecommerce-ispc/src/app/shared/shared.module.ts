@@ -6,9 +6,11 @@ import { FooterComponent } from './footer/footer.component';
 
 import { AuthModule } from '../auth/auth.module';
 
+import { AppRoutingModule } from '../app-routing.module';
+
 @NgModule({
   declarations: [NavComponent, FooterComponent],
-  imports: [CommonModule, AuthModule],
+  imports: [CommonModule, AuthModule, AppRoutingModule],
   exports: [NavComponent, FooterComponent],
 })
 export class SharedModule {}
