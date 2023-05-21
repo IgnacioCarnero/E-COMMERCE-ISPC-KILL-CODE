@@ -28,13 +28,9 @@
             </ul>
             <button (click)="agregarAlCarrito(Personal)"
             type="button"
-            data-bs-toggle="modal"
-            data-bs-target="#serviceModal"
-            class="btn btn-primary">Licencia mensual</button>
+            [class]="cambioDeBoton(Personal).class">{{ cambioDeBoton(Personal).text }}</button>
             <button
             type="button"
-            data-bs-toggle="modal"
-            data-bs-target="#serviceModal"
             class="mt-2 btn btn-secondary">Licencia anual con descuento!</button>
           </div>
         </div>
@@ -57,11 +53,9 @@
               <li>Recibo digital</li>
               <li>Formularios AFIP</li>
             </ul>
-            <button
+            <button (click)="agregarAlCarrito(PyME)"
             type="button"
-            data-bs-toggle="modal"
-            data-bs-target="#serviceModal"
-            class="btn btn-primary">Licencia mensual</button>
+            [class]="cambioDeBoton(PyME).class">{{ cambioDeBoton(PyME).text }}</button>
             <button
             type="button"
             data-bs-toggle="modal"
@@ -88,11 +82,9 @@
               <li>Recibo digital</li>
               <li>Formularios AFIP</li>
             </ul>
-            <button
+            <button (click)="agregarAlCarrito(PremiumPyME)"
             type="button"
-            data-bs-toggle="modal"
-            data-bs-target="#serviceModal"
-            class="btn btn-primary">Licencia mensual</button>
+            [class]="cambioDeBoton(PremiumPyME).class">{{ cambioDeBoton(PremiumPyME).text }}</button>
             <button
             type="button"
             data-bs-toggle="modal"
@@ -100,6 +92,14 @@
             class="mt-2 btn btn-secondary">Licencia anual con descuento!</button>
           </div>
         </div>
+      </div>
+      <div class="d-grid gap-2 d-md-block">
+        <button
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#serviceModal"
+          class="btn btn-success btn-lg">Carrito de compras
+        </button>
       </div>
     </div>
   </div>
