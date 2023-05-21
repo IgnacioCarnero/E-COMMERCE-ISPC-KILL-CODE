@@ -79,9 +79,9 @@ WSGI_APPLICATION = 'home.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ecommercekillcodeproject',
+        'NAME': 'ecommercekillcode',
         'USER': 'root',
-        'PASSWORD': 'Leoliebtargentina10',
+        'PASSWORD': '',
         'HOST': '127.0.0.1',
         'PORT': '3306'
     }
