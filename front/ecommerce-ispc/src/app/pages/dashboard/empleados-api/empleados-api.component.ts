@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {EmpleadosService} from '../../../services/empleados.service'
+import { Clientes} from '../../../interface'
 
 @Component({
   selector: 'app-empleados-api',
@@ -9,15 +10,30 @@ import {EmpleadosService} from '../../../services/empleados.service'
 export class EmpleadosApiComponent implements OnInit {
 
 
-  public clientes: any = []
+  public empleados: any[] = []
 
   constructor (private empleadosService : EmpleadosService) {  }
 
   ngOnInit(): void {
 
-    this.empleadosService.cargarClientes()
-      .subscribe(resp => {
-        this.clientes = resp
+    this.empleadosService.getClientes()
+      .subscribe(clientes => {
+        this.empleados = clientes
       })
   }
+
+  editarCliente(id: any) {
+    console.log(id);
+  }
+
+  nuevoCliente() {
+
+  }
+
+  // delete(cliente : Clientes) : void {
+  //   this.empleados = this.empleados.filter(cli => cli.id !== cliente.id)
+  //   this.empleadosService.deleteCliente(cliente).subscribe()
+  // }
+
+
 }

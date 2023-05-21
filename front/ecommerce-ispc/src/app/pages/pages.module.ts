@@ -8,7 +8,7 @@ import { HeaderComponent } from './home/header/header.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SideBarComponent } from './dashboard/side-bar/side-bar.component';
 import { PrivacidadComponent } from './privacidad/privacidad.component';
-import { ServiciosComponent } from './home/servicios/servicios.component';
+import { ServiciosComponent } from './servicios/servicios.component';
 import { AyudaComponent } from './ayuda/ayuda.component';
 import { RegistroEmpleadosComponent } from './dashboard/registro-empleados/registro-empleados.component';
 import { TerminosComponent } from './terminos/terminos.component';

@@ -1,6 +1,11 @@
-<h1>Empleados</h1>
 
-<div class="row">
+
+<section class="row">
+
+  <h2>Empleados</h2>
+  <div>
+    <button type="button" class="btn btn-primary">Nuevo Empleado</button>
+  </div>
   <div class="col">
     <table class="table table">
       <thead>
@@ -8,17 +13,21 @@
         <th>Avatar</th>
         <th>Nombre Completo</th>
         <th>Email</th>
+        <th>Eliminar</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let cliente of clientes">
+      <tr *ngFor="let empleado of empleados" (click)="editarCliente(empleado.id)" >
+        <td>{{empleado.id}}</td>
         <td>
-          <img [src]="cliente.avatar" >
+          <img [src]="empleado.avatar" >
         </td>
-        <td>{{cliente.nombre}}</td>
-        <td>{{cliente.apellido}}</td>
+        <td>{{empleado.nombre}}</td>
+        <td>{{empleado.email}}</td>
+        <!-- <td><button (click)="delete(empleado)">x</button></td> -->
+
       </tr>
     </tbody>
     </table>
   </div>
-</div>
+</section>

@@ -8,7 +8,7 @@ import { AyudaComponent } from './pages/ayuda/ayuda.component';
 import { RegistroEmpleadosComponent } from './pages/dashboard/registro-empleados/registro-empleados.component';
 import { TerminosComponent } from './pages/terminos/terminos.component';
 
-import { ServiciosComponent } from './pages/home/servicios/servicios.component';
+import { ServiciosComponent } from './pages/servicios/servicios.component';
 import { GeneradorReciboDeSueldoComponent } from './pages/dashboard/generador-recibo-de-sueldo/generador-recibo-de-sueldo.component';
 import { ContactComponent } from './pages/home/contact/contact.component';
 
