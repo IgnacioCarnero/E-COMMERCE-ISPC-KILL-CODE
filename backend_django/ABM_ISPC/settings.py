@@ -77,7 +77,6 @@ WSGI_APPLICATION = 'home.wsgi.application'
 
 # Acá configuran ustedes para conectarse a mysql
 DATABASES = {
-<<<<<<< HEAD:backend_django/home/settings.py
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ecommercekillcode',
@@ -87,18 +86,6 @@ DATABASES = {
         'PORT': '3306'
     }
 }
-=======
-     'default': {
-         'ENGINE': 'django.db.backends.mysql',
-         'NAME': 'ecommercekillcode',
-         'USER': 'root',
-         'PASSWORD': '',
-         'HOST': '127.0.0.1',
-         'PORT': '3306'
-        }
- }
-
->>>>>>> origin/main:backend_django/ABM_ISPC/settings.py
 
 
 # Password validation
