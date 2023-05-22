@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, OnDestroy } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
 import { EventService } from 'src/app/services/event.service';
-import { Subscription } from 'rxjs';
+import { Subscription, flatMap } from 'rxjs';
 
 @Component({
   selector: 'app-servicios',
@@ -19,9 +19,11 @@ export class ServiciosComponent implements AfterViewInit, OnDestroy{
   ngAfterViewInit() {
     this.cambioDeBoton(this.Personal);
     this.cambioDeBoton(this.PyME);
+    this.cambioDeBoton(this.PremiumPyME);
     this.carritoActualizadoSubscription = this.eventService.carritoActualizado$.subscribe(() => {
       this.cambioDeBoton(this.Personal);
       this.cambioDeBoton(this.PyME);
+      this.cambioDeBoton(this.PremiumPyME);
     });
   }
 
@@ -38,7 +40,7 @@ export class ServiciosComponent implements AfterViewInit, OnDestroy{
     if (servicio.isInCart) {
       return { class: 'btn btn-success', text: 'Agregado al carrito' };
     } else {
-      return { class: 'btn btn-primary', text: 'Agregar licencia mensual' };
+      return { class: 'btn btn-primary', text: 'Agregar licencia' };
     }
   }
   
@@ -47,6 +49,7 @@ export class Servicio {
   nombre: string;
   precio: string;
   isInCart: boolean;
+  
   constructor(nombre: string, precio: string){
     this.nombre = nombre;
     this.precio = precio;

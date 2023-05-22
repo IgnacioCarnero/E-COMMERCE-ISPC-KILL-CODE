@@ -1,6 +1,7 @@
 <div class="conteiner-fluid masthead">
   <div class="text-center">
-    <h1>Conoce nuestras propuestas</h1>
+      <h1>Conoce nuestras propuestas</h1>
+      <h3>Todas nuestras licencias son anuales</h3>
   </div>
 </div>
 
@@ -29,9 +30,6 @@
             <button (click)="agregarAlCarrito(Personal)"
             type="button"
             [class]="cambioDeBoton(Personal).class">{{ cambioDeBoton(Personal).text }}</button>
-            <button
-            type="button"
-            class="mt-2 btn btn-secondary">Licencia anual con descuento!</button>
           </div>
         </div>
       </div>
@@ -56,11 +54,6 @@
             <button (click)="agregarAlCarrito(PyME)"
             type="button"
             [class]="cambioDeBoton(PyME).class">{{ cambioDeBoton(PyME).text }}</button>
-            <button
-            type="button"
-            data-bs-toggle="modal"
-            data-bs-target="#serviceModal"
-            class="mt-2 btn btn-secondary">Licencia anual con descuento!</button>
           </div>
         </div>
       </div>
@@ -85,11 +78,6 @@
             <button (click)="agregarAlCarrito(PremiumPyME)"
             type="button"
             [class]="cambioDeBoton(PremiumPyME).class">{{ cambioDeBoton(PremiumPyME).text }}</button>
-            <button
-            type="button"
-            data-bs-toggle="modal"
-            data-bs-target="#serviceModal"
-            class="mt-2 btn btn-secondary">Licencia anual con descuento!</button>
           </div>
         </div>
       </div>
