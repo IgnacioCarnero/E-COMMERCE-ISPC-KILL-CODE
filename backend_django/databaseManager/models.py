@@ -17,7 +17,7 @@ class Empleado(models.Model):
     fecha_ingreso = models.DateField()
     fecha_nacimiento= models.DateField('fecha de nacimiento')
     ciudad = models.CharField('ciudad del empleado',max_length=200)
-    cuil_empleado = models.BigIntegerField('numero de documento')
+    cuil_empleado = models.BigIntegerField('cuil del empleado')
     obra_social = models.OneToOneField('ObraSocial', on_delete=models.CASCADE, related_name='empleados')
     art = models.OneToOneField('Arts', on_delete=models.CASCADE)
 
@@ -65,14 +65,18 @@ class RecibosH(models.Model):
     asistencia = models.DecimalField(max_digits=8, decimal_places=2)
     fecha_pago = models.DateField('fecha del pago')
     deduccion = models.ForeignKey(Deducciones, on_delete=models.CASCADE)
-    extra = models.ForeignKey(Extras, on_delete=models.CASCADE)
+    extra = models.ForeignKey(Extras, blank=True, null=True, on_delete=models.CASCADE, default=0)
     legajo_empleado = models.OneToOneField(Empleado, on_delete=models.CASCADE)
 
     def calcular_monto_neto(self):
         monto_deduccion = self.montoBruto * (self.deduccion.porcentaje_deduccion / 100)
-        self.montoNeto = self.montoBruto + self.extra.monto_extra + self.asistencia - monto_deduccion
+        if self.extra is None:
+            self.montoNeto = self.montoBruto + self.asistencia - monto_deduccion
+        else:
+            self.montoNeto = self.montoBruto + self.extra.monto_extra + self.asistencia - monto_deduccion
         self.save()
-    
+
+        
 class Reclamos(models.Model):
     id_recla = models.IntegerField(primary_key=True)
     recibo = models.OneToOneField(RecibosH, blank=True, null=True, on_delete=models.CASCADE)
