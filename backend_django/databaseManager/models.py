@@ -47,7 +47,7 @@ class ObraSocial(models.Model):
 
 class Deducciones(models.Model):
     cod_deduccion = models.IntegerField(primary_key=True)
-    monto_deduccion = models.DecimalField(max_digits=8, decimal_places=2)
+    porcentaje_deduccion = models.DecimalField(max_digits=8, decimal_places=2)
     causa_deduccion = models.CharField('causa de deducción',max_length=200)
     
 class Extras(models.Model):
@@ -62,9 +62,6 @@ class RecibosH(models.Model):
     periodo = models.DateField('periodo')
     antiguedad = models.IntegerField()
     concepto = models.CharField('descripción de reciboh',max_length=200)
-    cantidad = models.IntegerField('cantidad de concepto')
-    valor_unitario = models.DecimalField(max_digits=8, decimal_places=2)
-    remuneracion = models.DecimalField(max_digits=8, decimal_places=2)
     asistencia = models.DecimalField(max_digits=8, decimal_places=2)
     fecha_pago = models.DateField('fecha del pago')
     deduccion = models.ForeignKey(Deducciones, on_delete=models.CASCADE)
@@ -72,11 +69,8 @@ class RecibosH(models.Model):
     legajo_empleado = models.OneToOneField(Empleado, on_delete=models.CASCADE)
 
     def calcular_monto_neto(self):
-        self.montoNeto = self.montoBruto + self.extra.monto_extra + self.asistencia - self.deduccion.monto_deduccion
-        self.save()
-
-    def remuneracion_concepto(self):
-        self.remuneracion = self.cantidad * self.valor_unitario
+        monto_deduccion = self.montoBruto * (self.deduccion.porcentaje_deduccion / 100)
+        self.montoNeto = self.montoBruto + self.extra.monto_extra + self.asistencia - monto_deduccion
         self.save()
     
 class Reclamos(models.Model):
