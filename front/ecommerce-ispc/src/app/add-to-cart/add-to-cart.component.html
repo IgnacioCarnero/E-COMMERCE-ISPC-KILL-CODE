@@ -1,0 +1,135 @@
+<section class="h-100 h-custom">
+    <div class="container py-2 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body p-4">
+
+                        <div class="row">
+
+                            <div class="col-lg-7">
+                                <h5 class="mb-3">
+                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Continuar
+                                        Comprando</button>
+                                </h5>
+                                <hr>
+
+                                <div *ngIf="productosCarrito.length > 0">
+                                    <h3>Carrito de compras</h3>
+
+                                </div>
+                                <div *ngIf="productosCarrito.length === 0">
+                                    <p>No hay servicios en el carrito.</p>
+                                </div>
+
+
+                                <div *ngFor="let servicio of productosCarrito" class="card mb-3">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between">
+                                            <div class="d-flex flex-row align-items-center">
+                                                <div class="ms-3">
+                                                    <h5>{{ servicio.nombre }}</h5>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex flex-row align-items-center">
+                                                <div class="mx-3">
+                                                    <h5><span class="align-middle">{{ servicio.precio }}</span></h5>
+                                                </div>
+                                                <a name="eliminar" (click)="eliminarDelCarrito(servicio)">
+                                                    <p class="d-none">{{ servicio.nombre }}</p>
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="col-lg-5">
+
+                                <div class="card bg-primary text-white rounded-3">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-center mb-4">
+                                            <h5 class="mb-0">Detalle de compra</h5>
+                                        </div>
+
+                                        <p class="small mb-2">Tipo de tarjeta aceptado</p>
+                                        <i class="fab fa-cc-mastercard fa-2x me-2"></i>
+                                        <i class="fab fa-cc-visa fa-2x me-2"></i>
+                                        <i class="fab fa-cc-amex fa-2x me-2"></i>
+                                        <i class="fab fa-cc-paypal fa-2x"></i>
+
+                                        <form class="mt-4">
+                                            <div class="form-outline form-white mb-4">
+                                                <input type="text" id="typeName" class="form-control form-control-lg"
+                                                    siez="17" placeholder="Nombre de tarjeta" />
+                                                <label class="form-label" for="typeName">Nombre de tarjeta</label>
+                                            </div>
+
+                                            <div class="form-outline form-white mb-4">
+                                                <input name="tarjeta" type="text" id="tarjeta"
+                                                    class="form-control form-control-lg" siez="17"
+                                                    placeholder="1234 5678 9012 3457" minlength="19" maxlength="19" />
+                                                <label class="form-label" for="tarjeta">Numero de tarjeta</label>
+                                            </div>
+
+                                            <div class="row mb-4">
+                                                <div class="col-md-6">
+                                                    <div class="form-outline form-white">
+                                                        <input type="text" id="typeExp"
+                                                            class="form-control form-control-lg" placeholder="MM/YYYY"
+                                                            size="7" id="exp" minlength="7" maxlength="7" />
+                                                        <label class="form-label" for="typeExp">Vencimiento</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-outline form-white">
+                                                        <input type="password" id="typeText"
+                                                            class="form-control form-control-lg"
+                                                            placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3"
+                                                            maxlength="3" />
+                                                        <label class="form-label" for="typeText">Cvv</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </form>
+
+                                        <hr class="my-4">
+
+                                        <div *ngFor="let servicio of productosCarrito" class="d-flex justify-content-between">
+                                            <p class="mb-2">Subtotal</p>
+                                            <p class="mb-2">{{servicio.precio }}</p>
+                                        </div>
+
+                                        <div class="d-flex justify-content-between">
+                                            <p class="mb-2">Shipping</p>
+                                            <p class="mb-2">$2000.00</p>
+                                        </div>
+
+                                        <div class="d-flex justify-content-between mb-4">
+                                            <p class="mb-2">Total(Incl. taxes)</p>
+                                            <p class="mb-2">$4818.00</p>
+                                        </div>
+
+                                        <button type="button" class="btn btn-info btn-block btn-lg">
+                                            <div class="d-flex justify-content-between">
+                                                <span>$4818.00</span>
+                                                <span>Checkout <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
+                                            </div>
+                                        </button>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

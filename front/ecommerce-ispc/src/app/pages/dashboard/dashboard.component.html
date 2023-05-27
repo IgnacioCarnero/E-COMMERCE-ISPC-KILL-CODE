@@ -7,19 +7,19 @@
       <div class="position-sticky pt-3 sidebar-sticky">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">
+            <a class="nav-link active" aria-current="page" href="/dashboard">
               <span data-feather="home" class="align-text-bottom"></span>
               Dashboard
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="/registro-empleados">
               <span data-feather="file" class="align-text-bottom"></span>
               Empleados
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" routerLink="/generador de recibo de sueldo">
               <span
                 data-feather="shopping-cart"
                 class="align-text-bottom"
@@ -28,7 +28,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" routerLink="/ayuda">
               <span data-feather="users" class="align-text-bottom"></span>
               Ayuda
             </a>
@@ -42,32 +42,14 @@
         class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
       >
         <h1 class="h2">Dashboard</h1>
-        <div class="btn-toolbar mb-2 mb-md-0">
-          <div class="btn-group me-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary">
-              Share
-            </button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">
-              Export
-            </button>
-          </div>
-          <button
-            type="button"
-            class="btn btn-sm btn-outline-secondary dropdown-toggle"
-          >
-            <span data-feather="calendar" class="align-text-bottom"></span>
-            This week
-          </button>
-        </div>
       </div>
 
-      <canvas class="my-4 w-100" id="myChart" width="900" height="180">
-      </canvas>
-
-      <h2>Recibos de Sueldos</h2>
       <div class="container-fluid">
-        <app-generador-recibo-de-sueldo></app-generador-recibo-de-sueldo>
+        <!-- <app-generador-recibo-de-sueldo></app-generador-recibo-de-sueldo> -->
+        <app-empleados-api></app-empleados-api>
       </div>
     </main>
   </div>
 </div>
+
+
