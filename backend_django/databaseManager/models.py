@@ -6,8 +6,24 @@ class Empleado(models.Model):
     legajo = models.IntegerField(primary_key=True)
     nombre = models.CharField('nombre del empleado', max_length=200)
     apellido = models.CharField('apellido del empleado', max_length=200)
+<<<<<<< HEAD
     # Resto de los campos del modelo Empleado
 
+=======
+    calle = models.CharField('calle donde vive el empleado',max_length=200)
+    casa_piso_numero = models.IntegerField()
+    provincia = models.CharField('provincia del empleado', max_length=200)
+    email = models.CharField('email personal del empleado',max_length=200)
+    telefono = models.BigIntegerField()
+    cargo = models.CharField('cargo del empleado', max_length=200)
+    categoria = models.CharField('categoria del empleado',max_length=200)
+    fecha_ingreso = models.DateField()
+    fecha_nacimiento= models.DateField('fecha de nacimiento')
+    ciudad = models.CharField('ciudad del empleado',max_length=200)
+    cuil_empleado = models.BigIntegerField('cuil del empleado')
+    obra_social = models.OneToOneField('ObraSocial', on_delete=models.CASCADE, related_name='empleados')
+    art = models.OneToOneField('Arts', on_delete=models.CASCADE)
+>>>>>>> main
 
 class Empresa(models.Model):
     cuit = models.BigIntegerField(primary_key=True)
@@ -37,11 +53,17 @@ class ObraSocial(models.Model):
 
 class Deducciones(models.Model):
     cod_deduccion = models.IntegerField(primary_key=True)
+<<<<<<< HEAD
     monto_deduccion = models.DecimalField(max_digits=8, decimal_places=2)
     causa_deduccion = models.CharField('causa de deducción', max_length=200)
     # Resto de los campos del modelo Deducciones
 
 
+=======
+    porcentaje_deduccion = models.DecimalField(max_digits=8, decimal_places=2)
+    causa_deduccion = models.CharField('causa de deducción',max_length=200)
+    
+>>>>>>> main
 class Extras(models.Model):
     cod_extra = models.IntegerField(primary_key=True)
     causa_extra = models.CharField('tipo de extra', max_length=200)
@@ -55,17 +77,22 @@ class RecibosH(models.Model):
     montoNeto = models.DecimalField(max_digits=8, decimal_places=2)
     periodo = models.DateField('periodo')
     antiguedad = models.IntegerField()
+<<<<<<< HEAD
     concepto = models.CharField('descripción de reciboh', max_length=200)
     cantidad = models.IntegerField('cantidad de concepto')
     valor_unitario = models.DecimalField(max_digits=8, decimal_places=2)
     remuneracion = models.DecimalField(max_digits=8, decimal_places=2)
+=======
+    concepto = models.CharField('descripción de reciboh',max_length=200)
+>>>>>>> main
     asistencia = models.DecimalField(max_digits=8, decimal_places=2)
     fecha_pago = models.DateField('fecha del pago')
     deduccion = models.ForeignKey(Deducciones, on_delete=models.CASCADE)
-    extra = models.ForeignKey(Extras, on_delete=models.CASCADE)
+    extra = models.ForeignKey(Extras, blank=True, null=True, on_delete=models.CASCADE, default=0)
     legajo_empleado = models.OneToOneField(Empleado, on_delete=models.CASCADE)
 
     def calcular_monto_neto(self):
+<<<<<<< HEAD
         self.montoNeto = self.montoBruto + \
             self.extra.monto_extra - self.deduccion.monto_deduccion
         self.save()
@@ -75,6 +102,16 @@ class RecibosH(models.Model):
         self.save()
 
 
+=======
+        monto_deduccion = self.montoBruto * (self.deduccion.porcentaje_deduccion / 100)
+        if self.extra is None:
+            self.montoNeto = self.montoBruto + self.asistencia - monto_deduccion
+        else:
+            self.montoNeto = self.montoBruto + self.extra.monto_extra + self.asistencia - monto_deduccion
+        self.save()
+
+        
+>>>>>>> main
 class Reclamos(models.Model):
     id_recla = models.IntegerField(primary_key=True)
     recibo = models.OneToOneField(
