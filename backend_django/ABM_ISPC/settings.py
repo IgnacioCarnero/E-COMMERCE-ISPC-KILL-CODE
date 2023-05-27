@@ -38,8 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ABM_ISPC',
-    'databaseManager'
+    'databaseManager',
+    'login_registro',
 ]
+
+AUTH_USER_MODEL = 'login_registro.CustomUser'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
