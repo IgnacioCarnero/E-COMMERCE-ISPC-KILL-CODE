@@ -39,10 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ABM_ISPC',
     'databaseManager',
-    'login_registro',
-]
+    'rest_framework',
+    ]
 
-AUTH_USER_MODEL = 'login_registro.CustomUser'
+AUTH_USER_MODEL = 'databaseManager.CustomUser'
 
 
 MIDDLEWARE = [
