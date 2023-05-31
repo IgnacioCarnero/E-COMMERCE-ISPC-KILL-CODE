@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'databaseManager'
 ]
 
-AUTH_USER_MODEL = 'databaseManager.CustomUser'
+# AUTH_USER_MODEL = 'databaseManager.CustomUser'
 
 
 MIDDLEWARE = [
