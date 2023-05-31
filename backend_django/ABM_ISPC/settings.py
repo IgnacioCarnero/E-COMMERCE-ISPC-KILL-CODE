@@ -38,18 +38,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ABM_ISPC',
-<<<<<<< HEAD
     'databaseManager',
     'rest_framework'
 ]
 
 AUTH_USER_MODEL = 'databaseManager.CustomUser'
-=======
-    'databaseManager'
-]
-
-# AUTH_USER_MODEL = 'databaseManager.CustomUser'
->>>>>>> 5bfee0f06930a529ceddd3a79904e131ec24f651
 
 
 MIDDLEWARE = [
