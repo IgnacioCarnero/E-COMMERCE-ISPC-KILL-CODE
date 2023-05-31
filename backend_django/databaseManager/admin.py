@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import *
-
 from .models import Empleado, Empresa, Art, ObraSocial, Recibo, Reclamo, Deduccion, Extra, Contacto, ServiciosKillCode, Factura, Pedido
+from django.contrib.auth import get_user_model
+from django.contrib.auth.admin import UserAdmin
 
 
 class EmpleadoAdmin(admin.ModelAdmin):
@@ -71,3 +71,8 @@ admin.site.register(ServiciosKillCode, ServicioKillCodeAdmin)
 admin.site.register(Pedido, PedidoAdmin)
 admin.site.register(Factura, FacturaAdmin)
 admin.site.register(Contacto, ContactoAdmin)
+
+
+@admin.register(get_user_model())
+class CustomUserAdmin(UserAdmin):
+    pass

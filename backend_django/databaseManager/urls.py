@@ -1,8 +1,9 @@
 from django.urls import path
-from databaseManager import views
+from .views import LoginView, LogoutView
 
 urlpatterns = [
-    # Other URL patterns
-    path('registro/', views.register, name='register'),
-    path('login/', views.user_login, name='login'),
+    path('auth/login/',
+         LoginView.as_view(), name='auth_login'),
+    path('auth/logout/',
+         LogoutView.as_view(), name='auth_logout'),
 ]
