@@ -180,10 +180,3 @@ class Contacto(models.Model):
 
     def __str__(self):
         return f"{self.email}"
-
-
-# Acá empieza el modelo para login y registro
-
-class CustomUser(AbstractUser):
-    # Agrega campos personalizados si los necesitas
-    pass
