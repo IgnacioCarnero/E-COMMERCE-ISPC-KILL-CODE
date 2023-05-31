@@ -180,3 +180,12 @@ class Contacto(models.Model):
 
     def __str__(self):
         return f"{self.email}"
+
+
+class User(AbstractUser):
+    pass
+
+
+User._meta.get_field('groups').remote_field.related_name = 'custom_user_set'
+User._meta.get_field(
+    'user_permissions').remote_field.related_name = 'custom_user_set'
