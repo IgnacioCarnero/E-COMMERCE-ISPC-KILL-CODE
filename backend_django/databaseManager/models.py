@@ -189,7 +189,7 @@ class User(AbstractUser):
 
 
 class CustomUser(AbstractUser):
-    email = models.EmailField()g
+    email = models.EmailField()
 
 
 User._meta.get_field('groups').remote_field.related_name = 'custom_user_set'
