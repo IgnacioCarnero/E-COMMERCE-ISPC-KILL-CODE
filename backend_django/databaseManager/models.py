@@ -1,6 +1,6 @@
 from django.db.models import Sum
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, AbstractBaseUser, BaseUserManager
 
 # Create your models here.
 
@@ -181,12 +181,11 @@ class Contacto(models.Model):
     def __str__(self):
         return f"{self.email}"
 
+# aca va el codigo para el registro y login
+
 
 class CustomUser(AbstractUser):
-    email = models.EmailField(
-        max_length=150, unique=True
-    )
+    email = models.EmailField(max_length=150, unique=True)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username', 'password']
-    pass
