@@ -38,11 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ABM_ISPC',
-    'databaseManager',
-    'login_registro',
+    'databaseManager'
 ]
 
-AUTH_USER_MODEL = 'login_registro.CustomUser'
+# AUTH_USER_MODEL = 'databaseManager.CustomUser'
 
 
 MIDDLEWARE = [
@@ -86,7 +85,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ecommercekillcodeproject',
         'USER': 'root',
-        'PASSWORD': '1005Mateo',
+        'PASSWORD': 'killcoders10',
         'HOST': '127.0.0.1',
         'PORT': '3306'
     }
