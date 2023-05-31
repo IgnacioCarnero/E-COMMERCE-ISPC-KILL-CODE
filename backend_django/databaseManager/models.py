@@ -182,10 +182,18 @@ class Contacto(models.Model):
         return f"{self.email}"
 
 
+# Este es el código para login y registro
+
 class User(AbstractUser):
     pass
+
+
+class CustomUser(AbstractUser):
+    email = models.EmailField()g
 
 
 User._meta.get_field('groups').remote_field.related_name = 'custom_user_set'
 User._meta.get_field(
     'user_permissions').remote_field.related_name = 'custom_user_set'
+
+# Acá van los roles a los usuarios
