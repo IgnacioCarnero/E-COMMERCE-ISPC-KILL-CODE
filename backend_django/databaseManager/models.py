@@ -180,3 +180,15 @@ class Contacto(models.Model):
 
     def __str__(self):
         return f"{self.email}"
+<<<<<<< HEAD
+ 
+class CustomUser(AbstractUser):
+    email = models.EmailField(
+        max_length=150, unique=True
+    ) 
+
+    USERNAME_FIELD= 'email'
+    REQUIRED_FIELDS= ['username', 'password']
+    pass
+=======
+>>>>>>> 5bfee0f06930a529ceddd3a79904e131ec24f651
