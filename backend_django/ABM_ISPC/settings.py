@@ -39,9 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ABM_ISPC',
     'databaseManager',
-    'corsheaders',
     'rest_framework',
-]
+    ]
 
 AUTH_USER_MODEL = 'databaseManager.CustomUser'
 
