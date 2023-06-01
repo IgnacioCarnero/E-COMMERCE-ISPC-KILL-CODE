@@ -8,42 +8,55 @@ from django.contrib.auth.admin import UserAdmin
 
 class EmpleadoAdmin(admin.ModelAdmin):
     list_display = ('legajo', 'nombre', 'apellido', 'calle', 'casa_piso_numero', 'provincia', 'email',
-                     'telefono', 'cargo', 'categoria', 'fecha_ingreso', 'fecha_nacimiento', 'ciudad',
-                       'cuil_empleado', 'obra_social', 'art')
+                    'telefono', 'cargo', 'categoria', 'fecha_ingreso', 'fecha_nacimiento', 'ciudad',
+                    'cuil_empleado', 'obra_social', 'art')
+
 
 class EmpresaAdmin(admin.ModelAdmin):
-    list_display = ('cuit', 'nombre', 'direccion', 'ciudad', 'provincia', 'art_contratada')
+    list_display = ('cuit', 'nombre', 'direccion',
+                    'ciudad', 'provincia', 'art_contratada')
+
 
 class ArtAdmin(admin.ModelAdmin):
     list_display = ('id_art', 'nombre', 'email', 'telefono')
 
+
 class ObraSocialAdmin(admin.ModelAdmin):
     list_display = ('id_ObraSocial', 'telefono', 'email', 'nombre')
+
 
 class DeduccionAdmin(admin.ModelAdmin):
     list_display = ('cod_deduccion', 'porcentaje_deduccion', 'causa_deduccion')
 
+
 class ExtraAdmin(admin.ModelAdmin):
     list_display = ('cod_extra', 'causa_extra', 'monto_extra')
 
+
 class ReciboAdmin(admin.ModelAdmin):
-    list_display = ('id_recibo', 'montoBruto', 'montoNeto', 'periodo', 'antiguedad', 'concepto', 
+    list_display = ('id_recibo', 'montoBruto', 'montoNeto', 'periodo', 'antiguedad', 'concepto',
                     'asistencia', 'fecha_pago', 'deduccion', 'extra', 'legajo_empleado')
 
+
 class ReclamoAdmin(admin.ModelAdmin):
-    list_display = ('id_recla', 'recibo', 'empleado', 'estado', 'descripcion', 'fecha', 'tipo')
+    list_display = ('id_recla', 'recibo', 'empleado',
+                    'estado', 'descripcion', 'fecha', 'tipo')
+
 
 class ServicioKillCodeAdmin(admin.ModelAdmin):
     list_display = ('idServicio', 'valor', 'detalle', 'nombreServicio')
 
+
 class PedidoAdmin(admin.ModelAdmin):
     list_display = ('idPedido', 'valorTotal', 'detalle', 'cantidad',
-                     'Servicio', 'medioDePago', 'Empresa', 'fechaHora')
+                    'Servicio', 'medioDePago', 'Empresa', 'fechaHora')
+
 
 class FacturaAdmin(admin.ModelAdmin):
-    list_display = ('idFactura', 'valorFactura', 'detalleFactura', 'Pedido', 
+    list_display = ('idFactura', 'valorFactura', 'detalleFactura', 'Pedido',
                     'cuitKillCode', 'tipoFactura', 'IVA', 'fechaHora')
-    
+
+
 class ContactoAdmin(admin.ModelAdmin):
     list_display = ('nombre', 'email', 'comentario')
 

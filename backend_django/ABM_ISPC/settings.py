@@ -53,7 +53,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
+
 
 ROOT_URLCONF = 'ABM_ISPC.urls'
 
@@ -86,7 +88,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ecommercekillcodeproject',
         'USER': 'root',
-        'PASSWORD': '1005Mateo',
+        'PASSWORD': 'killcoders10',
         'HOST': '127.0.0.1',
         'PORT': '3306'
     }
