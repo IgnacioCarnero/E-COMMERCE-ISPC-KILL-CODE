@@ -3,8 +3,11 @@ from .models import *
 from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin
 
+
 from .models import Empleado, Empresa, Art, ObraSocial, Recibo, Reclamo, Deduccion
 from .models import Extra, Contacto, ServiciosKillCode, Factura, Pedido
+from .models import CustomUser
+
 
 
 class EmpleadoAdmin(admin.ModelAdmin):
@@ -62,6 +65,7 @@ class ContactoAdmin(admin.ModelAdmin):
     list_display = ('nombre', 'email', 'comentario')
 
 
+
 admin.site.register(Empleado, EmpleadoAdmin)
 admin.site.register(Empresa, EmpresaAdmin)
 admin.site.register(Art, ArtAdmin)
@@ -79,3 +83,4 @@ admin.site.register(Contacto, ContactoAdmin)
 @admin.register(get_user_model())
 class CustomUserAdmin(UserAdmin):
     pass
+

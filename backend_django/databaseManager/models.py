@@ -1,6 +1,7 @@
 from django.db.models import Sum
 from django.db import models
-from django.contrib.auth.models import AbstractUser, AbstractBaseUser, BaseUserManager
+
+from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 
@@ -39,8 +40,7 @@ class Empresa(models.Model):
 
     def __str__(self):
         return f"{self.nombre} - {self.cuit}"
-
-
+    
 class Art(models.Model):
     id_art = models.IntegerField(primary_key=True)
     nombre = models.CharField('nombre de arts', max_length=200)
@@ -51,6 +51,7 @@ class Art(models.Model):
         return f"{self.nombre}"
 
 
+
 class ObraSocial(models.Model):
     id_ObraSocial = models.IntegerField(primary_key=True)
     telefono = models.BigIntegerField()
@@ -58,7 +59,9 @@ class ObraSocial(models.Model):
     nombre = models.CharField('nombre de la obrasocial', max_length=200)
 
     def __str__(self):
+
         return f"{self.nombre}"
+
 
 
 class Deduccion(models.Model):
@@ -68,7 +71,6 @@ class Deduccion(models.Model):
 
     def __str__(self):
         return f"{self.porcentaje_deduccion} - {self.causa_deduccion}"
-
 
 class Extra(models.Model):
     cod_extra = models.IntegerField(primary_key=True)
@@ -122,6 +124,7 @@ class Reclamo(models.Model):
         return f"{self.id_recla}"
 
 
+
 class ServiciosKillCode(models.Model):
     idServicio = models.IntegerField(primary_key=True)
     valor = models.DecimalField(max_digits=8, decimal_places=2)
@@ -149,7 +152,6 @@ class Pedido(models.Model):
 
     def __str__(self):
         return f"{self.idPedido}"
-
 
 class Factura(models.Model):
     idFactura = models.IntegerField(primary_key=True)
@@ -181,11 +183,10 @@ class Contacto(models.Model):
     def __str__(self):
         return f"{self.email}"
 
-# aca va el codigo para el registro y login
-
-
+ 
 class CustomUser(AbstractUser):
-    email = models.EmailField(max_length=150, unique=True)
-
+    email = models.EmailField (max_length=150, unique=True)
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username', 'password']
+
+
