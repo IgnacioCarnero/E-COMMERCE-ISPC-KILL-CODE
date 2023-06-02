@@ -2,9 +2,10 @@ from django.contrib import admin
 from .models import Empleado, Empresa, Art, ObraSocial, Recibo, Reclamo, Deduccion
 from .models import Extra, Contacto, ServiciosKillCode, Factura, Pedido
 from .models import CustomUser
-# #solucion propuesta por chatgtp
+
 from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin
+
 
 class EmpleadoAdmin(admin.ModelAdmin):
     list_display = ('legajo', 'nombre', 'apellido', 'calle', 'casa_piso_numero', 'provincia', 'email',

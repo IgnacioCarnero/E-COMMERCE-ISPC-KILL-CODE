@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'ABM_ISPC',
     'databaseManager',
     'rest_framework',
-    ]
+    'corsheaders',
+]
 
 AUTH_USER_MODEL = 'databaseManager.CustomUser'
 
@@ -56,6 +57,8 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 ]
 
+CORS_ORIGIN_WHITELIST = ["http://localhost:3000"]
+CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'ABM_ISPC.urls'
 
@@ -88,7 +91,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ecommercekillcodeproject',
         'USER': 'root',
-        'PASSWORD': 'killcoders10',
+        'PASSWORD': '1005Mateo',
         'HOST': '127.0.0.1',
         'PORT': '3306'
     }
