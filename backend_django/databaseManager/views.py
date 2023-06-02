@@ -28,4 +28,3 @@ class LogoutView(APIView):
         #Devolvemos la respuesta al cliente
         return Response(status=status.HTTP_200_OK)
     
-
