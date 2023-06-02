@@ -1,12 +1,12 @@
-from rest_framework import serializers
+from rest_framework import serializer
 from django.contrib.auth import get_user_model
 from django.contrib.auth.hashers import make_password
 
 
-class UserSerializer(serializers.ModelSerializer):
-    email = serializers.EmailField(required=True)
-    username = serializers.CharField(required=True)
-    password = serializers.CharField(min_length=8)
+class UserSerializer(serializer.ModelSerializer):
+    email = serializer.EmailField(required=True)
+    username = serializer.CharField(required=True)
+    password = serializer.CharField(min_length=8)
 
     class Meta:
         model = get_user_model()
