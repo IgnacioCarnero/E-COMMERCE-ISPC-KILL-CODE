@@ -13,5 +13,5 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ('email', 'username', 'password')
 
 
-def validate_password(self, value):
-    return make_password(value)
+    def validate_password(self, value):
+        return make_password(value)
