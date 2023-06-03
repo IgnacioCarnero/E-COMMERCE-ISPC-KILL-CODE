@@ -3,10 +3,15 @@ from rest_framework import generics, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .serializer import UserSerializer
+from .serializer import EmpleadoSerializer
+from rest_framework.permissions import IsAdminUser, AllowAny, IsAuthenticated
+from django.shortcuts import get_object_or_404
+from .models import Empleado, ObraSocial
 
 # Create your views here.
 
 class LoginView(APIView):
+    permission_classes = [AllowAny]
     def post(self, request):
         # Recuperamos las credenciales y autenticamos al usuario
         email = request.data.get('email', None)
@@ -24,6 +29,7 @@ class LoginView(APIView):
         return Response(status=status.HTTP_404_NOT_FOUND)
     
 class LogoutView(APIView):
+    permission_classes = [AllowAny]
     def post(self, request):
         # Borramos de la rquest la informacion de sesion
         logout(request)
@@ -33,4 +39,15 @@ class LogoutView(APIView):
     
 class SignupView(generics.CreateAPIView):
     serializer_class = UserSerializer
+
+
+
+class CrearEmpleadoView(APIView):
+    permission_classes = [IsAuthenticated]
+    def post(self, request):
+        serializer = EmpleadoSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"mensaje": "Empleado creado exitosamente"})
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
