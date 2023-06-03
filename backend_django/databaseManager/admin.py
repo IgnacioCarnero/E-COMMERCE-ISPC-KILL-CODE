@@ -1,8 +1,12 @@
 from django.contrib import admin
+<<<<<<< HEAD
 from .models import Empleado, Empresa, Art, ObraSocial, Recibo, Reclamo, Deduccion
 from .models import Extra, Contacto, ServiciosKillCode, Factura, Pedido
 from .models import CustomUser
 
+=======
+from .models import Empleado, Empresa, Art, ObraSocial, Recibo, Reclamo, Deduccion, Extra, Contacto, ServiciosKillCode, Factura, Pedido
+>>>>>>> eb9488bd34b50d60d9bb7d0f1c9a1f9e058bc0cf
 from django.contrib.auth import get_user_model
 from django.contrib.auth.admin import UserAdmin
 
@@ -61,9 +65,12 @@ class FacturaAdmin(admin.ModelAdmin):
 class ContactoAdmin(admin.ModelAdmin):
     list_display = ('nombre', 'email', 'comentario')
 
+<<<<<<< HEAD
 @admin.register(get_user_model())
 class CustomUserAdmin(UserAdmin):
     pass
+=======
+>>>>>>> eb9488bd34b50d60d9bb7d0f1c9a1f9e058bc0cf
 
 admin.site.register(Empleado, EmpleadoAdmin)
 admin.site.register(Empresa, EmpresaAdmin)
@@ -77,3 +84,11 @@ admin.site.register(ServiciosKillCode, ServicioKillCodeAdmin)
 admin.site.register(Pedido, PedidoAdmin)
 admin.site.register(Factura, FacturaAdmin)
 admin.site.register(Contacto, ContactoAdmin)
+<<<<<<< HEAD
+=======
+
+
+@admin.register(get_user_model())
+class CustomUserAdmin(UserAdmin):
+    pass
+>>>>>>> eb9488bd34b50d60d9bb7d0f1c9a1f9e058bc0cf

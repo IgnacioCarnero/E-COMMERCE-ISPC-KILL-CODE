@@ -17,14 +17,22 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
+<<<<<<< HEAD
 
 # Api router
 router = routers.DefaultRouter()
+=======
+>>>>>>> eb9488bd34b50d60d9bb7d0f1c9a1f9e058bc0cf
 
+router = routers.DefaultRouter()
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+<<<<<<< HEAD
     # Api routes
     path('api/', include('databaseManager.urls')),
+=======
+    path('api/', include(authenificate.urls)),
+>>>>>>> eb9488bd34b50d60d9bb7d0f1c9a1f9e058bc0cf
     path('api/', include(router.urls)),
 ]

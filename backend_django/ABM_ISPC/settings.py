@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ABM_ISPC',
     'databaseManager',
+<<<<<<< HEAD
     'rest_framework',
     'corsheaders',
 ]
@@ -50,6 +51,11 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     ],
 }
+=======
+]
+
+AUTH_USER_MODEL = 'databaseManager.CustomUser'
+>>>>>>> eb9488bd34b50d60d9bb7d0f1c9a1f9e058bc0cf
 
 
 MIDDLEWARE = [
