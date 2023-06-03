@@ -40,7 +40,8 @@ class Empresa(models.Model):
 
     def __str__(self):
         return f"{self.nombre} - {self.cuit}"
-    
+
+
 class Art(models.Model):
     id_art = models.IntegerField(primary_key=True)
     nombre = models.CharField('nombre de arts', max_length=200)
@@ -48,8 +49,9 @@ class Art(models.Model):
     telefono = models.BigIntegerField()
 
     def __str__(self):
-        return f"{self.nombre}"    
-    
+        return f"{self.nombre}"
+
+
 class ObraSocial(models.Model):
     id_ObraSocial = models.IntegerField(primary_key=True)
     telefono = models.BigIntegerField()
@@ -57,7 +59,8 @@ class ObraSocial(models.Model):
     nombre = models.CharField('nombre de la obrasocial', max_length=200)
 
     def __str__(self):
-        return f"{self.nombre}"    
+        return f"{self.nombre}"
+
 
 class Deduccion(models.Model):
     cod_deduccion = models.IntegerField(primary_key=True)
@@ -66,6 +69,7 @@ class Deduccion(models.Model):
 
     def __str__(self):
         return f"{self.porcentaje_deduccion} - {self.causa_deduccion}"
+
 
 class Extra(models.Model):
     cod_extra = models.IntegerField(primary_key=True)
@@ -116,8 +120,9 @@ class Reclamo(models.Model):
     tipo = models.CharField('tipo de reclamo', max_length=200)
 
     def __str__(self):
-        return f"{self.id_recla}"     
-    
+        return f"{self.id_recla}"
+
+
 class ServiciosKillCode(models.Model):
     idServicio = models.IntegerField(primary_key=True)
     valor = models.DecimalField(max_digits=8, decimal_places=2)
@@ -145,6 +150,7 @@ class Pedido(models.Model):
 
     def __str__(self):
         return f"{self.idPedido}"
+
 
 class Factura(models.Model):
     idFactura = models.IntegerField(primary_key=True)
@@ -175,23 +181,9 @@ class Contacto(models.Model):
 
     def __str__(self):
         return f"{self.email}"
-<<<<<<< HEAD
- 
-class CustomUser(AbstractUser):
-    email = models.EmailField (max_length=150, unique=True)
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username', 'password']
 
-    
-=======
-
-
-# Este es el código para login y registro
 
 class CustomUser(AbstractUser):
     email = models.EmailField(max_length=150, unique=True)
-
-
-USERNAME_FIELD = 'email'
-REQUIRED_FIELDS = ['username', 'password']
->>>>>>> eb9488bd34b50d60d9bb7d0f1c9a1f9e058bc0cf
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['username', 'password']
