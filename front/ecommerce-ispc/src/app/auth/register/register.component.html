@@ -1,53 +1,88 @@
 <section>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-9 col-md-9 col-lg-10 mx-auto">
-                <div class="card border-0 shadow rounded-3 my-5">
-                    <div class="card-body p-4 p-sm-5">
-                        <h1 class="card-title text-center mb-5 fw-bold">Registro</h1>
-    
-                        <form action="">
-    
-                            <div class="row g-3 align-items-center">
-    
-                                <div class="form-floating mb-3">
-                                    <input name="Empresa" type="text" class="form-control" id="floatingName"
-                                        placeholder="Nombre de la Empresa" required/>
-                                    <label for="floatingName">Nombre de la empresa</label>
-                                </div>
-    
-                                <div class="form-floating mb-3">
-                                    <input name="E-mail" type="email" class="form-control" id="floatingInput"
-                                        placeholder="name@example.com" required/>
-                                    <label for="floatingInput">Email address</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input name="Pass" type="password" class="form-control" id="floatingPassword"
-                                        placeholder="Password" required/>
-                                    <label for="floatingPassword">Password</label>
-                                </div>
-    
-                                <div class="form-floating mb-3">
-                                    <input name="RePass" type="password" class="form-control" id="floatingPasswordConfirma"
-                                        placeholder="Confirma Password" required/>
-                                    <label for="floatingPasswordConfirma">Confirm Password</label>
-                                </div>
-    
-    
-                                <div class="d-grid">
-                                    <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit">
-                                        Registrar usuario
-                                    </button>
-                                </div>
-                                <hr class="my-4" />
-    
-                            </div>
-                        </form>
-    
-    
-                    </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-9 col-lg-10 mx-auto">
+        <div class="card border-0 shadow rounded-3 my-5">
+          <div class="card-body p-4 p-sm-5">
+            <h1 class="card-title text-center mb-5 fw-bold">Registro</h1>
+
+            <form action="" [formGroup]="userRegister">
+              <div class="form-floating mb-3">
+                <div class="form-floating mb-3">
+                  <input
+                    name="Empresa"
+                    type="text"
+                    class="form-control"
+                    id="floatingName"
+                    formControlName="companynameregister"
+                    [ngClass]="{'is-invalid':companynameregister && companynameregister.invalid && companynameregister.touched} "
+
+
+                    placeholder="Nombre de la Empresa"
+                    required
+                  />
+                  <label for="floatingName">Nombre de la empresa</label>
                 </div>
-            </div>
+
+                <div class="form-floating mb-3">
+                  <input
+                    name="E-mail"
+                    type="email"
+                    class="form-control"
+                    id="floatingInput"
+                    formControlName="usernameregister"
+                    [ngClass]="{'is-invalid':usernameregister && usernameregister.invalid && usernameregister.touched} "
+
+                    placeholder="name@example.com"
+                    required
+                  />
+                  <label for="floatingInput">Email address</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input
+                    name="Pass"
+                    type="password"
+                    class="form-control"
+                    id="floatingPassword"
+                    formControlName="userpasswordregister"
+                    [ngClass]="{'is-invalid':userpasswordregister && userpasswordregister.invalid && userpasswordregister.touched} "
+
+                    placeholder="Password"
+                    required
+                  />
+                  <label for="floatingPassword">Password</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                  <input
+                    name="RePass"
+                    type="password"
+                    class="form-control"
+                    id="floatingPasswordConfirma"
+                    formControlName="confirmpasswordregister"
+                    [ngClass]="{'is-invalid':confirmpasswordregister && confirmpasswordregister.invalid && confirmpasswordregister.touched} "
+
+                    placeholder="Confirma Password"
+                    required
+                  />
+                  <label for="floatingPasswordConfirma">Confirm Password</label>
+                </div>
+
+                <div class="d-grid">
+                  <button
+                    class="btn btn-primary btn-login text-uppercase fw-bold"
+                    type="submit"
+                    [disabled]="userRegister.invalid"
+                  >
+                    Registrar usuario
+                  </button>
+                </div>
+                <hr class="my-4" />
+              </div>
+            </form>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </section>
