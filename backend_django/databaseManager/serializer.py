@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
 from django.contrib.auth.hashers import make_password
-from .models import Empleado, ObraSocial, Art
+from .models import Empleado, ObraSocial, Art, Extra, Deduccion, Recibo
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -18,7 +18,7 @@ class UserSerializer(serializers.ModelSerializer):
         return make_password(value)
 
 
-class EmpleadoSerializer(serializers.ModelSerializer):
+class CrearEmpleadoSerializer(serializers.ModelSerializer):
     legajo = serializers.IntegerField()
     nombre = serializers.CharField(max_length=200)
     apellido = serializers.CharField(max_length=200)
@@ -38,4 +38,24 @@ class EmpleadoSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Empleado
+        fields = '__all__'
+
+class CrearReciboSerializer(serializers.ModelSerializer):
+    id_recibo = serializers.IntegerField()
+    montoBruto = serializers.DecimalField(max_digits=8, decimal_places=2)
+    montoNeto = serializers.DecimalField(max_digits=8, decimal_places=2)
+    periodo = serializers.DateField()
+    antiguedad = serializers.IntegerField()
+    concepto = serializers.CharField(max_length=200)
+    asistencia = serializers.DecimalField(max_digits=8, decimal_places=2)
+    fecha_pago = serializers.DateField()
+    deduccion = serializers.SlugRelatedField(
+        slug_field='cod_deduccion', queryset=Deduccion.objects.all())
+    extra = serializers.SlugRelatedField(
+        slug_field='cod_extra', queryset=Extra.objects.all())
+    legajo_empleado = serializers.SlugRelatedField(
+        slug_field='legajo', queryset=Empleado.objects.all())
+    
+    class Meta:
+        model = Recibo
         fields = '__all__'
