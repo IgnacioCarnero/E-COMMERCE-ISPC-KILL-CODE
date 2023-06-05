@@ -14,10 +14,10 @@ import {FormsModule} from '@angular/forms';
 
 import { RegisterComponent } from './auth/register/register.component';
 import { SignupService } from './services/signup.service';
-
+import { LoginService } from './services/login.service';
 @NgModule({
   declarations: [AppComponent, RegisterComponent],
-  providers: [SignupService],
+  providers: [LoginService],
   bootstrap: [AppComponent],
   imports: [
     BrowserModule,

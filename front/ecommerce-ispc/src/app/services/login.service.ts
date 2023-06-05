@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,31 +10,24 @@ export class LoginService {
 
   constructor(private http: HttpClient) { }
 
-  public get() {
-    return this.http.get(this.apiUrl);
+  login(email: string, password: string): Observable<any> {
+    const body = {email, password};
+    return this.http.post(this.apiUrl, body)
   }
 
-   public post(data: string) {
-    return this.http.post(this.apiUrl, data).pipe(map(response => {
-      return response;
-    }))
+  getUsers(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/users/`);
   }
 
-  public put(id: number, data: string) {
-    const url = `${this.apiUrl}/${id}`;
-    return this.http.put(url, data).pipe(
-      map(response => {
-        return response;
-      })
-    );
+  createUser(user: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/users/`, user);
   }
+  updateUser(id: number, user: any): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/users/${id}/`, user);
+}
 
-  public delete(id: number) {
-    const url = `${this.apiUrl}/${id}`;
-    return this.http.delete(url).pipe(
-      map(response => {
-        return response;
-      })
-    );
-  }
+  deleteUser(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/users/${id}/`);
+}
+
 }
