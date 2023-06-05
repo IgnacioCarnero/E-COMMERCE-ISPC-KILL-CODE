@@ -182,8 +182,8 @@ class Contacto(models.Model):
     def __str__(self):
         return f"{self.email}"
 
+# Acá va el código para registro y login
+
 
 class CustomUser(AbstractUser):
-    email = models.EmailField(max_length=150, unique=True)
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username', 'password']
+    empresa = models.CharField(max_length=255)

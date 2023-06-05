@@ -24,6 +24,6 @@ router = routers.DefaultRouter()
 urlpatterns = [
     path('admin/', admin.site.urls),
     # Api routes
-    path('api/', include('databaseManager.urls')),
+    path('api/auth/', include('databaseManager.urls')),
     path('api/', include(router.urls)),
 ]
