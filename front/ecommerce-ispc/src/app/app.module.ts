@@ -7,9 +7,9 @@ import { SharedModule } from './shared/shared.module';
 import { PagesModule } from './pages/pages.module';
 import { AuthModule } from './auth/auth.module';
 import { AddToCartModule } from './add-to-cart/add-to-cart.module';
-
-import {HttpClientModule} from '@angular/common/http'
-
+import {HttpClientModule} from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+// import { DashboardComponent } from './pages/dashboard/dashboard.component'; */
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,7 +23,8 @@ import {HttpClientModule} from '@angular/common/http'
     PagesModule,
     AuthModule,
     HttpClientModule,
-    AddToCartModule
-  ],
+    AddToCartModule,
+    ReactiveFormsModule,
+    ],
 })
 export class AppModule {}

@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+
 import { Routes, RouterModule } from '@angular/router';
 import { PrivacidadComponent } from './pages/privacidad/privacidad.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -9,6 +10,7 @@ import { TerminosComponent } from './pages/terminos/terminos.component';
 import { ServiciosComponent } from './pages/servicios/servicios.component';
 import { GeneradorReciboDeSueldoComponent } from './pages/dashboard/generador-recibo-de-sueldo/generador-recibo-de-sueldo.component';
 import { ContactComponent } from './pages/home/contact/contact.component';
+
 
 
 const routes: Routes = [
@@ -25,7 +27,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+  RouterModule.forRoot(routes),
+],
+
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

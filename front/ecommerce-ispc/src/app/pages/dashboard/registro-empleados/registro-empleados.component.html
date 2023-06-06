@@ -1,93 +1,91 @@
-<!-- */Registro de empleados en desarrollo*/ -->
-<div>
+  <div>
   <h2 class="text-center mt-3">Registro de empleado</h2>
-<form>
-  <div class="m-5">
-    <form class="containerDos" name="formulario">
+      <form [formGroup]="formu">
+        <!-- (submit)="guardarRegistro()"> -->
+      <div class="m-5">
+      <div class="containerDos">
         <div class="row">
-        <div class="col-6 col-sm-4">
-          <label for="nombre" class="form-label">Nombres:</label>
-          <input type="text" class="form-control" id="nombre" required minlength="3" placeholder="P.ej.Carlos">
+          <div class="col-6 col-sm-4">
+            <label for="nombre" class="form-label">Nombres:</label>
+            <input type="text" class="form-control" formControlName="nombre" required minlength="3" placeholder="P.ej.Carlos">
+          </div>
+          <div class="col-6 col-sm-4">
+            <label for="apellido" class="form-label">Apellido:</label>
+            <input type="text" class="form-control" formControlName="apellido" required minlength="3" placeholder="P.ej.Perez">
+          </div>
+          <div class="col-6 col-sm-4">
+            <label for="dni" class="form-label">DNI/PASAPORTE:</label>
+            <input type="number" class="form-control" id="dni" formControlName="dni" required placeholder="P.ej 16112390">
+          </div>
+          <div class="col-6 col-sm-4 mt-3">
+            <label for="dateone" class="form-label">Fecha de ingreso:</label>
+            <input type="date" class="form-control" id="dateone" formControlName="dateone" required>
+          </div>
+          <div class="col-6 col-sm-4 mt-3">
+            <label for="legajo" class="form-label">LEGAJO:</label>
+            <input type="number" class="form-control" id="legajo" formControlName="legajo" required placeholder="P.ej.84202">
+          </div>
+          <div class="col-6 col-sm-4 mt-3">
+            <label for="date" class="form-label">Fecha de nacimiento:</label>
+            <input type="date" class="form-control" id="date" formControlName="date" required>
+          </div>
+          <div class="col-6 col-sm-4 mt-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" class="form-control" id="email" formControlName="email" placeholder="name@example.com" required minlength="3">
+          </div>
+          <div class="col-6 col-sm-4 mt-3">
+            <label for="direccion" class="form-label">Direccion:</label>
+            <input type="text" class="form-control" id="direccion" formControlName="direccion" required minlength="3" placeholder="P.ej. Santa Fe">
+          </div>
+          <div class="col-6 col-sm-4 mt-3">
+            <label for="numero" class="form-label">Casa/piso/numero/depto:</label>
+            <input type="text" class="form-control" id="numero" formControlName="numero" required minlength="3" placeholder="P.ej.524 piso 5 depto 6">
+          </div>
+          <div class="col-6 col-sm-4 mt-3">
+            <label for="provincia" class="form-label">Provincia:</label>
+            <input type="text"
+              class="form-control" id="provincia" formControlName="provincia" required minlength="3" placeholder="P.ej. Madrid">
+          </div>
+          <div class="col-6 col-sm-4 mt-3">
+            <label for="cargo" class="form-label">Cargo:</label>
+            <input type="text" class="form-control" id="cargo" formControlName="cargo" required minlength="3" placeholder="P.ej. Asesor comercial">
+          </div>
+          <div class="col-6 col-sm-4 mt-3">
+            <label for="categoria" class="form-label">Categoria:</label>
+            <input type="text" class="form-control" id="categoria" formControlName="categoria" required minlength="3" placeholder="P.ej. Administrativo tipo c">
+          </div>
+          <div class="col-6 col-sm-4 mt-3">
+            <label for="obra" class="form-label">Obra social:</label>
+            <input type="text" class="form-control" id="obra" formControlName="obra" required minlength="3" placeholder="P.ej. Galeno 210">
+          </div>
+          <div class="col-6 col-sm-4 mt-3">
+            <label for="art" class="form-label">ART:</label>
+            <input type="text" class="form-control" id="art" formControlName="art" required minlength="3" placeholder="P.ej.Patagonia art">
+          </div>
+          <br>
+          <br>
         </div>
-        <div class="col-6 col-sm-4">
-          <label for="apellido" class="form-label">Apellido:</label>
-          <input type="text" class="form-control" id="apellido" required minlength="3" placeholder="P.ej.Perez">
-        </div>
-        <div class="col-6 col-sm-4">
-          <label for="dni2" class="form-label">DNI/PASAPORTE:</label>
-          <input type="number" class="form-control" id="dni2" required placeholder="P.ej 16112390">
-        </div>
-        <div class="col-6 col-sm-4 mt-3">
-          <label for="dateone" class="form-label">Fecha de ingreso:</label>
-          <input type="date" class="form-control" id="dateone" required>
-        </div>
-        <div class="col-6 col-sm-4 mt-3">
-          <label for="legajo" class="form-label">LEGAJO:</label>
-          <input type="number" class="form-control" id="legajo" required placeholder="P.ej.84202">
-        </div>
-        <div class="col-6 col-sm-4 mt-3">
-          <label for="date" class="form-label">Fecha de nacimiento:</label>
-          <input type="date" class="form-control" id="date" required>
-        </div>
-        <div class="col-6 col-sm-4 mt-3">
-          <label for="email" class="form-label">Email:</label>
-          <input type="email" class="form-control" id="email" placeholder="name@example.com" required minlength="3">
-        </div>
-        <div class="col-6 col-sm-4 mt-3">
-          <label for="direccion" class="form-label">Direccion:</label>
-          <input type="text" class="form-control" id="direccion" required minlength="3" placeholder="P.ej. Santa Fe">
-        </div>
-        <div class="col-6 col-sm-4 mt-3">
-          <label for="numero" class="form-label">Casa/piso/numero/depto:</label>
-          <input type="text" class="form-control" id="numero" required minlength="3" placeholder="P.ej.524 piso 5 depto 6">
-        </div>
-        <div class="col-6 col-sm-4 mt-3">
-          <label for="provincia" class="form-label">Provincia:</label>
-          <input type="text" class="form-control" id="provincia" required minlength="3" placeholder="P.ej. Madrid">
-        </div>
-        <div class="col-6 col-sm-4 mt-3">
-          <label for="cargo" class="form-label">Cargo:</label>
-          <input type="text" class="form-control" id="cargo" required minlength="3" placeholder="P.ej. Asesor comercial">
-        </div>
-        <div class="col-6 col-sm-4 mt-3">
-          <label for="categoria" class="form-label">Categoria:</label>
-          <input type="text" class="form-control" id="categoria" required minlength="3" placeholder="P.ej. Administrativo tipo c">
-        </div>
-        <div class="col-6 col-sm-4 mt-3">
-          <label for="obra" class="form-label">Obra social:</label>
-          <input type="text" class="form-control" id="obra" required minlength="3" placeholder="P.ej. Galeno 210">
-        </div>
-        <div class="col-6 col-sm-4 mt-3">
-          <label for="art" class="form-label">ART:</label>
-          <input type="text" class="form-control" id="art" required minlength="3" placeholder="P.ej.Patagonia art">
-        </div>
+        <div class="conteinerTres">
+          <div class="row">
+            <div class="col-6 col-sm-4 mt-3">
+              <label for="dni" class="form-label">DNI</label>
+              <input class="form-control" type="file" id="dni" formControlName="dni">
+            </div>
+            <div class="col-6 col-sm-4 mt-3">
+              <label for="cv" class="form-label">cv</label>
+              <input class="form-control" type="file" id="cv" formControlName="cv" multiple>
+            </div>
+            <div class="col-6 col-sm-4 mt-3 mb-3">
+              <label for="alta" class="form-label">Alta temprana AFIP</label>
+              <input class="form-control" id="alta" type="file" formControlName="alta">
+            </div>
+            <div>
+            </div>
+            <div class="d-grid gap-2 col-4 mx-auto d-md-flex justify-content-md-end p-3 m-2">
+              <button (click) ="guardarRegistro()" type = "submit">Guardar</button>
+            </div>
 
-        <br>
-        <br>
-      </div>
-      <div class="conteinerTres">
-      <div class="row">
-        <div class="col-6 col-sm-4 mt-3">
-          <label for="dni" class="form-label">DNI</label>
-          <input class="form-control" type="file" id="dni">
-        </div>
-        <div class="col-6 col-sm-4 mt-3">
-          <label for="cv" class="form-label">cv</label>
-          <input class="form-control" type="file" id="cv" multiple>
-        </div>
 
-        <div class="col-6 col-sm-4 mt-3 mb-3">
-          <label for="alta" class="form-label">Alta temprana AFIP</label>
-          <input class="form-control" id="alta" type="file">
-        </div>
-        <div>
-        </div>
-        <div class="d-grid gap-2 col-4 mx-auto d-md-flex justify-content-md-end p-3 m-2">
-          <button class="btn btn-primary" id="btn" type="submit" onclick="mostrarConfirmacion()">Guardar registro</button>
-          <button class="btn btn-primary" id="btn2" type="reset" onclick="mostrarConfirmacionDeBorrado()">Borrar
-            registro</button>
-        </div>
-      </div>
-    </div>
-<!-- */recordar revisar codigo para quitar funciones js*/ -->
+
+
 
