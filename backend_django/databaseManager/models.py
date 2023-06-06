@@ -21,9 +21,9 @@ class Empleado(models.Model):
     fecha_nacimiento = models.DateField('fecha de nacimiento')
     ciudad = models.CharField('ciudad del empleado', max_length=200)
     cuil_empleado = models.BigIntegerField('cuil del empleado')
-    obra_social = models.OneToOneField(
+    obra_social = models.ForeignKey(
         'ObraSocial', on_delete=models.CASCADE, related_name='empleados')
-    art = models.OneToOneField('Art', on_delete=models.CASCADE)
+    art = models.ForeignKey('Art', on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.legajo} - {self.apellido}"
@@ -125,9 +125,17 @@ class ServiciosKillCode(models.Model):
         'detalle de servicio de kill code', max_length=200)
     nombreServicio = models.CharField(
         'nombre de servicio de kill code', max_length=200)
+    categoria = models.ForeignKey('CategoriaServicios', on_delete=models.CASCADE, related_name='categoria') 
 
     def __str__(self):
         return f"{self.nombreServicio}"
+    
+class CategoriaServicios(models.Model):
+    id_categoria = models.IntegerField(primary_key=True)
+    nombre_categoria = models.CharField('nombre de la categoria', max_length=200)
+
+    def __str__(self):
+        return f"{self.nombre_categoria}"
 
 
 class Pedido(models.Model):

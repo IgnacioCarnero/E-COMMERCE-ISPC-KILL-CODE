@@ -40,6 +40,25 @@ class CrearEmpleadoSerializer(serializers.ModelSerializer):
         model = Empleado
         fields = '__all__'
 
+class ListarEmpleadoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Empleado
+        fields = ['legajo', 'apellido', 'nombre', 'cargo', 'categoria','obra_social','art', 'telefono',
+                  'cuil_empleado','provincia', 'ciudad', 'calle', 'casa_piso_numero', 'email',
+                  'fecha_ingreso', 'fecha_nacimiento']
+        
+class ModificarEmpleadoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Empleado
+        fields = ['legajo', 'apellido', 'nombre', 'cargo', 'categoria','obra_social','art', 'telefono',
+                  'cuil_empleado','provincia', 'ciudad', 'calle', 'casa_piso_numero', 'email',
+                  'fecha_ingreso', 'fecha_nacimiento']
+
+class EliminarEmpleadoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Empleado
+        fields = []
+
 class CrearReciboSerializer(serializers.ModelSerializer):
     id_recibo = serializers.IntegerField()
     montoBruto = serializers.DecimalField(max_digits=8, decimal_places=2)
@@ -60,6 +79,22 @@ class CrearReciboSerializer(serializers.ModelSerializer):
         model = Recibo
         fields = '__all__'
 
+class ListarReciboSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Recibo
+        fields = ['id_recibo', 'montoBruto', 'montoNeto', 'periodo', 'antiguedad', 'concepto',
+                  'asistencia', 'fecha_pago', 'deduccion', 'extra', 'legajo_empleado']
+        
+class ModificarReciboSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Recibo
+        fields = ['id_recibo', 'montoBruto', 'montoNeto', 'periodo', 'antiguedad', 'concepto',
+                  'asistencia', 'fecha_pago', 'deduccion', 'extra', 'legajo_empleado']
+
+class EliminarReciboSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Recibo
+        fields = []
 
 class CrearReclamoSerializer(serializers.ModelSerializer):
     id_recla = serializers.IntegerField()
@@ -75,3 +110,20 @@ class CrearReclamoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Reclamo
         fields = '__all__'
+
+class ListarReclamoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Reclamo
+        fields = ['id_recla', 'recibo', 'empleado', 'estado', 'descripcion', 'fecha',
+                  'tipo']
+        
+class ModificarReclamoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Reclamo
+        fields = ['id_recla', 'recibo', 'empleado', 'estado', 'descripcion', 'fecha',
+                  'tipo']
+
+class EliminarReclamoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Reclamo
+        fields = []
