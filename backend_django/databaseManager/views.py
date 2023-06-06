@@ -3,7 +3,7 @@ from rest_framework import generics, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .serializer import UserSerializer
-from .serializer import CrearEmpleadoSerializer, CrearReciboSerializer
+from .serializer import CrearEmpleadoSerializer, CrearReciboSerializer, CrearReclamoSerializer
 from rest_framework.permissions import IsAdminUser, AllowAny, IsAuthenticated
 from django.shortcuts import get_object_or_404
 from .models import Empleado, ObraSocial
@@ -61,3 +61,11 @@ class CrearReciboView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+class CrearReclamoView(APIView):
+    permission_classes = [IsAuthenticated]
+    def post(self, request):
+        serializer = CrearReclamoSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"mensaje": "Reclamo creado exitosamente"})
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
 from django.contrib.auth.hashers import make_password
-from .models import Empleado, ObraSocial, Art, Extra, Deduccion, Recibo
+from .models import Empleado, ObraSocial, Art, Extra, Deduccion, Recibo, Reclamo
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -58,4 +58,20 @@ class CrearReciboSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Recibo
+        fields = '__all__'
+
+
+class CrearReclamoSerializer(serializers.ModelSerializer):
+    id_recla = serializers.IntegerField()
+    recibo = serializers.SlugRelatedField(
+        slug_field='id_recibo', queryset=Recibo.objects.all())
+    empleado = serializers.SlugRelatedField(
+        slug_field='legajo', queryset=Empleado.objects.all())
+    estado = serializers.CharField(max_length=200)
+    descripcion = serializers.CharField(max_length=200)
+    fecha = serializers.DateField()
+    tipo = serializers.CharField(max_length=200)
+    
+    class Meta:
+        model = Reclamo
         fields = '__all__'
