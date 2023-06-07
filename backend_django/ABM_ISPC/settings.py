@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'ABM_ISPC',
     'databaseManager',
     'rest_framework',
+    'rest_framework.authentication',
     'corsheaders',
 ]
 
@@ -47,8 +48,13 @@ AUTH_USER_MODEL = 'databaseManager.CustomUser'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
     ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.IsAdminUser',
+    ]
 }
 
 
