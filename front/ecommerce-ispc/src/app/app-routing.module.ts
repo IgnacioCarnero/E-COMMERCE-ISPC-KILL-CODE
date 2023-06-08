@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-
+import { AuthGuard } from './services/auth-guard.service';
 import { Routes, RouterModule } from '@angular/router';
 import { PrivacidadComponent } from './pages/privacidad/privacidad.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -11,19 +11,19 @@ import { ServiciosComponent } from './pages/servicios/servicios.component';
 import { GeneradorReciboDeSueldoComponent } from './pages/dashboard/generador-recibo-de-sueldo/generador-recibo-de-sueldo.component';
 import { ContactComponent } from './pages/home/contact/contact.component';
 import { RegistroEmpresaComponent } from './pages/dashboard/registro-empresa/registro-empresa.component';
-
+import { NavComponent } from './shared/nav/nav.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
   { path: 'privacidad', component: PrivacidadComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  {path: 'ayuda', component:AyudaComponent },
-  { path: 'registro-empleados', component:RegistroEmpleadosComponent },
-  { path: 'terminos', component:TerminosComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },   // Agrega aquí las rutas hijas del módulo "Dashboard" que deseas proteger
+  { path: 'registro-empleados', component: RegistroEmpleadosComponent, canActivate: [AuthGuard]  },
+  { path: 'generador-recibo-de-sueldo', component: GeneradorReciboDeSueldoComponent,canActivate: [AuthGuard] },
+  { path: 'registro-empresa', component: RegistroEmpresaComponent,canActivate: [AuthGuard] },
+  { path: 'ayuda', component: AyudaComponent },
+  { path: 'terminos', component: TerminosComponent },
   { path: 'servicios', component: ServiciosComponent },
-  { path: 'generador de recibo de sueldo', component: GeneradorReciboDeSueldoComponent},
   { path: 'contact', component: ContactComponent },
-  {path:'registro-empresa', component: RegistroEmpresaComponent},
 ];
 
 @NgModule({

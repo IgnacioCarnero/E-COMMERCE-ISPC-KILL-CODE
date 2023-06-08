@@ -13,7 +13,7 @@
                     name="Empresa"
                     type="text"
                     class="form-control"
-                    id="floatingName"
+                    id="floatingName2"
                     formControlName="companynameregister"
                     [ngClass]="{'is-invalid':companynameregister && companynameregister.invalid && companynameregister.touched} "
 
@@ -21,7 +21,7 @@
                     placeholder="Nombre de la Empresa"
                     required
                   />
-                  <label for="floatingName">Nombre de la empresa</label>
+                  <label for="floatingName2">Nombre de la empresa</label>
                 </div>
 
                 <div class="form-floating mb-3">
@@ -29,28 +29,28 @@
                     name="E-mail"
                     type="email"
                     class="form-control"
-                    id="floatingInput"
+                    id="floating2"
                     formControlName="usernameregister"
                     [ngClass]="{'is-invalid':usernameregister && usernameregister.invalid && usernameregister.touched} "
 
                     placeholder="name@example.com"
                     required
                   />
-                  <label for="floatingInput">Email address</label>
+                  <label for="floating2">Email address</label>
                 </div>
                 <div class="form-floating mb-3">
                   <input
                     name="Pass"
                     type="password"
                     class="form-control"
-                    id="floatingPassword"
+                    id="floatingPassword2"
                     formControlName="userpasswordregister"
                     [ngClass]="{'is-invalid':userpasswordregister && userpasswordregister.invalid && userpasswordregister.touched} "
 
                     placeholder="Password"
                     required
                   />
-                  <label for="floatingPassword">Password</label>
+                  <label for="floatingPassword2">Password</label>
                 </div>
 
                 <div class="form-floating mb-3">
@@ -58,14 +58,14 @@
                     name="RePass"
                     type="password"
                     class="form-control"
-                    id="floatingPasswordConfirma"
+                    id="floatingPassword2Confirma"
                     formControlName="confirmpasswordregister"
                     [ngClass]="{'is-invalid':confirmpasswordregister && confirmpasswordregister.invalid && confirmpasswordregister.touched} "
 
                     placeholder="Confirma Password"
                     required
                   />
-                  <label for="floatingPasswordConfirma">Confirm Password</label>
+                  <label for="floatingPassword2Confirma">Confirm Password</label>
                 </div>
 
                 <div class="d-grid">

@@ -12,10 +12,11 @@
 
                   type="email"
                   class="form-control"
-                  id="floatingInput"
+                  id="floatingInput{{dynamicIdSuffix}}"
                   placeholder="name@example.com"
-                  formControlName="username"
-                  [ngClass]="{'is-invalid':username && username.invalid && username.touched} "
+                  formControlName="email"
+                  [ngClass]="{'is-invalid': userLogin.controls.email && userLogin.controls.email.invalid && userLogin.controls.email.touched}"
+
 
                   required
 
@@ -23,7 +24,8 @@
                 <label for="floatingInput">Email address</label>
               </div>
 
-              <span *ngIf="username && username.invalid && username.touched" class="text-danger  mb-2">Usuario incorrecto</span>
+              <span *ngIf="userLogin.controls.email && userLogin.controls.email.invalid && userLogin.controls.email.touched" class="text-danger mb-2">Usuario incorrecto</span>
+
 
               <div class="form-floating mb-3">
                 <input
@@ -32,14 +34,13 @@
                   id="floatingPassword"
                   placeholder="Password"
                   formControlName="userpassword"
-                  [ngClass]="{'is-invalid':userpassword && userpassword.invalid && userpassword.touched}"
+                  [ngClass]="{'is-invalid': userLogin.controls.userpassword && userLogin.controls.userpassword.invalid && userLogin.controls.userpassword.touched}"
                   required
                 />
                 <label for="floatingPassword">Password</label>
               </div>
 
-              <span *ngIf="userpassword && userpassword.invalid && userpassword.touched" class="text-danger mx-auto mb-2" >Contraseña incorrecta</span>
-
+              <span *ngIf="userLogin.controls.userpassword && userLogin.controls.userpassword.invalid && userLogin.controls.userpassword.touched" class="text-danger mx-auto mb-2">Contraseña incorrecta</span>
 
               <div class="form-check mb-3">
                 <input
