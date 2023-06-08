@@ -9,81 +9,97 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 
     export class RegistroEmpleadosComponent {
       formu = new FormGroup({
-        nombre: new FormControl('', [Validators.required, Validators.minLength(3)]),
-        apellido: new FormControl('', [Validators.required, Validators.minLength(3)]),
-        dni: new FormControl('', Validators.required),
-        dateone: new FormControl('', Validators.required),
-        legajo: new FormControl('', Validators.required),
-        date: new FormControl('', Validators.required),
-        email: new FormControl('', [Validators.required, Validators.email]),
-        direccion: new FormControl('', [Validators.required, Validators.minLength(3)]),
+        legajo: new FormControl('', [Validators.required,Validators.pattern(`^[0-9A-Za-z]+$`),]),
+        nombre: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]),
+        apellido: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]),
+        calle: new FormControl('', [Validators.required, Validators.minLength(3)]),
         numero: new FormControl('', [Validators.required, Validators.minLength(3)]),
         provincia: new FormControl('', [Validators.required, Validators.minLength(3)]),
+        email: new FormControl('', [Validators.required,Validators.pattern(`^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$`),]),
+        telefono: new FormControl('', [Validators.required,Validators.pattern(`^[0-9A-Za-z]+$`),]),
         cargo: new FormControl('', [Validators.required, Validators.minLength(3)]),
         categoria: new FormControl('', [Validators.required, Validators.minLength(3)]),
-        obra: new FormControl('', [Validators.required, Validators.minLength(3)]),
+        fecha_ingreso: new FormControl('', [Validators.required,Validators.pattern(`^(19[0-9]{2}|20[0-9]{2})-(0[1-9]|1[0-2])-([0-2][1-9]|3[0-1])$`),]),
+        fecha_nacimiento: new FormControl('', [Validators.required,Validators.pattern(`^(19[0-9]{2}|20[0-9]{2})-(0[1-9]|1[0-2])-([0-2][1-9]|3[0-1])$`),]),
+        cuil_empleado: new FormControl('', [Validators.required,Validators.pattern(`^[0-9A-Za-z]+$`),]),
+
+        obra_social: new FormControl('', [Validators.required, Validators.minLength(3)]),
         art: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      });
+        });
+
+        get legajo() {
+          return this.formu.get('legajo')as FormControl;
+        }
+
       get nombre() {
-        return this.formu.get('nombre');
+        return this.formu.get('nombre') as FormControl;
       }
 
       get apellido() {
-        return this.formu.get('apellido');
+        return this.formu.get('apellido')as FormControl;
       }
-
+/*       Se comenta linea de codigo no requerida
       get dni() {
-        return this.formu.get('dni');
+        return this.formu.get('dni')as FormControl;
+      } */
+
+      get fecha_ingreso() {
+        return this.formu.get('fecha_ingreso')as FormControl;
       }
 
-      get dateone() {
-        return this.formu.get('dateone');
-      }
-      get legajo() {
-        return this.formu.get('legajo');
-      }
-      get date() {
-        return this.formu.get('date');
+      get fecha_nacimiento() {
+        return this.formu.get('fecha_nacimiento')as FormControl;
       }
 
       get email() {
-        return this.formu.get('email');
+        return this.formu.get('email')as FormControl;
       }
 
-      get direccion() {
-        return this.formu.get('direccion');
+      get calle() {
+        return this.formu.get('calle')as FormControl;
       }
 
       get numero() {
-        return this.formu.get('numero');
+        return this.formu.get('numero')as FormControl;
       }
 
       get provincia() {
-        return this.formu.get('provincia');
+        return this.formu.get('provincia')as FormControl;
       }
 
       get cargo() {
-        return this.formu.get('cargo');
+        return this.formu.get('cargo')as FormControl;
       }
 
       get categoria() {
-        return this.formu.get('categoria');
+        return this.formu.get('categoria')as FormControl;
       }
 
-      get obra() {
-        return this.formu.get('obra');
+      get cuil_empleado() {
+        return this.formu.get('cuil_empleado')as FormControl;
+      }
+      get obra_social() {
+        return this.formu.get('obra_social')as FormControl;
       }
 
       get art() {
-        return this.formu.get('art');
+        return this.formu.get('art')as FormControl;
       }
 
-      guardarRegistro() {
+
+        guardarRegistro() {
+        if (this.formu.invalid) {
+          console.log('El formulario tiene errores de validación');
+          console.log(this.formu.errors);
+          console.log(this.nombre?.errors);
+
+          return;
+        }
         const valores = this.formu.value;
         console.log(valores);
         this.formu.reset();
       }
+      resetFormulario() {
+        this.formu.reset();
+      }
     }
-
-
-
