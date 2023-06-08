@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authentication',
     'corsheaders',
+    'rest_auth',
 ]
 
 AUTH_USER_MODEL = 'databaseManager.CustomUser'
@@ -69,7 +70,7 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 ]
 
-CORS_ORIGIN_WHITELIST = ["http://localhost:3000"]
+CORS_ORIGIN_WHITELIST = ["http://localhost:4200"]
 CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'ABM_ISPC.urls'

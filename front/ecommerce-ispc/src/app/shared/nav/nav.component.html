@@ -53,7 +53,7 @@
           >
         </li>
       </ul>
-      <button
+      <button *ngIf="!getIsAuthenticated()" (click)="openModal()"
         type="button"
         class="btn btn-primary"
         data-bs-toggle="modal"
@@ -64,7 +64,13 @@
           <span class="small">Iniciar Sesion</span>
         </span>
       </button>
-      <button
+
+      <div class="navbar-nav ml-auto" *ngIf="getIsAuthenticated()">
+        <span class="navbar-text text-primary mr-3">Bienvenido, {{ authService.getLoggedInUserEmail() }}</span>
+        <button class="btn btn-primary mx-2" (click)="logout()">Cerrar sesión</button>
+      </div>
+
+      <button *ngIf="!getIsAuthenticated()"
         type="button"
         class="btn btn-light mx-2"
         data-bs-toggle="modal"

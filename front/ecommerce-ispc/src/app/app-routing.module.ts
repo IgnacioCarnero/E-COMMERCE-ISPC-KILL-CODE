@@ -9,19 +9,33 @@ import { TerminosComponent } from './pages/terminos/terminos.component';
 import { ServiciosComponent } from './pages/servicios/servicios.component';
 import { GeneradorReciboDeSueldoComponent } from './pages/dashboard/generador-recibo-de-sueldo/generador-recibo-de-sueldo.component';
 import { ContactComponent } from './pages/home/contact/contact.component';
+import { NavComponent } from './shared/nav/nav.component';
 
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
   { path: 'privacidad', component: PrivacidadComponent },
   { path: 'dashboard', component: DashboardComponent },
-  {path: 'ayuda', component:AyudaComponent },
+  { path: 'ayuda', component:AyudaComponent },
+  { path: 'registro-empleados', component:RegistroEmpleadosComponent },
+  { path: 'terminos', component:TerminosComponent },
+  { path: 'servicios', component: ServiciosComponent },
+  { path: 'generador de recibo de sueldo', component: GeneradorReciboDeSueldoComponent},
+  { path: 'contact', component: ContactComponent },
+  { path: 'authenticated', component: NavComponent, children: [
+    // Agrega aquí las rutas adicionales o componentes para la página autenticada
+  {  path: '', pathMatch: 'full', component: HomeComponent },
+  { path: 'privacidad', component: PrivacidadComponent },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'ayuda', component:AyudaComponent },
   { path: 'registro-empleados', component:RegistroEmpleadosComponent },
   { path: 'terminos', component:TerminosComponent },
   { path: 'servicios', component: ServiciosComponent },
   { path: 'generador de recibo de sueldo', component: GeneradorReciboDeSueldoComponent},
   { path: 'contact', component: ContactComponent }
 
+  ]},
+  
 ];
 
 @NgModule({
