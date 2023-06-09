@@ -8,16 +8,12 @@ import { PagesModule } from './pages/pages.module';
 import { AuthModule } from './auth/auth.module';
 import { AddToCartModule } from './add-to-cart/add-to-cart.module';
 
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http'
 
-import {FormsModule} from '@angular/forms';
 
-import { RegisterComponent } from './auth/register/register.component';
-import { SignupService } from './services/signup.service';
-import { LoginService } from './services/login.service';
 @NgModule({
-  declarations: [AppComponent, RegisterComponent],
-  providers: [LoginService],
+  declarations: [AppComponent],
+  providers: [],
   bootstrap: [AppComponent],
   imports: [
     BrowserModule,
@@ -27,8 +23,7 @@ import { LoginService } from './services/login.service';
     PagesModule,
     AuthModule,
     HttpClientModule,
-    AddToCartModule,
-    FormsModule
+    AddToCartModule
   ],
 })
 export class AppModule {}
