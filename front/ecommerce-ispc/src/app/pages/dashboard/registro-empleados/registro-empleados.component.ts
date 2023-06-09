@@ -22,7 +22,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
         fecha_ingreso: new FormControl('', [Validators.required,Validators.pattern(`^(19[0-9]{2}|20[0-9]{2})-(0[1-9]|1[0-2])-([0-2][1-9]|3[0-1])$`),]),
         fecha_nacimiento: new FormControl('', [Validators.required,Validators.pattern(`^(19[0-9]{2}|20[0-9]{2})-(0[1-9]|1[0-2])-([0-2][1-9]|3[0-1])$`),]),
         cuil_empleado: new FormControl('', [Validators.required,Validators.pattern(`^[0-9A-Za-z]+$`),]),
-
         obra_social: new FormControl('', [Validators.required, Validators.minLength(3)]),
         art: new FormControl('', [Validators.required, Validators.minLength(3)]),
         });

@@ -16,7 +16,9 @@ import { GeneradorReciboDeSueldoComponent } from './dashboard/generador-recibo-d
 import { EmpleadosApiComponent } from './dashboard/empleados-api/empleados-api.component';
 import {EmpleadosService} from '../services/empleados.service';
 import { AppRoutingModule } from '../app-routing.module';
+import { RegistroEmpresaComponent } from './dashboard/registro-empresa/registro-empresa.component';
 import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -34,6 +36,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     RegistroEmpleadosComponent,
     TerminosComponent,
     EmpleadosApiComponent,
+    RegistroEmpresaComponent,
     ],
   imports: [CommonModule, AddToCartModule, AppRoutingModule, ReactiveFormsModule],
 
