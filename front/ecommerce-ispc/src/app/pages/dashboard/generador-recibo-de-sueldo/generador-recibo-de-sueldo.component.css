@@ -429,3 +429,60 @@ h4.h4 {
   font-weight: 400;
   margin-bottom: 0;
 }
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.column {
+  flex: 1;
+  margin-right: 1rem;
+}
+
+
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button[type="submit"] {
+  padding: 0.5rem 1rem;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+/* Estilos responsivos */
+@media screen and (max-width: 600px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .column {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+}
+
+
+
+
+
+
+

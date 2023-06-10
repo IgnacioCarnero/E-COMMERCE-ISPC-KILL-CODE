@@ -1,258 +1,196 @@
 <div class="container">
   <h1 class="py-5">Configure su recibo del sueldo</h1>
-  <form name="formulario" method="get">
-    <h3>Ingrese sus detalles sobre la empresa</h3>
-    <div class="row">
-      <div class="column">
-        <label for="nombreDeEmpresa">Nombre de empresa</label>
-        <input
-          type="text"
-          id="nombreDeEmpresa"
-          minlength="3"
-          maxlength="20"
-          placeholder="P. ej. BBVA"
-        />
-      </div>
-      <div class="column">
-        <label for="dirección">Dirección</label>
-        <input
-          type="text"
-          id="dirección"
-          minlength="17"
-          maxlength="25"
-          placeholder="P. ej. General bustos 232"
-        />
-      </div>
-    </div>
-    <div class="row">
-      <div class="column">
-        <label for="cuidad">Cuidad</label>
-        <input
-          type="text"
-          id="cuidad"
-          minlength="3"
-          maxlength="15"
-          placeholder="P. ej. Córdoba"
-        />
-      </div>
-      <div class="column">
-        <label for="códigoPostal">Código postal</label>
-        <input
-          type="text"
-          id="códigoPostal"
-          minlength="5"
-          maxlength="5"
-          placeholder="P. ej. B5000"
-        />
-      </div>
-    </div>
-    <div class="row">
-      <div class="column">
-        <label for="país">País</label>
-        <select id="país">
-          <option value="Argentina">Argentina</option>
-          <option value="Alemania">Alemania</option>
-          <option value="España">España</option>
-          <option value="Brasil">Brasil</option>
-          <option value="Uruguay">Uruguay</option>
-          <option value="Chile">Chile</option>
-        </select>
-      </div>
-      <div class="column">
-        <label for="provincia">Provincia</label>
-        <input
-          type="text"
-          id="provincia"
-          minlength="3"
-          maxlength="12"
-          placeholder="P. ej. Chubut"
-        />
-      </div>
-    </div>
+  <form [formGroup]="rsForm">
     <h3>Ingrese sus detalles sobre sus empleados</h3>
     <div class="row">
       <div class="column">
-        <label for="primerNombre">Primer nombre</label>
-        <input
-          type="text"
-          id="primerNombre"
-          minlenght="3"
-          maxlength="10"
-          placeholder="P. ej. Martín"
-        />
+        <label for="legajo">Legajo</label>
+        <input type="text" id="legajo" formControlName="legajo" placeholder="P. ej. 12345" />
+      </div>
+      <div class="column">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" formControlName="nombre" placeholder="P. ej. Martín" />
       </div>
       <div class="column">
         <label for="apellido">Apellido</label>
-        <input
-          type="text"
-          id="apellido"
-          minlenght="3"
-          maxlength="15"
-          placeholder="P. ej. Díaz"
-        />
+        <input type="text" id="apellido" formControlName="apellido" placeholder="P. ej. Díaz" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="column">
+        <label for="calle">Calle</label>
+        <input type="text" id="calle" formControlName="calle" placeholder="P. ej. General Bustos 232" />
+      </div>
+      <div class="column">
+        <label for="casa_piso_numero">Número de Casa o Piso</label>
+        <input type="text" id="casa_piso_numero" formControlName="casa_piso_numero" placeholder="P. ej. 2A" />
+      </div>
+      <div class="column">
+        <label for="provincia">Provincia</label>
+        <input type="text" id="provincia" formControlName="provincia" placeholder="P. ej. Córdoba" />
       </div>
     </div>
     <div class="row">
       <div class="column">
         <label for="email">E-mail</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="P. ej.martin12@gmail.com"
-        />
+        <input type="email" id="email" formControlName="email" placeholder="P. ej.martin12@gmail.com" />
       </div>
       <div class="column">
-        <label for="cuilDelEmpleado">Cuil del empleado</label>
-        <input
-          type="number"
-          id="cuilDelEmpleado"
-          min="1000000000000"
-          max="9999999999999"
-          placeholder="P. ej. 20-05854965-3"
-        />
+        <label for="telefono">Teléfono</label>
+        <input type="tel" id="telefono" formControlName="telefono" placeholder="P. ej. 1234567890" />
+      </div>
+      <div class="column">
+        <label for="cargo">Cargo</label>
+        <input type="text" id="cargo" formControlName="cargo" placeholder="P. ej. Gerente" />
       </div>
     </div>
     <div class="row">
       <div class="column">
-        <label for="dirección_two">Dirección</label>
-        <input
-          type="text"
-          id="dirección_two"
-          minlength="17"
-          maxlength="25"
-          placeholder="P. ej. General bustos 232"
-        />
+        <label for="categoria">Categoría</label>
+        <input type="text" id="categoria" formControlName="categoria" placeholder="P. ej. Senior" />
       </div>
       <div class="column">
-        <label for="cuidad_two">Cuidad</label>
-        <input
-          type="text"
-          id="cuidad_two"
-          minlength="3"
-          maxlength="15"
-          placeholder="P. ej. Córdoba"
-        />
+        <label for="fecha_ingreso">Fecha de Ingreso</label>
+        <input type="date" id="fecha_ingreso" formControlName="fecha_ingreso" placeholder="P. ej. 2022-01-01" />
+      </div>
+      <div class="column">
+        <label for="fecha_nacimiento">Fecha de Nacimiento</label>
+        <input type="date" id="fecha_nacimiento" formControlName="fecha_nacimiento" placeholder="P. ej. 1990-01-01" />
       </div>
     </div>
     <div class="row">
       <div class="column">
-        <label for="códigoPostal_two">Código postal</label>
-        <input
-          type="text"
-          id="códigoPostal_two"
-          minlength="5"
-          maxlength="5"
-          placeholder="P. ej. B5000"
-        />
+        <label for="ciudad">Ciudad</label>
+        <input type="text" id="ciudad" formControlName="ciudad" placeholder="P. ej. Córdoba" />
       </div>
       <div class="column">
-        <label for="país_two">País</label>
-        <select id="país_two">
-          <option value="Argentina">Argentina</option>
-          <option value="Alemania">Alemania</option>
-          <option value="España">España</option>
-          <option value="Brasil">Brasil</option>
-          <option value="Uruguay">Uruguay</option>
-          <option value="Chile">Chile</option>
-        </select>
+        <label for="cuil_empleado">CUIL del Empleado</label>
+        <input type="text" id="cuil_empleado" formControlName="cuil_empleado" placeholder="P. ej. 20-05854965-3" />
+      </div>
+      <div class="column">
+        <label for="obra_social">Obra Social</label>
+        <input type="text" id="obra_social" formControlName="obra_social" placeholder="P. ej. OSDE" />
       </div>
     </div>
     <div class="row">
       <div class="column">
-        <label for="provincia_two">Provincia/Cantón</label>
-        <input
-          type="text"
-          id="provincia_two"
-          minlength="3"
-          maxlength="12"
-          placeholder="P. ej. Chubut"
-        />
-      </div>
-      <div class="column">
-        <label for="dni">DNI</label>
-        <input
-          type="number"
-          id="dni"
-          min="10000000"
-          max="99999999"
-          placeholder="P. ej. 43235876"
-        />
+        <label for="art">Aseguradora ART</label>
+        <input type="text" id="art" formControlName="art" placeholder="P. ej. Sancor" />
       </div>
     </div>
     <h3>Ingrese sus datos sobre los ingresos</h3>
     <div class="row">
       <div class="column">
-        <label for="díaDelPago">Día del pago</label>
-        <input
-          type="date"
-          min="1950-01-02"
-          max="2022-12-31"
-          placeholder="P. ej.Día del Pago"
-          id="díaDelPago"
-        />
+        <label for="montoBruto">Monto Bruto</label>
+        <input type="number" id="montoBruto" formControlName="montoBruto" placeholder="P. ej. 60000" />
       </div>
       <div class="column">
-        <label for="finDelPago">Fin del pago</label>
-        <input
-          type="date"
-          min="1950-01-02"
-          max="2022-12-31"
-          placeholder="P. ej. Fin del Pago"
-          id="finDelPago"
-        />
+        <label for="montoNeto">Monto Neto</label>
+        <input type="number" id="montoNeto" formControlName="montoNeto" placeholder="P. ej. 50000" />
+      </div>
+      <div class="column">
+        <label for="periodo">Período</label>
+        <input type="text" id="periodo" formControlName="periodo" placeholder="P. ej. Mayo 2023" />
       </div>
     </div>
     <div class="row">
       <div class="column">
-        <label for="cantidadDePagos">Cuántas veces es el pago?</label>
-        <select id="cantidadDePagos" name="cantidadDePagos">
-          <option value="En todas 2 Semanas">En todas 2 Semanas</option>
-          <option value="Semanalmente">Semanalmente</option>
-          <option value="Por medio Mes">Por medio Mes</option>
-          <option value="Por Mes">Por Mes</option>
-          <option value="Por un Cuarto del Año">Por un Cuarto del Año</option>
-          <option value="Por medio Año">Por medio Año</option>
-          <option value="Por año">Por año</option>
-        </select>
-      </div>
-      <div class="column">
-        <label for="ingresoAnual">Ingreso anual</label>
-        <input
-          type="number"
-          min="100"
-          max="1000000"
-          placeholder="P. ej. 600000"
-          id="ingresoAnual"
-        />
+        <label for="antiguedad">Antigüedad</label>
+        <input type="number" id="antiguedad" formControlName="antiguedad" placeholder="P. ej. 5" />
       </div>
     </div>
-    <h3>Ingrese información sobre sus Retenciones</h3>
     <div class="row">
       <div class="column">
-        <label for="causaPorLaRetención">Causa por la retención</label>
-        <input
-          type="text"
-          maxlength="35"
-          id="causaPorLaRetención"
-          placeholder="P. ej. Impuestos"
-        />
+        <label for="concepto">Concepto</label>
+        <textarea id="concepto" formControlName="concepto" placeholder="P. ej. Sueldo correspondiente al mes de mayo." rows="4"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column">
+        <label for="asistencia">Asistencia</label>
+        <input type="number" id="asistencia" formControlName="asistencia" placeholder="P. ej. 20" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="column">
+        <label for="fecha_pago">Fecha de Pago</label>
+        <input type="date" id="fecha_pago" formControlName="fecha_pago" placeholder="P. ej. 2023-06-10" />
+      </div>
+    </div>
+    <h3>Ingrese información sobre las Deducciones</h3>
+    <div class="row">
+      <div class="column">
+        <label for="cod_deduccion">Código de Deducción</label>
+        <input type="text" id="cod_deduccion" formControlName="cod_deduccion" placeholder="P. ej. D001" />
       </div>
       <div class="column">
-        <label for="cantidadDeRetenciones">Cantidad de retenciones</label>
-        <input
-          type="number"
-          id="cantidadDeRetenciones"
-          min="100"
-          max="1000000"
-          placeholder="P. ej. 5 Retenciones"
-        />
+        <label for="porcentaje_deduccion">Porcentaje de Deducción</label>
+        <input type="number" id="porcentaje_deduccion" formControlName="porcentaje_deduccion" placeholder="P. ej. 10" />
+      </div>
+      <div class="column">
+        <label for="causa_deduccion">Causa de la Deducción</label>
+        <input type="text" id="causa_deduccion" formControlName="causa_deduccion" placeholder="P. ej. Impuesto a las Ganancias" />
       </div>
     </div>
-    <div class="container-button">
-      <input type="submit" id="btn" value="Crear el recibo del sueldo" />
-      <input type="reset" value="Restablecer el recibo del sueldo" />
+    <h3>Ingrese información sobre los Extras</h3>
+    <div class="row">
+      <div class="column">
+        <label for="cod_extra">Código del Extra</label>
+        <input type="text" id="cod_extra" formControlName="cod_extra" placeholder="P. ej. E001" />
+      </div>
+      <div class="column">
+        <label for="causa_extra">Causa del Extra</label>
+        <input type="text" id="causa_extra" formControlName="causa_extra" placeholder="P. ej. Bonificación por rendimiento" />
+      </div>
+      <div class="column">
+        <label for="monto_extra">Monto Extra</label>
+        <input type="number" id="monto_extra" formControlName="monto_extra" placeholder="P. ej. 5000" />
+      </div>
     </div>
+    <h3>Ingrese información sobre el Empleado</h3>
+    <div class="row">
+      <div class="column">
+        <label for="legajo">Número de Legajo</label>
+        <input type="text" id="legajo" formControlName="legajo" placeholder="P. ej. 123456" />
+      </div>
+      <div class="column">
+        <label for="calle">Calle</label>
+        <input type="text" id="calle" formControlName="calle" placeholder="P. ej. Av. Libertador" />
+      </div>
+      <div class="column">
+        <label for="casa_piso_numero">Número de Casa o Piso</label>
+        <input type="text" id="casa_piso_numero" formControlName="casa_piso_numero" placeholder="P. ej. 123" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="column">
+        <label for="provincia">Provincia</label>
+        <input type="text" id="provincia" formControlName="provincia" placeholder="P. ej. Buenos Aires" />
+      </div>
+      <div class="column">
+        <label for="email">Email</label>
+        <input type="email" id="email" formControlName="email" placeholder="P. ej. ejemplo@gmail.com" />
+      </div>
+      <div class="column">
+        <label for="telefono">Teléfono</label>
+        <input type="text" id="telefono" formControlName="telefono" placeholder="P. ej. 1234567890" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="column">
+        <label for="fecha_nacimiento">Fecha de Nacimiento</label>
+        <input type="date" id="fecha_nacimiento" formControlName="fecha_nacimiento" placeholder="P. ej. 1990-01-01" />
+      </div>
+      <div class="column">
+        <label for="ciudad">Ciudad</label>
+        <input type="text" id="ciudad" formControlName="ciudad" placeholder="P. ej. Buenos Aires" />
+      </div>
+      <div class="column">
+        <label for="codigo_postal">Código Postal</label>
+        <input type="text" id="codigo_postal" formControlName="codigo_postal" placeholder="P. ej. 1000" />
+      </div>
+    </div>
+    <button type="submit">Crear recibo de sueldo</button>
   </form>
-  <script src="../js/configurador-De-Recibo-Del-Sueldo/configuraciónDeReciboDelSueldo.js"></script>
 </div>
+
