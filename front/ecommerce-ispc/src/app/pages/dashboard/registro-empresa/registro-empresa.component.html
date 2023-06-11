@@ -1,70 +1,85 @@
 <div class="myborde">
-  <h2 class="text-center mt-3">Registro empresa</h2>
-  <form [formGroup]="formuempresa">
-    <!-- (ngsubmit)="guardarRegistro()"> -->
-    <div class="m-5">
-      <div class="containerDos">
-        <div class="row">
-          <div class="col">
-            <div class="col-4 mt-3">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 order-md-2">
+        <form [formGroup]="formuempresa">
+          <div class="row">
+            <div class="col-12">
               <label for="cuit" class="form-label">CUIT</label>
               <input type="number" class="form-control" id="cuit" formControlName="cuit" required>
               <div class="alert alert-danger" *ngIf="formuempresa.controls['cuit'].invalid && formuempresa.controls['cuit'].touched">
                 El dato es incorrecto o incompleto.
               </div>
             </div>
-            <div class="col">
+          </div>
+            <div class="col-12">
               <label for="nombre" class="form-label">NOMBRE/RAZON</label>
               <input type="text" class="form-control" id="nombre" formControlName="nombre" required minlength="3">
               <div class="alert alert-danger" *ngIf="formuempresa.controls['nombre'].invalid && formuempresa.controls['nombre'].touched">
                 El dato es incorrecto o incompleto.
               </div>
             </div>
-            <div class="col">
+            <div class="col-12">
               <label for="direccion" class="form-label">DIRECCION</label>
               <input type="text" class="form-control" id="direccion" formControlName="direccion" required minlength="3">
               <div class="alert alert-danger" *ngIf="formuempresa.controls['direccion'].invalid && formuempresa.controls['direccion'].touched">
                 El dato es incorrecto o incompleto.
               </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <label for="ciudad" class="form-label">CIUDAD</label>
-              <input type="text" class="form-control" id="calle" formControlName="ciudad" required minlength="3">
-              <div class="alert alert-danger" *ngIf="formuempresa.controls['ciudad'].invalid && formuempresa.controls['ciudad'].touched">
-                El dato es incorrecto o incompleto.
-              </div>
-            </div>
-            <div class="col">
-              <label for="provincia" class="form-label">PROVINCIA</label>
-              <input type="text" class="form-control" id="provincia" formControlName="provincia" required>
-              <div class="alert alert-danger" *ngIf="formuempresa.controls['provincia'].invalid && formuempresa.controls['provincia'].touched">
-                El dato es incorrecto o incompleto.
-              </div>
-              <div class="col">
-                <label for="art" class="form-label">ART CONTRATADA</label>
-                <input type="text" class="form-control" id="art"                formControlName="art" required>
-                <div class="alert alert-danger" *ngIf="formuempresa.controls['art'].invalid && formuempresa.controls['art'].touched">
-                  El dato es incorrecto o incompleto.
-                </div>
-              </div>
-              <br>
-              <br>
-            </div>
-          </div>
-          <div class="conteinerTres">
+          <div class="col-md-4">
             <div class="row">
-              <div class="d-grid gap-2 col-4 mx-auto d-md-flex justify-content-md-center p-3 m-2">
-                <button class="btn btn-primary" (click)="guardarRegistroempresa()" type="submit">Guardar</button>
-                <button class="btn btn-primary" (click)="resetFormularioempresa()">Reset</button>
-              </div>
+            <div class="col-12">
+            <label for="ciudad" class="form-label">CIUDAD</label>
+            <input type="text" class="form-control" id="calle" formControlName="ciudad" required minlength="3">
+            <div class="alert alert-danger" *ngIf="formuempresa.controls['ciudad'].invalid && formuempresa.controls['ciudad'].touched">
+              El dato es incorrecto o incompleto.
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <label for="provincia" class="form-label">PROVINCIA</label>
+            <input type="text" class="form-control" id="provincia" formControlName="provincia" required>
+            <div class="alert alert-danger" *ngIf="formuempresa.controls['provincia'].invalid && formuempresa.controls['provincia'].touched">
+              El dato es incorrecto o incompleto.
+            </div>
+          </div>
+        </div>
+      <div class="col-md-4">
+        <div class="row">
+          <div class="col-12">
+            <label for="art" class="form-label">ART CONTRATADA</label>
+            <input type="text" class="form-control" id="art" formControlName="art" required>
+            <div class="alert alert-danger" *ngIf="formuempresa.controls['art'].invalid && formuempresa.controls['art'].touched">
+              El dato es incorrecto o incompleto.
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="d-grid gap-2 col-6 mx-auto d-md-flex justify-content-md-center p-3 m-2">
+              <button class="btn btn-primary" (click)="guardarRegistroempresa()" type="submit">Guardar</button>
+              <button class="btn btn-primary" (click)="resetFormularioempresa()">Reset</button>
             </div>
           </div>
         </div>
       </div>
+      </div>
+    </form>
     </div>
-  </form>
+    <div class="col-md-6 order-md-2">
+    <div class="col-md-12">
+      <h2 class="text-center mt-3">Registro empresa</h2>
+      <div class="row">
+        <div class="col-12">
+          <p class="text-muted">Registra tu empresa para ingresar al sistema. Contamos con una mesa de ayuda para asistirte durante el proceso de registro y brindarte el soporte necesario</p>
+      </div>
+    <div>
+      <div>
+      <img src="https://www.alarmatic.com.pa/wp-content/uploads/2017/12/alarmatic-soporte-tecnico.jpg">
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
 </div>
-
-
