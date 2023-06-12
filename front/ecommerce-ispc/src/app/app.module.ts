@@ -8,6 +8,7 @@ import { PagesModule } from './pages/pages.module';
 import { AuthModule } from './auth/auth.module';
 import { AddToCartModule } from './add-to-cart/add-to-cart.module';
 
+
 import {HttpClientModule} from '@angular/common/http'
 
 

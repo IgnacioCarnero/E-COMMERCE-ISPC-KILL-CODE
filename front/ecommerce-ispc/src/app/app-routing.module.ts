@@ -20,21 +20,8 @@ const routes: Routes = [
   { path: 'registro-empleados', component:RegistroEmpleadosComponent },
   { path: 'terminos', component:TerminosComponent },
   { path: 'servicios', component: ServiciosComponent },
-  { path: 'generador de recibo de sueldo', component: GeneradorReciboDeSueldoComponent},
+  { path: 'generador-recibo-de-sueldo', component: GeneradorReciboDeSueldoComponent},
   { path: 'contact', component: ContactComponent },
-  { path: 'authenticated', component: NavComponent, children: [
-    // Agrega aquí las rutas adicionales o componentes para la página autenticada
-  {  path: '', pathMatch: 'full', component: HomeComponent },
-  { path: 'privacidad', component: PrivacidadComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'ayuda', component:AyudaComponent },
-  { path: 'registro-empleados', component:RegistroEmpleadosComponent },
-  { path: 'terminos', component:TerminosComponent },
-  { path: 'servicios', component: ServiciosComponent },
-  { path: 'generador de recibo de sueldo', component: GeneradorReciboDeSueldoComponent},
-  { path: 'contact', component: ContactComponent }
-
-  ]},
   
 ];
 
