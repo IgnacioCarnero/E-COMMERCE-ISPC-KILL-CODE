@@ -45,7 +45,7 @@
           >
         </li>
         <li class="nav-item">
-          <a
+          <a *ngIf="getIsAuthenticated()"
             class="nav-link me-lg-3"
             routerLink="/dashboard"
             routerLinkActive="active-link"
@@ -53,15 +53,10 @@
           >
         </li>
       </ul>
-      <button *ngIf="!getIsAuthenticated()" (click)="openModal()"
-        type="button"
-        class="btn btn-primary"
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
-      >
+      <button *ngIf="!getIsAuthenticated()" (click)="openLoginModal()" type="button" class="btn btn-primary">
         <span class="d-flex align-items-center">
           <!-- <i class="bi-chat-text-fill me-2"></i> -->
-          <span class="small">Iniciar Sesion</span>
+          <span class="small">Iniciar Sesión</span>
         </span>
       </button>
 
@@ -70,12 +65,7 @@
         <button class="btn btn-primary mx-2" (click)="logout()">Cerrar sesión</button>
       </div>
 
-      <button *ngIf="!getIsAuthenticated()"
-        type="button"
-        class="btn btn-light mx-2"
-        data-bs-toggle="modal"
-        data-bs-target="#registerModal"
-      >
+      <button *ngIf="!getIsAuthenticated()" (click)="openRegisterModal()" type="button" class="btn btn-primary mx-2">
         <span class="d-flex align-items-center">
           <!-- <i class="bi-chat-text-fill me-2"></i> -->
           <span class="small">Registro</span>
@@ -84,30 +74,4 @@
     </div>
   </div>
 </nav>
-<div
-  class="modal fade"
-  id="exampleModal"
-  tabindex="-1"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <app-login></app-login>
-    </div>
-  </div>
-</div>
 
-<div
-  class="modal fade"
-  id="registerModal"
-  tabindex="-1"
-  aria-labelledby="registerModalLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <app-register></app-register>
-    </div>
-  </div>
-</div>

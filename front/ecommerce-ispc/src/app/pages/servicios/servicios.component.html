@@ -2,6 +2,7 @@
   <div class="text-center">
       <h1>Conoce nuestras propuestas</h1>
       <h3>Todas nuestras licencias son anuales</h3>
+      <h4>Para adquirir nuestros servicios debes Iniciar Sesion</h4>
   </div>
 </div>
 
@@ -27,7 +28,7 @@
               <li>Recibo digital</li>
               <li>Formularios AFIP</li>
             </ul>
-            <button (click)="agregarAlCarrito(Personal)"
+            <button *ngIf="getIsAuthenticated()" (click)="agregarAlCarrito(Personal)"
             type="button"
             [class]="cambioDeBoton(Personal).class">{{ cambioDeBoton(Personal).text }}</button>
           </div>
@@ -51,7 +52,7 @@
               <li>Recibo digital</li>
               <li>Formularios AFIP</li>
             </ul>
-            <button (click)="agregarAlCarrito(PyME)"
+            <button *ngIf="getIsAuthenticated()" (click)="agregarAlCarrito(PyME)"
             type="button"
             [class]="cambioDeBoton(PyME).class">{{ cambioDeBoton(PyME).text }}</button>
           </div>
@@ -75,14 +76,14 @@
               <li>Recibo digital</li>
               <li>Formularios AFIP</li>
             </ul>
-            <button (click)="agregarAlCarrito(PremiumPyME)"
+            <button *ngIf="getIsAuthenticated()" (click)="agregarAlCarrito(PremiumPyME)"
             type="button"
             [class]="cambioDeBoton(PremiumPyME).class">{{ cambioDeBoton(PremiumPyME).text }}</button>
           </div>
         </div>
       </div>
       <div class="d-grid gap-2 d-md-block">
-        <button
+        <button *ngIf="getIsAuthenticated()"
           type="button"
           data-bs-toggle="modal"
           data-bs-target="#serviceModal"

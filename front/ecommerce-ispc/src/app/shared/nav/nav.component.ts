@@ -1,17 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { ModalService } from '../../services/modal.service';
+import { LoginComponent } from '../../auth/login/login.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { RegisterComponent } from 'src/app/auth/register/register.component';
 
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css']
 })
-export class NavComponent {
+export class NavComponent implements OnInit {
+  @ViewChild(LoginComponent) loginComponent!: LoginComponent;
   loggedInUserEmail: string = '';
   isLoggedIn: boolean = false;
 
-  constructor(public authService: AuthService, private modalService: ModalService) { 
+  constructor(public authService: AuthService, private modalService: ModalService, private ngbModal: NgbModal) { 
     this.loggedInUserEmail = this.getLoggedInUserEmail();
   }
   
@@ -21,13 +25,12 @@ export class NavComponent {
     console.log(this.isLoggedIn);
   }
 
-  openModal(): void {
-    const modalElement = document.getElementById('exampleModal');
-    if (modalElement) {
-      modalElement.style.display = 'block';
-      modalElement.classList.add('show');
-      this.modalService.setModalElement(modalElement);
-    }
+  openLoginModal(): void {
+    this.modalService.openModal(LoginComponent);
+  }
+
+  openRegisterModal(): void {
+    this.modalService.openModal(RegisterComponent);
   }
   
   getIsAuthenticated(): boolean {

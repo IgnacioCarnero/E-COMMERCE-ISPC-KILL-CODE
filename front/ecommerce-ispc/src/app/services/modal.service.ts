@@ -1,23 +1,19 @@
 import { Injectable } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ModalService {
-  private modalElement: HTMLElement | null = null;
 
-  setModalElement(element: HTMLElement): void {
-    this.modalElement = element;
+  constructor(private modalService: NgbModal) {}
+
+  openModal(content: any): void {
+    this.modalService.open(content);
   }
 
   closeModal(): void {
-    if (this.modalElement) {
-      this.modalElement.classList.remove('show');
-      this.modalElement.style.display = 'none';
-      const backdropElement = document.getElementsByClassName('modal-backdrop')[0];
-      if (backdropElement) {
-        backdropElement.remove();
-      }
-    }
+    this.modalService.dismissAll();
   }
 }
+

@@ -6,7 +6,6 @@ import { ContactComponent } from './home/contact/contact.component';
 import { SectionComponent } from './home/section/section.component';
 import { HeaderComponent } from './home/header/header.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { SideBarComponent } from './dashboard/side-bar/side-bar.component';
 import { PrivacidadComponent } from './privacidad/privacidad.component';
 import { ServiciosComponent } from './servicios/servicios.component';
 import { AyudaComponent } from './ayuda/ayuda.component';
@@ -18,6 +17,7 @@ import {EmpleadosService} from '../services/empleados.service';
 import { AppRoutingModule } from '../app-routing.module';
 import { RegistroEmpresaComponent } from './dashboard/registro-empresa/registro-empresa.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -28,7 +28,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     ContactComponent,
     HeaderComponent,
     DashboardComponent,
-    SideBarComponent,
     PrivacidadComponent,
     ServiciosComponent,
     GeneradorReciboDeSueldoComponent,
@@ -38,7 +37,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     EmpleadosApiComponent,
     RegistroEmpresaComponent,
     ],
-  imports: [CommonModule, AddToCartModule, AppRoutingModule, ReactiveFormsModule],
+  imports: [CommonModule, AddToCartModule, AppRoutingModule, ReactiveFormsModule, SharedModule],
 
   exports: [
     SectionComponent,
@@ -47,7 +46,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     HeaderComponent,
     ServiciosComponent,
     GeneradorReciboDeSueldoComponent,
-    SideBarComponent,
     DashboardComponent,
     PrivacidadComponent,
     AyudaComponent,
