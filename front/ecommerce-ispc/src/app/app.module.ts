@@ -11,8 +11,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AddToCartModule } from './add-to-cart/add-to-cart.module';
 
 
-
-
 @NgModule({
   declarations: [AppComponent],
   providers: [],

@@ -2,6 +2,7 @@ import { AfterViewInit, Component, OnDestroy } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
 import { EventService } from 'src/app/services/event.service';
 import { Subscription, flatMap } from 'rxjs';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-servicios',
@@ -12,9 +13,15 @@ export class ServiciosComponent implements AfterViewInit, OnDestroy{
   Personal: Servicio = new Servicio('Personal', '$20000');
   PyME: Servicio = new Servicio('PyME', '$60000');
   PremiumPyME: Servicio = new Servicio('PremiumPyME', '$100000');
+  isLoggedIn: boolean = false;
   
   private carritoActualizadoSubscription!: Subscription;
-  constructor(private cartService: CartService, private eventService: EventService) { }
+  constructor(private cartService: CartService, private eventService: EventService, public authService: AuthService) { }
+
+  ngOnInit() {
+    this.isLoggedIn = this.authService.getIsAuthenticated();
+    console.log(this.isLoggedIn);
+  }
 
   ngAfterViewInit() {
     this.cambioDeBoton(this.Personal);
@@ -42,6 +49,10 @@ export class ServiciosComponent implements AfterViewInit, OnDestroy{
     } else {
       return { class: 'btn btn-primary', text: 'Agregar licencia' };
     }
+  }
+
+  getIsAuthenticated(): boolean {
+    return this.authService.getIsAuthenticated();
   }
   
 }
