@@ -6,7 +6,6 @@ import { ContactComponent } from './home/contact/contact.component';
 import { SectionComponent } from './home/section/section.component';
 import { HeaderComponent } from './home/header/header.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { SideBarComponent } from './dashboard/side-bar/side-bar.component';
 import { PrivacidadComponent } from './privacidad/privacidad.component';
 import { ServiciosComponent } from './servicios/servicios.component';
 import { AyudaComponent } from './ayuda/ayuda.component';
@@ -16,6 +15,7 @@ import { GeneradorReciboDeSueldoComponent } from './dashboard/generador-recibo-d
 import { EmpleadosApiComponent } from './dashboard/empleados-api/empleados-api.component';
 import {EmpleadosService} from '../services/empleados.service';
 import { AppRoutingModule } from '../app-routing.module';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -25,7 +25,6 @@ import { AppRoutingModule } from '../app-routing.module';
     ContactComponent,
     HeaderComponent,
     DashboardComponent,
-    SideBarComponent,
     PrivacidadComponent,
     ServiciosComponent,
     GeneradorReciboDeSueldoComponent,
@@ -34,7 +33,7 @@ import { AppRoutingModule } from '../app-routing.module';
     TerminosComponent,
     EmpleadosApiComponent,
   ],
-  imports: [CommonModule, AddToCartModule, AppRoutingModule],
+  imports: [CommonModule, AddToCartModule, AppRoutingModule, SharedModule],
 
   exports: [
     SectionComponent,
@@ -43,7 +42,6 @@ import { AppRoutingModule } from '../app-routing.module';
     HeaderComponent,
     ServiciosComponent,
     GeneradorReciboDeSueldoComponent,
-    SideBarComponent,
     DashboardComponent,
     PrivacidadComponent,
     AyudaComponent,

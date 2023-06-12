@@ -41,8 +41,6 @@ export class LoginComponent {
     const password = this.userLogin.value.userpassword;
   
     if(email && password){
-
-    
       this.authService.login(email, password);
     }
   }
