@@ -6,10 +6,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedModule } from './shared/shared.module';
 import { PagesModule } from './pages/pages.module';
 import { AuthModule } from './auth/auth.module';
+import {HttpClientModule} from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AddToCartModule } from './add-to-cart/add-to-cart.module';
-
-
-import {HttpClientModule} from '@angular/common/http'
 
 
 @NgModule({
@@ -24,7 +23,8 @@ import {HttpClientModule} from '@angular/common/http'
     PagesModule,
     AuthModule,
     HttpClientModule,
-    AddToCartModule
-  ],
+    AddToCartModule,
+    ReactiveFormsModule
+    ],
 })
 export class AppModule {}

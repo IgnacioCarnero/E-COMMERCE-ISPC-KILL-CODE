@@ -15,7 +15,10 @@ import { GeneradorReciboDeSueldoComponent } from './dashboard/generador-recibo-d
 import { EmpleadosApiComponent } from './dashboard/empleados-api/empleados-api.component';
 import {EmpleadosService} from '../services/empleados.service';
 import { AppRoutingModule } from '../app-routing.module';
+import { RegistroEmpresaComponent } from './dashboard/registro-empresa/registro-empresa.component';
+import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+
 
 
 @NgModule({
@@ -32,8 +35,9 @@ import { SharedModule } from '../shared/shared.module';
     RegistroEmpleadosComponent,
     TerminosComponent,
     EmpleadosApiComponent,
-  ],
-  imports: [CommonModule, AddToCartModule, AppRoutingModule, SharedModule],
+    RegistroEmpresaComponent,
+    ],
+  imports: [CommonModule, AddToCartModule, AppRoutingModule, ReactiveFormsModule, SharedModule],
 
   exports: [
     SectionComponent,
