@@ -1,34 +1,38 @@
-  <div class = "myborde">
-    <h2 class="text-center mt-3">Registro de empleado</h2>
-      <form [formGroup]="formu">
-        <!-- (ngsubmit)="guardarRegistro()"> -->
-        <div class="m-5">
-          <div class="containerDos">
-          <div class="row">
-            <div class="col">
-          <div class="col-4 mt-3">
-            <label for="legajo" class="form-label">LEGAJO</label>
-            <input type="number" class="form-control" id="legajo" formControlName="legajo" required placeholder="P.ej.84202">
-            <div class="alert alert-danger" *ngIf="formu.controls.legajo.invalid && formu.controls.legajo.touched">
-              El dato es incorrecto o incompleto.
-          </div>
-        </div>
+<div class="myborde">
+  <h2 class="text-center mt-3">Registro de empleado</h2>
+  <form [formGroup]="formu"
+    (ngsubmit)="submitData()">
+    <div class="m-5">
+      <div class="containerDos">
+        <div class="row">
           <div class="col">
-              <label for="nombre" class="form-label">Nombres</label>
-              <input type="text" class="form-control" id="nombre" formControlName="nombre" required minlength="3" placeholder="Carlos">
-              <div class="alert alert-danger" *ngIf="formu.controls.nombre.invalid && formu.controls.nombre.touched">
-              El dato es incorrecto o incompleto.
+            <div class="col-4 mt-3">
+              <label for="legajo" class="form-label">LEGAJO</label>
+              <input type="number" class="form-control" id="legajo" formControlName="legajo" required
+                placeholder="P.ej.84202">
+              <div class="alert alert-danger" *ngIf="formu.controls.legajo.invalid && formu.controls.legajo.touched">
+                El dato es incorrecto o incompleto.
+              </div>
             </div>
-        </div>
-          <div class="col">
-            <label for="apellido" class="form-label">Apellido</label>
-            <input type="text" class="form-control" id= "apellido" formControlName="apellido" required minlength="3" placeholder="P.ej.Perez">
-            <div class="alert alert-danger" *ngIf="formu.controls.apellido.invalid && formu.controls.apellido.touched">
-              El dato es incorrecto o incompleto.
+            <div class="col">
+              <label for="nombre" class="form-label">Nombres</label>
+              <input type="text" class="form-control" id="nombre" formControlName="nombre" required minlength="3"
+                placeholder="Carlos">
+              <div class="alert alert-danger" *ngIf="formu.controls.nombre.invalid && formu.controls.nombre.touched">
+                El dato es incorrecto o incompleto.
+              </div>
+            </div>
+            <div class="col">
+              <label for="apellido" class="form-label">Apellido</label>
+              <input type="text" class="form-control" id="apellido" formControlName="apellido" required minlength="3"
+                placeholder="P.ej.Perez">
+              <div class="alert alert-danger"
+                *ngIf="formu.controls.apellido.invalid && formu.controls.apellido.touched">
+                El dato es incorrecto o incompleto.
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-<!--         Se comenta linea de codigo ya que no es requerida
+          <!--         Se comenta linea de codigo ya que no es requerida
           <div class="col-6 col-sm-4">
             <label for="dni" class="form-label">DNI/PASAPORTE:</label>
             <input type="number" class="form-control" id="dni" formControlName="dni" required placeholder="P.ej 16112390">
@@ -36,109 +40,148 @@
               El dato es incorrecto o incompleto.
           </div>
         </div> -->
-        <div class="row">
-          <div class="col">
-            <label for="calle" class="form-label">Calle</label>
-            <input type="text" class="form-control" id="calle" formControlName="calle" required minlength="3" placeholder="P.ej. Santa Fe">
-            <div class="alert alert-danger" *ngIf="formu.controls.calle.invalid && formu.controls.calle.touched">
-              El dato es incorrecto o incompleto.
-          </div>
-        </div>
-          <div class="col">
-            <label for="numero" class="form-label">Casa/piso/numero/depto</label>
-            <input type="text" class="form-control" id="numero" formControlName="numero" required minlength="3" placeholder="P.ej.524 piso 5 depto 6">
-            <div class="alert alert-danger" *ngIf="formu.controls.numero.invalid && formu.controls.numero.touched">
-              El dato es incorrecto o incompleto.
-          </div>
-        </div>
-          <div class="col">
-            <label for="provincia" class="form-label">Provincia</label>
-            <input type="text"
-              class="form-control" id="provincia" formControlName="provincia" required minlength="3" placeholder="P.ej. Madrid">
-              <div class="alert alert-danger" *ngIf="formu.controls.provincia.invalid && formu.controls.provincia.touched">
+          <div class="row">
+            <div class="col">
+              <label for="calle" class="form-label">Calle</label>
+              <input type="text" class="form-control" id="calle" formControlName="calle" required minlength="3"
+                placeholder="P.ej. Santa Fe">
+              <div class="alert alert-danger" *ngIf="formu.controls.calle.invalid && formu.controls.calle.touched">
                 El dato es incorrecto o incompleto.
+              </div>
+            </div>
+            <div class="col">
+              <label for="casa_piso_numero" class="form-label">Casa/piso/numero/depto</label>
+              <input type="number" class="form-control" id="casa_piso_numero" formControlName="casa_piso_numero" required minlength="3"
+                placeholder="P.ej.524 piso 5 depto 6">
+              <div class="alert alert-danger" *ngIf="formu.controls.casa_piso_numero.invalid && formu.controls.casa_piso_numero.touched">
+                El dato es incorrecto o incompleto.
+              </div>
+            </div>
+            <div class="col">
+              <label for="provincia" class="form-label">Provincia</label>
+              <input type="text" class="form-control" id="provincia" formControlName="provincia" required minlength="3"
+                placeholder="P.ej. Madrid">
+              <div class="alert alert-danger"
+                *ngIf="formu.controls.provincia.invalid && formu.controls.provincia.touched">
+                El dato es incorrecto o incompleto.
+              </div>
             </div>
           </div>
-        </div>
           <div class="row">
             <div class="col">
               <label for="email" class="form-label">Email</label>
-              <input type="email" class="form-control" id="email" formControlName="email" placeholder="name@example.com" required minlength="3">
+              <input type="email" class="form-control" id="email" formControlName="email" placeholder="name@example.com"
+                required minlength="3">
               <div class="alert alert-danger" *ngIf="formu.controls.email.invalid && formu.controls.email.touched">
                 El dato es incorrecto o incompleto.
+              </div>
+              <div class="col">
+                <label for="telefono" class="form-label">Telefono</label>
+                <input type="number" class="form-control" id="telefono" formControlName="telefono" required
+                  placeholder="P.ej.84202">
+                <div class="alert alert-danger"
+                  *ngIf="formu.controls.telefono.invalid && formu.controls.telefono.touched">
+                  El dato es incorrecto o incompleto.
+                </div>
+              </div>
+              <div class="col">
+                <label for="cargo" class="form-label">Cargo</label>
+                <input type="text" class="form-control" id="cargo" formControlName="cargo" required minlength="3"
+                  placeholder="P.ej. Asesor comercial">
+                <div class="alert alert-danger" *ngIf="formu.controls.cargo.invalid && formu.controls.cargo.touched">
+                  El dato es incorrecto o incompleto.
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label for="categoria" class="form-label">Categoria</label>
+                <input type="text" class="form-control" id="categoria" formControlName="categoria" required
+                  minlength="3" placeholder="P.ej. Administrativo tipo c">
+                <div class="alert alert-danger"
+                  *ngIf="formu.controls.categoria.invalid && formu.controls.categoria.touched">
+                  El dato es incorrecto o incompleto.
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <label for="ciudad" class="form-label">Ciudad</label>
+                <input type="text" class="form-control" id="ciudad" formControlName="ciudad" required
+                  minlength="3" placeholder="P.ej. capital">
+                <div class="alert alert-danger"
+                  *ngIf="formu.controls.ciudad.invalid && formu.controls.ciudad.touched">
+                  El dato es incorrecto o incompleto.
+                </div>
+              </div>
             </div>
             <div class="col">
-              <label for="telefono" class="form-label">Telefono</label>
-              <input type="number" class="form-control" id="telefono" formControlName="telefono" required placeholder="P.ej.84202">
-              <div class="alert alert-danger" *ngIf="formu.controls.telefono.invalid && formu.controls.telefono.touched">
+              <label for="fecha_ingreso" class="form-label">Fecha de ingreso</label>
+              <input type="date" class="form-control" id="fecha_ingreso" formControlName="fecha_ingreso" required>
+              <div class="alert alert-danger"
+                *ngIf="formu.controls.fecha_ingreso.invalid && formu.controls.fecha_ingreso.touched">
                 El dato es incorrecto o incompleto.
+              </div>
+            </div>
+            <div class="col">
+              <label for="fecha_nacimiento" class="form-label">Fecha de nacimiento</label>
+              <input type="date" class="form-control" id="fecha_nacimiento" formControlName="fecha_nacimiento" required>
+              <div class="alert alert-danger"
+                *ngIf="formu.controls.fecha_nacimiento.invalid && formu.controls.fecha_nacimiento.touched">
+                El dato es incorrecto o incompleto.
+              </div>
             </div>
           </div>
-          <div class="col">
-            <label for="cargo" class="form-label">Cargo</label>
-            <input type="text" class="form-control" id="cargo" formControlName="cargo" required minlength="3" placeholder="P.ej. Asesor comercial">
-            <div class="alert alert-danger" *ngIf="formu.controls.cargo.invalid && formu.controls.cargo.touched">
-              El dato es incorrecto o incompleto.
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
-            <label for="categoria" class="form-label">Categoria</label>
-            <input type="text" class="form-control" id="categoria" formControlName="categoria" required minlength="3" placeholder="P.ej. Administrativo tipo c">
-            <div class="alert alert-danger" *ngIf="formu.controls.categoria.invalid && formu.controls.categoria.touched">
-              El dato es incorrecto o incompleto.
-          </div>
-        </div>
-      </div>
-        <div class="col">
-          <label for="fecha_ingreso" class="form-label">Fecha de ingreso</label>
-          <input type="date" class="form-control" id="fecha_ingreso" formControlName="fecha_ingreso" required>
-          <div class="alert alert-danger" *ngIf="formu.controls.fecha_ingreso.invalid && formu.controls.fecha_ingreso.touched">
-            El dato es incorrecto o incompleto.
-      </div>
-      </div>
-        <div class="col">
-          <label for="fecha_nacimiento" class="form-label">Fecha de nacimiento</label>
-          <input type="date" class="form-control" id="fecha_nacimiento" formControlName="fecha_nacimiento" required>
-          <div class="alert alert-danger" *ngIf="formu.controls.fecha_nacimiento.invalid && formu.controls.fecha_nacimiento.touched">
-            El dato es incorrecto o incompleto.
-        </div>
-      </div>
-    </div>
-      <div class="row">
-        <div class="col">
-        <label for="cuil_empleado" class="form-label">CUIL</label>
-        <input type="number" class="form-control" id="cuil_empleado" formControlName="cuil_empleado" required placeholder="P.ej.84202">
-        <div class="alert alert-danger" *ngIf="formu.controls.cuil_empleado.invalid && formu.controls.cuil_empleado.touched">
-          El dato es incorrecto o incompleto.
-      </div>
-    </div>
-      <div class="col">
-            <label for="obra_social" class="form-label">Obra social</label>
-            <input type="text" class="form-control" id="obra_social" formControlName="obra_social" required minlength="3" placeholder="P.ej. Galeno 210">
-            <div class="alert alert-danger" *ngIf="formu.controls.obra_social.invalid && formu.controls.obra_social.touched">
-              El dato es incorrecto o incompleto.
-          </div>
-        </div>
-          <div class="col">
-            <label for="art" class="form-label">ART</label>
-            <input type="text" class="form-control" id="art" formControlName="art" required minlength="3" placeholder="P.ej.Patagonia art">
-            <div class="alert alert-danger" *ngIf="formu.controls.art.invalid && formu.controls.art.touched">
-              El dato es incorrecto o incompleto.
-          </div>
-        </div>
-          <br>
-          <br>
-        </div>
-        <div class="conteinerTres">
           <div class="row">
-          <div class="d-grid gap-2 col-4 mx-auto d-md-flex justify-content-md-center p-3 m-2">
-              <button class="btn btn-primary" (click) ="guardarRegistro()" type = "submit">Guardar</button>
-              <button class="btn btn-primary" (click)="resetFormulario()">Reset</button>
+            <div class="col">
+              <label for="cuil_empleado" class="form-label">CUIL</label>
+              <input type="number" class="form-control" id="cuil_empleado" formControlName="cuil_empleado" required
+                placeholder="P.ej.84202">
+              <div class="alert alert-danger"
+                *ngIf="formu.controls.cuil_empleado.invalid && formu.controls.cuil_empleado.touched">
+                El dato es incorrecto o incompleto.
+              </div>
             </div>
-
-
-
-
-
+            <div class="col">
+              <label for="obra_social" class="form-label">Obra social</label>
+              <input type="text" class="form-control" id="obra_social" formControlName="obra_social" required
+                minlength="0" placeholder="P.ej. Galeno 210">
+              <div class="alert alert-danger"
+                *ngIf="formu.controls.obra_social.invalid && formu.controls.obra_social.touched">
+                El dato es incorrecto o incompleto.
+              </div>
+            </div>
+            <div class="col">
+              <label for="art" class="form-label">ART</label>
+              <input type="text" class="form-control" id="art" formControlName="art" required minlength="0"
+                placeholder="P.ej.Patagonia art">
+              <div class="alert alert-danger" *ngIf="formu.controls.art.invalid && formu.controls.art.touched">
+                El dato es incorrecto o incompleto.
+              </div>
+            </div>
+            <br>
+            <br>
+          </div>
+          <div class="conteinerTres">
+            <div class="row">
+              <div class="d-grid gap-2 col-4 mx-auto d-md-flex justify-content-md-center p-3 m-2">
+                <button class="btn btn-primary" (click)="submitData()" type="submit">Guardar</button>
+                <button class="btn btn-primary" (click)="resetForm()">Reset</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="alert alert-success" *ngIf="successMessage">
+              {{ successMessage }}
+            </div>
+            <div class="alert alert-danger" *ngIf="errorMessage">
+              {{ errorMessage }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
