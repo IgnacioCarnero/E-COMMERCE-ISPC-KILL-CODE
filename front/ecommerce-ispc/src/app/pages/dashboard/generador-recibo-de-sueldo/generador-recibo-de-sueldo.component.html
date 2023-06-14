@@ -1,252 +1,64 @@
 <div class="container">
   <h1 class="py-5">Configure su recibo del sueldo</h1>
   <form name="formulario" method="get">
-    <h3>Ingrese sus detalles sobre la empresa</h3>
     <div class="row">
       <div class="column">
-        <label for="nombreDeEmpresa">Nombre de empresa</label>
-        <input
-          type="text"
-          id="nombreDeEmpresa"
-          minlength="3"
-          maxlength="20"
-          placeholder="P. ej. BBVA"
-        />
+        <label for="id_recibo">ID Recibo</label>
+        <input type="number" id="id_recibo" placeholder="ID Recibo" />
       </div>
       <div class="column">
-        <label for="dirección">Dirección</label>
-        <input
-          type="text"
-          id="dirección"
-          minlength="17"
-          maxlength="25"
-          placeholder="P. ej. General bustos 232"
-        />
+        <label for="montoBruto">Monto Bruto</label>
+        <input type="number" id="montoBruto" placeholder="Monto Bruto" step="0.01" />
       </div>
     </div>
     <div class="row">
       <div class="column">
-        <label for="cuidad">Cuidad</label>
-        <input
-          type="text"
-          id="cuidad"
-          minlength="3"
-          maxlength="15"
-          placeholder="P. ej. Córdoba"
-        />
+        <label for="montoNeto">Monto Neto</label>
+        <input type="number" id="montoNeto" placeholder="Monto Neto" step="0.01" />
       </div>
       <div class="column">
-        <label for="códigoPostal">Código postal</label>
-        <input
-          type="text"
-          id="códigoPostal"
-          minlength="5"
-          maxlength="5"
-          placeholder="P. ej. B5000"
-        />
+        <label for="periodo">Periodo</label>
+        <input type="date" id="periodo" placeholder="Periodo" />
       </div>
     </div>
     <div class="row">
       <div class="column">
-        <label for="país">País</label>
-        <select id="país">
-          <option value="Argentina">Argentina</option>
-          <option value="Alemania">Alemania</option>
-          <option value="España">España</option>
-          <option value="Brasil">Brasil</option>
-          <option value="Uruguay">Uruguay</option>
-          <option value="Chile">Chile</option>
+        <label for="antiguedad">Antigüedad</label>
+        <input type="number" id="antiguedad" placeholder="Antigüedad" />
+      </div>
+      <div class="column">
+        <label for="concepto">Concepto</label>
+        <input type="text" id="concepto" placeholder="Concepto" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="column">
+        <label for="asistencia">Asistencia</label>
+        <input type="number" id="asistencia" placeholder="Asistencia" step="0.01" />
+      </div>
+      <div class="column">
+        <label for="fecha_pago">Fecha de pago</label>
+        <input type="date" id="fecha_pago" placeholder="Fecha de pago" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="column">
+        <label for="deduccion">Deducción</label>
+        <select id="deduccion">
+          <!-- Opciones para el campo deducción -->
         </select>
       </div>
       <div class="column">
-        <label for="provincia">Provincia</label>
-        <input
-          type="text"
-          id="provincia"
-          minlength="3"
-          maxlength="12"
-          placeholder="P. ej. Chubut"
-        />
-      </div>
-    </div>
-    <h3>Ingrese sus detalles sobre sus empleados</h3>
-    <div class="row">
-      <div class="column">
-        <label for="primerNombre">Primer nombre</label>
-        <input
-          type="text"
-          id="primerNombre"
-          minlenght="3"
-          maxlength="10"
-          placeholder="P. ej. Martín"
-        />
-      </div>
-      <div class="column">
-        <label for="apellido">Apellido</label>
-        <input
-          type="text"
-          id="apellido"
-          minlenght="3"
-          maxlength="15"
-          placeholder="P. ej. Díaz"
-        />
-      </div>
-    </div>
-    <div class="row">
-      <div class="column">
-        <label for="email">E-mail</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="P. ej.martin12@gmail.com"
-        />
-      </div>
-      <div class="column">
-        <label for="cuilDelEmpleado">Cuil del empleado</label>
-        <input
-          type="number"
-          id="cuilDelEmpleado"
-          min="1000000000000"
-          max="9999999999999"
-          placeholder="P. ej. 20-05854965-3"
-        />
-      </div>
-    </div>
-    <div class="row">
-      <div class="column">
-        <label for="dirección_two">Dirección</label>
-        <input
-          type="text"
-          id="dirección_two"
-          minlength="17"
-          maxlength="25"
-          placeholder="P. ej. General bustos 232"
-        />
-      </div>
-      <div class="column">
-        <label for="cuidad_two">Cuidad</label>
-        <input
-          type="text"
-          id="cuidad_two"
-          minlength="3"
-          maxlength="15"
-          placeholder="P. ej. Córdoba"
-        />
-      </div>
-    </div>
-    <div class="row">
-      <div class="column">
-        <label for="códigoPostal_two">Código postal</label>
-        <input
-          type="text"
-          id="códigoPostal_two"
-          minlength="5"
-          maxlength="5"
-          placeholder="P. ej. B5000"
-        />
-      </div>
-      <div class="column">
-        <label for="país_two">País</label>
-        <select id="país_two">
-          <option value="Argentina">Argentina</option>
-          <option value="Alemania">Alemania</option>
-          <option value="España">España</option>
-          <option value="Brasil">Brasil</option>
-          <option value="Uruguay">Uruguay</option>
-          <option value="Chile">Chile</option>
+        <label for="extra">Extra</label>
+        <select id="extra">
+          <!-- Opciones para el campo extra -->
         </select>
       </div>
     </div>
     <div class="row">
       <div class="column">
-        <label for="provincia_two">Provincia/Cantón</label>
-        <input
-          type="text"
-          id="provincia_two"
-          minlength="3"
-          maxlength="12"
-          placeholder="P. ej. Chubut"
-        />
-      </div>
-      <div class="column">
-        <label for="dni">DNI</label>
-        <input
-          type="number"
-          id="dni"
-          min="10000000"
-          max="99999999"
-          placeholder="P. ej. 43235876"
-        />
-      </div>
-    </div>
-    <h3>Ingrese sus datos sobre los ingresos</h3>
-    <div class="row">
-      <div class="column">
-        <label for="díaDelPago">Día del pago</label>
-        <input
-          type="date"
-          min="1950-01-02"
-          max="2022-12-31"
-          placeholder="P. ej.Día del Pago"
-          id="díaDelPago"
-        />
-      </div>
-      <div class="column">
-        <label for="finDelPago">Fin del pago</label>
-        <input
-          type="date"
-          min="1950-01-02"
-          max="2022-12-31"
-          placeholder="P. ej. Fin del Pago"
-          id="finDelPago"
-        />
-      </div>
-    </div>
-    <div class="row">
-      <div class="column">
-        <label for="cantidadDePagos">Cuántas veces es el pago?</label>
-        <select id="cantidadDePagos" name="cantidadDePagos">
-          <option value="En todas 2 Semanas">En todas 2 Semanas</option>
-          <option value="Semanalmente">Semanalmente</option>
-          <option value="Por medio Mes">Por medio Mes</option>
-          <option value="Por Mes">Por Mes</option>
-          <option value="Por un Cuarto del Año">Por un Cuarto del Año</option>
-          <option value="Por medio Año">Por medio Año</option>
-          <option value="Por año">Por año</option>
-        </select>
-      </div>
-      <div class="column">
-        <label for="ingresoAnual">Ingreso anual</label>
-        <input
-          type="number"
-          min="100"
-          max="1000000"
-          placeholder="P. ej. 600000"
-          id="ingresoAnual"
-        />
-      </div>
-    </div>
-    <h3>Ingrese información sobre sus Retenciones</h3>
-    <div class="row">
-      <div class="column">
-        <label for="causaPorLaRetención">Causa por la retención</label>
-        <input
-          type="text"
-          maxlength="35"
-          id="causaPorLaRetención"
-          placeholder="P. ej. Impuestos"
-        />
-      </div>
-      <div class="column">
-        <label for="cantidadDeRetenciones">Cantidad de retenciones</label>
-        <input
-          type="number"
-          id="cantidadDeRetenciones"
-          min="100"
-          max="1000000"
-          placeholder="P. ej. 5 Retenciones"
-        />
+        <label for="legajo_empleado">Legajo del empleado</label>
+        <input type="number" id="legajo_empleado" placeholder="Legajo del empleado" />
       </div>
     </div>
     <div class="container-button">
@@ -254,5 +66,5 @@
       <input type="reset" value="Restablecer el recibo del sueldo" />
     </div>
   </form>
-  <script src="../js/configurador-De-Recibo-Del-Sueldo/configuraciónDeReciboDelSueldo.js"></script>
 </div>
+
