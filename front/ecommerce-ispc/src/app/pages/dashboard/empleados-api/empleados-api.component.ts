@@ -7,20 +7,20 @@ import { Clientes} from '../../../interface'
   templateUrl: './empleados-api.component.html',
   styleUrls: ['./empleados-api.component.css']
 })
-export class EmpleadosApiComponent implements OnInit {
+export class EmpleadosApiComponent /*implements OnInit se comenta para que no se ejecute por el momento */ {
 
 
   public empleados: any[] = []
 
   constructor (private empleadosService : EmpleadosService) {  }
 
-  ngOnInit(): void {
+  /*ngOnInit(): void {
 
     this.empleadosService.getClientes()
       .subscribe(clientes => {
         this.empleados = clientes
       })
-  }
+  } Se comenta para que no se ejecute y de error en consola, momentaneamente*/
 
   editarCliente(id: any) {
     console.log(id);
