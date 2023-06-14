@@ -15,7 +15,7 @@ class LoginView(APIView):
         # Recuperamos las credenciales y autenticamos al usuario
         email = request.data.get('email', None)
         password = request.data.get('password', None)
-        user = authenticate(email=email, password=password)
+        user = authenticate(request, email=email, password=password)
 
         # Si es correcto añadimos a la request la informacion de sesion
         if user:

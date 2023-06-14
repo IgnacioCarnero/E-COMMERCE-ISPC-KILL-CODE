@@ -60,11 +60,11 @@ export class AuthService {
     this.loggedInUserEmail = '';
 
     // Realiza la petición HTTP para cerrar la sesión en el backend
-    this.http.post<any>('http://localhost:8000/api/auth/logout', {}).subscribe({
+    this.http.post<any>('http://localhost:8000/api/auth/logout/', {}).subscribe({
       next: (response) => {
         console.log(response); // Puedes imprimir la respuesta en la consola para verificarla
         // Redirige a la página de inicio de sesión u otra página relevante
-        this.router.navigate(['/login']);
+        this.router.navigate(['/']);
       },
       error: (error) => {
         console.error(error);
