@@ -14,7 +14,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
         apellido: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]),
         calle: new FormControl('', [Validators.required, Validators.minLength(3)]),
         numero: new FormControl('', [Validators.required, Validators.minLength(3)]),
-        provincia: new FormControl('', [Validators.required, Validators.minLength(3)]),
+        provincia: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]),
         email: new FormControl('', [Validators.required,Validators.pattern(`^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$`),]),
         telefono: new FormControl('', [Validators.required,Validators.pattern(`^[0-9A-Za-z]+$`),]),
         cargo: new FormControl('', [Validators.required, Validators.minLength(3)]),
@@ -22,7 +22,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
         fecha_ingreso: new FormControl('', [Validators.required]),
 
         // fecha_ingreso: new FormControl('', [Validators.required,Validators.pattern(`^(19[0-9]{2}|20[0-9]{2})-(0[1-9]|1[0-2])-([0-2][1-9]|3[0-1])$`),]),
-        fecha_nacimiento: new FormControl('', [Validators.required,Validators.pattern(`^(19[0-9]{2}|20[0-9]{2})-(0[1-9]|1[0-2])-([0-2][1-9]|3[0-1])$`),]),
+        fecha_nacimiento: new FormControl('', [Validators.required]),
         cuil_empleado: new FormControl('', [Validators.required,Validators.pattern(`^[0-9A-Za-z]+$`),]),
         obra_social: new FormControl('', [Validators.required, Validators.minLength(3)]),
         art: new FormControl('', [Validators.required, Validators.minLength(3)]),
@@ -56,6 +56,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 
       get email() {
         return this.formu.get('email')as FormControl;
+      }
+
+      get telefono() {
+        return this.formu.get('telefono')as FormControl;
       }
 
       get calle() {
