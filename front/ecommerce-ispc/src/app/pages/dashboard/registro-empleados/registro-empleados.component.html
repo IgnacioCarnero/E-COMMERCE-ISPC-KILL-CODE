@@ -135,10 +135,32 @@
           <div class="row">
           <div class="d-grid gap-2 col-4 mx-auto d-md-flex justify-content-md-center p-3 m-2">
               <button class="btn btn-primary" (click) ="guardarRegistro()" type = "submit">Guardar</button>
-              <button class="btn btn-primary" (click)="resetFormulario()">Reset</button>
+              <button class="btn btn-primary" (click) ="verRegistro()">Ver</button>
+              <button class="btn btn-primary" (click) ="modificarRegistro()">Modificar</button>
+              <button class="btn btn-primary" (click)="resetFormulario()">Borrar</button>
             </div>
 
 
+            <div *ngIf="mostrarDatos" class="mt-3">
+              <h3>Datos del empleado</h3>
+              <p>LEGAJO {{ formu.value.legajo }}</p>
+              <p>Nombre: {{ formu.value.nombre }}</p>
+              <p>Apellido: {{ formu.value.apellido}}</p>
+              <p>Calle: {{ formu.value.calle }}</p>
+              <p>Numero: {{ formu.value.numero }}</p>
+              <p>Provincia: {{ formu.value.provincia }}</p>
+              <p>Email: {{ formu.value.email }}</p>
+              <p>Telefono: {{ formu.value.telefono }}</p>
+              <p>Cargo: {{ formu.value.cargo }}</p>
+              <p>Categoria: {{ formu.value.categoria }}</p>
+              <p>Telefono: {{ formu.value.telefono }}</p>
+              <p>Fecha de ingreso: {{ formu.value.fecha_ingreso}}</p>
+              <p>Fecha de nacimiento: {{ formu.value.fecha_nacimiento }}</p>
+              <p>Obra social: {{ formu.value.obra_social}}</p>
+              <p>Art: {{ formu.value.art }}</p>
 
+
+
+            </div>
 
 
