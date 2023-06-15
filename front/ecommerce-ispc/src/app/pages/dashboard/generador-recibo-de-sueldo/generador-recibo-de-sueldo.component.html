@@ -1,258 +1,88 @@
-<div class="container">
-  <h1 class="py-5">Configure su recibo del sueldo</h1>
-  <form name="formulario" method="get">
-    <h3>Ingrese sus detalles sobre la empresa</h3>
-    <div class="row">
-      <div class="column">
-        <label for="nombreDeEmpresa">Nombre de empresa</label>
-        <input
-          type="text"
-          id="nombreDeEmpresa"
-          minlength="3"
-          maxlength="20"
-          placeholder="P. ej. BBVA"
-        />
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generador Recibo de Sueldo</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-pzjw8f+ua6D5FRY6w3RlawDk7ekddWkY0iCYyVQp6nD5wBZ2OrWQ6cu4R8qc2Bn"
+    crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="py-5">Configure su recibo del sueldo</h1>
+    <form name="formulario" (ngSubmit)="submitForm()">
+      <div class="row">
+        <div class="col">
+          <label for="id_recibo">ID Recibo</label>
+          <input type="number" id="id_recibo" placeholder="ID Recibo" class="form-control"
+            [(ngModel)]="formData.id_recibo"
+            [ngClass]="{'is-valid': formData.id_recibo.valid, 'is-invalid': formData.id_recibo.invalid && formData.id_recibo.touched}" />
+        </div>
+        <div class="col">
+          <label for="montoBruto">Monto Bruto</label>
+          <input type="number" id="montoBruto" placeholder="Monto Bruto" step="0.01" class="form-control"
+            [(ngModel)]="formData.montoBruto"
+            [ngClass]="{'is-valid': formData.montoBruto.valid, 'is-invalid': formData.montoBruto.invalid && formData.montoBruto.touched}" />
+        </div>
       </div>
-      <div class="column">
-        <label for="dirección">Dirección</label>
-        <input
-          type="text"
-          id="dirección"
-          minlength="17"
-          maxlength="25"
-          placeholder="P. ej. General bustos 232"
-        />
+      <div class="row">
+        <div class="col">
+          <label for="montoNeto">Monto Neto</label>
+          <input type="number" id="montoNeto" placeholder="Monto Neto" step="0.01" class="form-control"
+            [(ngModel)]="formData.montoNeto"
+            [ngClass]="{'is-valid': formData.montoNeto.valid, 'is-invalid': formData.montoNeto.invalid && formData.montoNeto.touched}" />
+        </div>
+        <div class="col">
+          <label for="periodo">Periodo</label>
+          <input type="date" id="periodo" placeholder="Periodo" class="form-control"
+            [(ngModel)]="formData.periodo"
+            [ngClass]="{'is-valid': formData.periodo.valid, 'is-invalid': formData.periodo.invalid && formData.periodo.touched}" />
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="column">
-        <label for="cuidad">Cuidad</label>
-        <input
-          type="text"
-          id="cuidad"
-          minlength="3"
-          maxlength="15"
-          placeholder="P. ej. Córdoba"
-        />
+      <div class="row">
+        <div class="col">
+          <label for="antiguedad">Antigüedad</label>
+          <input type="number" id="antiguedad" placeholder="Antigüedad" class="form-control"
+            [(ngModel)]="formData.antiguedad"
+            [ngClass]="{'is-valid': formData.antiguedad.valid, 'is-invalid': formData.antiguedad.invalid && formData.antiguedad.touched}" />
+        </div>
+        <div class="col">
+          <label for="concepto">Concepto</label>
+          <input type="text" id="concepto" placeholder="Concepto" class="form-control"
+            [(ngModel)]="formData.concepto"
+            [ngClass]="{'is-valid': formData.concepto.valid, 'is-invalid': formData.concepto.invalid && formData.concepto.touched}" />
+        </div>
       </div>
-      <div class="column">
-        <label for="códigoPostal">Código postal</label>
-        <input
-          type="text"
-          id="códigoPostal"
-          minlength="5"
-          maxlength="5"
-          placeholder="P. ej. B5000"
-        />
+      <div class="row">
+        <div class="col">
+          <label for="descuentos">Descuentos</label>
+          <input type="number" id="descuentos" placeholder="Descuentos" step="0.01" class="form-control"
+            [(ngModel)]="formData.descuentos"
+            [ngClass]="{'is-valid': formData.descuentos.valid, 'is-invalid': formData.descuentos.invalid && formData.descuentos.touched}" />
+        </div>
+        <div class="col">
+          <label for="categoria">Categoría</label>
+          <select id="categoria" class="form-control" [(ngModel)]="formData.categoria"
+            [ngClass]="{'is-valid': formData.categoria.valid, 'is-invalid': formData.categoria.invalid && formData.categoria.touched}">
+            <option value="categoria1">Categoría 1</option>
+            <option value="categoria2">Categoría 2</option>
+            <option value="categoria3">Categoría 3</option>
+          </select>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="column">
-        <label for="país">País</label>
-        <select id="país">
-          <option value="Argentina">Argentina</option>
-          <option value="Alemania">Alemania</option>
-          <option value="España">España</option>
-          <option value="Brasil">Brasil</option>
-          <option value="Uruguay">Uruguay</option>
-          <option value="Chile">Chile</option>
-        </select>
+      <div class="container-button">
+        <button type="button" class="btn btn-primary" (click)="submitForm()">Crear el recibo de sueldo</button>
+        <button type="button" class="btn btn-secondary" (click)="modifyForm()">Modificar el recibo de sueldo</button>
+        <button type="button" class="btn btn-danger" (click)="deleteForm()">Eliminar el recibo de sueldo</button>
       </div>
-      <div class="column">
-        <label for="provincia">Provincia</label>
-        <input
-          type="text"
-          id="provincia"
-          minlength="3"
-          maxlength="12"
-          placeholder="P. ej. Chubut"
-        />
-      </div>
-    </div>
-    <h3>Ingrese sus detalles sobre sus empleados</h3>
-    <div class="row">
-      <div class="column">
-        <label for="primerNombre">Primer nombre</label>
-        <input
-          type="text"
-          id="primerNombre"
-          minlenght="3"
-          maxlength="10"
-          placeholder="P. ej. Martín"
-        />
-      </div>
-      <div class="column">
-        <label for="apellido">Apellido</label>
-        <input
-          type="text"
-          id="apellido"
-          minlenght="3"
-          maxlength="15"
-          placeholder="P. ej. Díaz"
-        />
-      </div>
-    </div>
-    <div class="row">
-      <div class="column">
-        <label for="email">E-mail</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="P. ej.martin12@gmail.com"
-        />
-      </div>
-      <div class="column">
-        <label for="cuilDelEmpleado">Cuil del empleado</label>
-        <input
-          type="number"
-          id="cuilDelEmpleado"
-          min="1000000000000"
-          max="9999999999999"
-          placeholder="P. ej. 20-05854965-3"
-        />
-      </div>
-    </div>
-    <div class="row">
-      <div class="column">
-        <label for="dirección_two">Dirección</label>
-        <input
-          type="text"
-          id="dirección_two"
-          minlength="17"
-          maxlength="25"
-          placeholder="P. ej. General bustos 232"
-        />
-      </div>
-      <div class="column">
-        <label for="cuidad_two">Cuidad</label>
-        <input
-          type="text"
-          id="cuidad_two"
-          minlength="3"
-          maxlength="15"
-          placeholder="P. ej. Córdoba"
-        />
-      </div>
-    </div>
-    <div class="row">
-      <div class="column">
-        <label for="códigoPostal_two">Código postal</label>
-        <input
-          type="text"
-          id="códigoPostal_two"
-          minlength="5"
-          maxlength="5"
-          placeholder="P. ej. B5000"
-        />
-      </div>
-      <div class="column">
-        <label for="país_two">País</label>
-        <select id="país_two">
-          <option value="Argentina">Argentina</option>
-          <option value="Alemania">Alemania</option>
-          <option value="España">España</option>
-          <option value="Brasil">Brasil</option>
-          <option value="Uruguay">Uruguay</option>
-          <option value="Chile">Chile</option>
-        </select>
-      </div>
-    </div>
-    <div class="row">
-      <div class="column">
-        <label for="provincia_two">Provincia/Cantón</label>
-        <input
-          type="text"
-          id="provincia_two"
-          minlength="3"
-          maxlength="12"
-          placeholder="P. ej. Chubut"
-        />
-      </div>
-      <div class="column">
-        <label for="dni">DNI</label>
-        <input
-          type="number"
-          id="dni"
-          min="10000000"
-          max="99999999"
-          placeholder="P. ej. 43235876"
-        />
-      </div>
-    </div>
-    <h3>Ingrese sus datos sobre los ingresos</h3>
-    <div class="row">
-      <div class="column">
-        <label for="díaDelPago">Día del pago</label>
-        <input
-          type="date"
-          min="1950-01-02"
-          max="2022-12-31"
-          placeholder="P. ej.Día del Pago"
-          id="díaDelPago"
-        />
-      </div>
-      <div class="column">
-        <label for="finDelPago">Fin del pago</label>
-        <input
-          type="date"
-          min="1950-01-02"
-          max="2022-12-31"
-          placeholder="P. ej. Fin del Pago"
-          id="finDelPago"
-        />
-      </div>
-    </div>
-    <div class="row">
-      <div class="column">
-        <label for="cantidadDePagos">Cuántas veces es el pago?</label>
-        <select id="cantidadDePagos" name="cantidadDePagos">
-          <option value="En todas 2 Semanas">En todas 2 Semanas</option>
-          <option value="Semanalmente">Semanalmente</option>
-          <option value="Por medio Mes">Por medio Mes</option>
-          <option value="Por Mes">Por Mes</option>
-          <option value="Por un Cuarto del Año">Por un Cuarto del Año</option>
-          <option value="Por medio Año">Por medio Año</option>
-          <option value="Por año">Por año</option>
-        </select>
-      </div>
-      <div class="column">
-        <label for="ingresoAnual">Ingreso anual</label>
-        <input
-          type="number"
-          min="100"
-          max="1000000"
-          placeholder="P. ej. 600000"
-          id="ingresoAnual"
-        />
-      </div>
-    </div>
-    <h3>Ingrese información sobre sus Retenciones</h3>
-    <div class="row">
-      <div class="column">
-        <label for="causaPorLaRetención">Causa por la retención</label>
-        <input
-          type="text"
-          maxlength="35"
-          id="causaPorLaRetención"
-          placeholder="P. ej. Impuestos"
-        />
-      </div>
-      <div class="column">
-        <label for="cantidadDeRetenciones">Cantidad de retenciones</label>
-        <input
-          type="number"
-          id="cantidadDeRetenciones"
-          min="100"
-          max="1000000"
-          placeholder="P. ej. 5 Retenciones"
-        />
-      </div>
-    </div>
-    <div class="container-button">
-      <input type="submit" id="btn" value="Crear el recibo del sueldo" />
-      <input type="reset" value="Restablecer el recibo del sueldo" />
-    </div>
-  </form>
-  <script src="../js/configurador-De-Recibo-Del-Sueldo/configuraciónDeReciboDelSueldo.js"></script>
-</div>
+    </form>
+  </div>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-pzjw8f+ua6D5FRY6w3RlawDk7ekddWkY0iCYyVQp6nD5wBZ2OrWQ6cu4R8qc2Bn"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

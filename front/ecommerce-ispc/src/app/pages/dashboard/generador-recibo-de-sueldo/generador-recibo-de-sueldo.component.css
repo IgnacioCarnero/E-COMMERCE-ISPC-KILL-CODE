@@ -429,3 +429,8 @@ h4.h4 {
   font-weight: 400;
   margin-bottom: 0;
 }
+
+button {
+  background-color: var(--second-color);
+  color: var(--white-color);
+}

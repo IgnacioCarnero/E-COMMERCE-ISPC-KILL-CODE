@@ -27,3 +27,4 @@ urlpatterns = [
     path('api/', include('databaseManager.urls')),
     path('api/', include(router.urls)),
 ]
+

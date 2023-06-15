@@ -9,6 +9,7 @@ import { AuthModule } from './auth/auth.module';
 import {HttpClientModule} from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddToCartModule } from './add-to-cart/add-to-cart.module';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { AddToCartModule } from './add-to-cart/add-to-cart.module';
     AuthModule,
     HttpClientModule,
     AddToCartModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
     ],
 })
 export class AppModule {}

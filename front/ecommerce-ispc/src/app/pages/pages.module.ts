@@ -18,6 +18,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { RegistroEmpresaComponent } from './dashboard/registro-empresa/registro-empresa.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -37,7 +38,7 @@ import { SharedModule } from '../shared/shared.module';
     EmpleadosApiComponent,
     RegistroEmpresaComponent,
     ],
-  imports: [CommonModule, AddToCartModule, AppRoutingModule, ReactiveFormsModule, SharedModule],
+  imports: [CommonModule, AddToCartModule, AppRoutingModule, ReactiveFormsModule, SharedModule, FormsModule],
 
   exports: [
     SectionComponent,
