@@ -20,4 +20,8 @@ export class EmpleadoService {
         })
       );
   }
+
+  listarEmpleado(): Observable<any> {
+    return this.http.get('http://localhost:8000/api/listar-empleados/', { withCredentials: true })
+  }
 }

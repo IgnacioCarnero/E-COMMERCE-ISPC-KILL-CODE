@@ -160,7 +160,7 @@ artValido = true;
           }
 
           // Validar campo numero
-          if (this.formu.controls.numero.invalid && this.formu.controls.numero.touched) {
+          if (this.formu.controls.casa_piso_numero.invalid && this.formu.controls.casa_piso_numero.touched) {
             this.numeroValido = false;
           } else {
             this.numeroValido = true;
@@ -223,7 +223,7 @@ artValido = true;
             this.obraSocialValido = true;
           }
 
-        }
+        
   
     this.empleadoService.guardarRegistroEmpleado(valores)
     .subscribe({
@@ -235,9 +235,8 @@ artValido = true;
       error: (error) => {
         this.errorMessage = 'Error al guardar el registro del empleado. Por favor, inténtalo nuevamente.';
       }
-    });
+    }); 
   }
-
   resetForm(): void {
     this.formu.reset();
     this.submitted = false;
@@ -259,3 +258,5 @@ artValido = true;
     });
   }
 }
+
+
