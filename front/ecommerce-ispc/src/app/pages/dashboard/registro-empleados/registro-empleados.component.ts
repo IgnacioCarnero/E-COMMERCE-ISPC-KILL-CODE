@@ -17,6 +17,9 @@ export class RegistroEmpleadosComponent {
   submitted = false
   errorMessage: string | null = null; // Variable para almacenar el mensaje de error
   successMessage: string | null = null; // Variable para almacenar el mensaje de éxito
+  respuesta: string = '';
+  listaEmpleados: any[] = [];
+  mostrarTabla: boolean = false;
   
   formu = new FormGroup({
     legajo: new FormControl('', [Validators.required, Validators.pattern(`^[0-9A-Za-z]+$`),]),
@@ -63,6 +66,10 @@ export class RegistroEmpleadosComponent {
 
   get email() {
     return this.formu.get('email') as FormControl;
+  }
+
+  get telefono() {
+    return this.formu.get('telefono')as FormControl;
   }
 
   get calle() {
@@ -131,5 +138,19 @@ export class RegistroEmpleadosComponent {
     this.submitted = false;
     this.successMessage = null;
     this.errorMessage = null;
+  }
+
+  verEmpleado(): void {
+    this.empleadoService.listarEmpleado().subscribe({
+      next: (response: any[]) => {
+        // Aquí puedes manejar los datos recibidos, por ejemplo, asignarlos a una variable
+        console.log(this.listaEmpleados = response);
+        this.mostrarTabla = true;
+      },
+      error: (error) => {
+        // Aquí puedes manejar el error en caso de que ocurra
+        console.error(error);
+      }
+    });
   }
 }

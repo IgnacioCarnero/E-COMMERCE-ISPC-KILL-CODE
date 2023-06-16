@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ModalService } from './modal.service';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -58,6 +59,8 @@ export class AuthService {
     // Luego de cerrar la sesión, restablece el estado de autenticación y el email del usuario
     this.isAuthenticated = false;
     this.loggedInUserEmail = '';
+    // Eliminar las cookies relacionadas con la sesión
+    document.cookie = 'csrftoken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
 
     // Realiza la petición HTTP para cerrar la sesión en el backend
     this.http.post<any>('http://localhost:8000/api/auth/logout/', {}).subscribe({
