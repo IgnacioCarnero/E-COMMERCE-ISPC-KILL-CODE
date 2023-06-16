@@ -16,8 +16,6 @@
                   placeholder="name@example.com"
                   formControlName="email"
                   [ngClass]="{'is-invalid': userLogin.controls.email && userLogin.controls.email.invalid && userLogin.controls.email.touched}"
-
-
                   required
 
                 />
@@ -25,6 +23,8 @@
               </div>
 
               <span *ngIf="userLogin.controls.email && userLogin.controls.email.invalid && userLogin.controls.email.touched" class="text-danger mb-2">Usuario incorrecto</span>
+              <span *ngIf="userLogin.controls.email.valid && userLogin.controls.email.touched" class="text-success mb-2">correcto</span>
+
 
 
               <div class="form-floating mb-3">
@@ -41,6 +41,7 @@
               </div>
 
               <span *ngIf="userLogin.controls.userpassword && userLogin.controls.userpassword.invalid && userLogin.controls.userpassword.touched" class="text-danger mx-auto mb-2">Contraseña incorrecta</span>
+              <span *ngIf="userLogin.controls.userpassword.valid && userLogin.controls.userpassword.touched" class="text-success mx-auto mb-2">Correcta</span>
 
               <div class="form-check mb-3">
                 <input
