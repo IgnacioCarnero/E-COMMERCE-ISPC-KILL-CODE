@@ -1,3 +1,10 @@
+.mytodo{
+  margin-left: 40px;
+  margin-right: 40px;
+
+}
+
+
 h2 {
   flex: auto;
   font-size: 35px;
@@ -11,9 +18,9 @@ h2 {
   justify-content: center;
 }
 
-  .myborde{
+  /* .myborde{
     border: 1px solid black;
-  }
+  } */
   .text-center {
     color: #001133;
     margin-top: 50px;
@@ -23,16 +30,34 @@ h2 {
     padding-right: 80px;
     text-align: center;
     font-family: sans-serif;
+  }
+
+    .alert-danger {
+      border-left: 5px solid red;
+
+
 }
-/* Clase para el borde verde en campos válidos */
+
+
+/* .container-error-mensaje {
+
+  border-left: 5px solid red;
+
+} */
+
+
+
+/* /* Clase para el borde verde en campos válidos */
+
+
 .ng-valid.ng-touched {
   border-left: 5px solid green;
 }
 
 /* Clase para el borde rojo en campos inválidos */
+
+/*
 .ng-invalid.ng-touched {
   border-left: 5px solid red;
-}
-
-
+} */
 
