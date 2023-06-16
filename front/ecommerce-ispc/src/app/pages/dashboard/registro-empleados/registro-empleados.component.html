@@ -1,252 +1,292 @@
-  <div class = "mytodo">
-    <h2 class="text-center mt-3">Registro de empleado</h2>
-      <form [formGroup]="formu" class="row">
-        <!-- (ngsubmit)="guardarRegistro()"> -->
-      <!--  <div class="m-5">
-          <div class="containerDos">
-          <div class="row">
-            <div class="col">
-          <div class="col-6 mt-3"> -->
-            <div class="col-md-6">
-              <div class="m-5">
-            <div class="mb-3">
-            <label for="legajo" class="form-label">LEGAJO</label>
-            <input type="number" class="form-control" id="legajo" formControlName="legajo" required placeholder="P.ej.84202">
-            <!-- <div class="alert alert-danger" *ngIf="formu.controls.legajo.invalid && formu.controls.legajo.touched">
-              El dato es incorrecto o incompleto.
-          </div> -->
-            <div class="alert alert-danger" *ngIf="legajo.invalid && (legajo.dirty || legajo.touched)">
-              <div class="container-error-mensaje">El dato es requerido.
-              </div>
-              <div class="container-error-mensaje">El dato debe ser numerico
-            </div>
-        </div>
-          <div class="col">
-              <label for="nombre" class="form-label">Nombres</label>
-              <input type="text" class="form-control" id="nombre" formControlName="nombre" required minlength="3" placeholder="Carlos">
-              <!-- <div class="alert alert-danger" *ngIf="formu.controls.nombre.invalid && formu.controls.nombre.touched">
-              El dato es incorrecto o incompleto.
-            </div> -->
-             <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
-              <div class="container-error-mensaje">El dato es requerido.
-              </div>
-              <div class="container-error-mensaje">El dato solo requiere letras
-            </div>
-        </div>
-        </div>
-          <div class="col">
-            <label for="apellido" class="form-label">Apellido</label>
-            <input type="text" class="form-control" id= "apellido" formControlName="apellido" required minlength="3" placeholder="P.ej.Perez">
-            <!-- <div class="alert alert-danger" *ngIf="formu.controls.apellido.invalid && formu.controls.apellido.touched">
-              El dato es incorrecto o incompleto.
-          </div> -->
-          <div class="alert alert-danger" *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)">
-            <div class="container-error-mensaje">El dato es requerido.
-            </div>
-            <div class="container-error-mensaje">El dato solo requiere letras
-          </div>
-        </div>
-      </div>
+<div class="mytodo">
+  <h2 class="text-center mt-3">Registro de empleado</h2>
+  <form [formGroup]="formu" (ngsubmit)="submitData()">
+    <div class="m-5">
+      <div class="containerDos">
         <div class="row">
           <div class="col">
-            <label for="calle" class="form-label">Calle</label>
-            <input type="text" class="form-control" id="calle" formControlName="calle" required minlength="3" placeholder="P.ej. Santa Fe">
-            <!-- <div class="alert alert-danger" *ngIf="formu.controls.calle.invalid && formu.controls.calle.touched">
-              El dato es incorrecto o incompleto.
-          </div> -->
-          <div class="alert alert-danger" *ngIf="calle.invalid && (calle.dirty || calle.touched)">
-            <div class="container-error-mensaje">El dato es requerido.
+            <div class="col-12 mt-3">
+              <div class="col-md-12">
+                <div class="m-5">
+                  <div class="mb-3">
+                    <label for="legajo" class="form-label">LEGAJO</label>
+                    <input type="number" class="form-control" id="legajo" formControlName="legajo" required
+                      placeholder="P.ej.84202">
+                    <div class="alert alert-danger"
+                      *ngIf="formu.controls.legajo.invalid && formu.controls.legajo.touched">
+                      El dato es incorrecto o incompleto.
+                    </div>
+                    <div class="alert alert-danger" *ngIf="legajo.invalid && (legajo.dirty || legajo.touched)">
+                      <div class="container-error-mensaje">El dato es requerido.
+                      </div>
+                      <div class="container-error-mensaje">El dato debe ser numerico
+                      </div>
+                    </div>
+                    <div class="col">
+                      <label for="nombre" class="form-label">Nombres</label>
+                      <input type="text" class="form-control" id="nombre" formControlName="nombre" required
+                        minlength="3" placeholder="Carlos">                 
+                      <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+                        <div class="container-error-mensaje">El dato es requerido.
+                        </div>
+                        <div class="container-error-mensaje">El dato solo requiere letras
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <label for="apellido" class="form-label">Apellido</label>
+                      <input type="text" class="form-control" id="apellido" formControlName="apellido" required
+                        minlength="3" placeholder="P.ej.Perez">
+                      <div class="alert alert-danger" *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)">
+                        <div class="container-error-mensaje">El dato es requerido.
+                        </div>
+                        <div class="container-error-mensaje">El dato solo requiere letras
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        <label for="calle" class="form-label">Calle</label>
+                        <input type="text" class="form-control" id="calle" formControlName="calle" required
+                          minlength="3" placeholder="P.ej. Santa Fe">
+                        <div class="alert alert-danger" *ngIf="calle.invalid && (calle.dirty || calle.touched)">
+                          <div class="container-error-mensaje">El dato es requerido.
+                          </div>
+                          <div class="container-error-mensaje">Minimo 3 caracteres
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <label for="numero" class="form-label">Casa/piso/numero/depto</label>
+                        <input type="text" class="form-control" id="numero" formControlName="numero" required
+                          minlength="3" placeholder="P.ej.524 piso 5 depto 6">
+                        <div class="alert alert-danger" *ngIf="numero.invalid && (numero.dirty || numero.touched)">
+                          <div class="container-error-mensaje">El dato es requerido.
+                          </div>
+                          <div class="container-error-mensaje">El dato puede ser alfanumerico
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <label for="provincia" class="form-label">Provincia</label>
+                      <input type="text" class="form-control" id="provincia" formControlName="provincia" required
+                        minlength="3" placeholder="P.ej. Madrid">
+                      <div class="alert alert-danger"
+                        *ngIf="provincia.invalid && (provincia.dirty || provincia.touched)">
+                        <div class="container-error-mensaje">El dato es requerido.
+                        </div>
+                        <div class="container-error-mensaje">El dato solo requiere letras
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          <label for="email" class="form-label">Email</label>
+                          <input type="email" class="form-control" id="email" formControlName="email"
+                            placeholder="name@example.com" required minlength="3">
+                          <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+                            <div class="container-error-mensaje">El dato es requerido.
+                            </div>
+                            <div class="container-error-mensaje">El dato requiere el formato
+                              name@example.com
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col">
+
+                          <label for="telefono" class="form-label">Telefono</label>
+                          <input type="number" class="form-control" id="telefono" formControlName="telefono" required
+                            placeholder="P.ej.84202">
+                          <div class="alert alert-danger"
+                            *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)">
+                            <div class="container-error-mensaje">El dato es requerido.
+                            </div>
+                            <div class="container-error-mensaje">El dato requiere numeros
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          <label for="cargo" class="form-label">Cargo</label>
+                          <input type="text" class="form-control" id="cargo" formControlName="cargo" required
+                            minlength="3" placeholder="P.ej. Asesor comercial">
+                          <div class="alert alert-danger" *ngIf="cargo.invalid && (cargo.dirty || cargo.touched)">
+                            <div class="container-error-mensaje">El dato es requerido.
+                            </div>
+                            <div class="container-error-mensaje">El dato puede ser
+                              alfanumerico
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="mb-3">
+                            <label for="categoria" class="form-label">Categoria</label>
+                            <input type="text" class="form-control" id="categoria" formControlName="categoria" required
+                              minlength="3" placeholder="P.ej. Administrativo tipo c">
+                            <div class="alert alert-danger"
+                              *ngIf="categoria.invalid && (categoria.dirty || categoria.touched)">
+                              <div class="container-error-mensaje">El dato es requerido.
+                              </div>
+                              <div class="container-error-mensaje">El dato puede ser
+                                alfanumerico
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col">
+                            <label for="ciudad" class="form-label">Ciudad</label>
+                            <input type="text" class="form-control" id="ciudad" formControlName="ciudad" required
+                              minlength="3" placeholder="P.ej. capital">
+                            <div class="alert alert-danger"
+                              *ngIf="formu.controls.ciudad.invalid && formu.controls.ciudad.touched">
+                              El dato es incorrecto o incompleto.
+                            </div>
+                          </div>                                          
+                          <div class="col">
+                            <label for="fecha_ingreso" class="form-label">Fecha de
+                              ingreso</label>
+                            <input type="date" class="form-control" id="fecha_ingreso" formControlName="fecha_ingreso"
+                              required>
+                            <div class="alert alert-danger"
+                              *ngIf="fecha_ingreso.invalid && (fecha_ingreso.dirty || fecha_ingreso.touched)">
+                              <div class="container-error-mensaje">El dato es requerido.
+                              </div>
+                              <div class="container-error-mensaje">El dato requiere el
+                                formato dd/mm/aaaa
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col">
+                            <label for="fecha_nacimiento" class="form-label">Fecha de
+                              nacimiento</label>
+                            <input type="date" class="form-control" id="fecha_nacimiento"
+                              formControlName="fecha_nacimiento" required>
+                            <div class="alert alert-danger"
+                              *ngIf="fecha_nacimiento.invalid && (fecha_nacimiento.dirty || fecha_nacimiento.touched)">
+                              <div class="container-error-mensaje">El dato es requerido.
+                              </div>
+                              <div class="container-error-mensaje">El dato requiere el
+                                formato dd/mm/aaaa
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col">
+                            <label for="cuil_empleado" class="form-label">CUIL</label>
+                            <input type="number" class="form-control" id="cuil_empleado" formControlName="cuil_empleado"
+                              required placeholder="P.ej.84202">
+                            <div class="alert alert-danger"
+                              *ngIf="cuil_empleado.invalid && (cuil_empleado.dirty || cuil_empleado.touched)">
+                              <div class="container-error-mensaje">El dato es requerido.
+                              </div>
+                              <div class="container-error-mensaje">El dato debe ser
+                                numerico
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col">
+                            <label for="obra_social" class="form-label">Obra social</label>
+                            <input type="text" class="form-control" id="obra_social" formControlName="obra_social"
+                              required minlength="3" placeholder="P.ej. Galeno 210">
+                            <div class="alert alert-danger"
+                              *ngIf="obra_social.invalid && (obra_social.dirty || obra_social.touched)">
+                              <div class="container-error-mensaje">El dato es requerido.
+                              </div>
+                              <div class="container-error-mensaje">El dato puede ser de
+                                caracter alfanumerico
+                              </div>
+
+                            </div>
+                          </div>
+                          <div class="col">
+                            <label for="art" class="form-label">ART</label>
+                            <input type="text" class="form-control" id="art" formControlName="art" required
+                              minlength="3" placeholder="P.ej.Patagonia art">
+                            <div class="alert alert-danger" *ngIf="art.invalid && (art.dirty || art.touched)">
+                              <div class="container-error-mensaje">El dato es requerido.
+                              </div>
+                              <div class="container-error-mensaje">El dato puede ser de
+                                caracter alfanumerico
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+
+                        <div class="conteinerTres justify-content-center align-item-center">
+                          <div class="row">
+                            <div class="d-grid gap-2 col-4 mx-auto d-md-flex justify-content-md-center p-3 m-2">
+                              <button class="btn btn-primary" (click)="submitData()" type="submit">Guardar</button>
+                              <button class="btn btn-primary" (click)="resetForm()">Reset</button>
+                              <button class="btn btn-primary" (click)="verEmpleado()">Ver
+                                empleados</button>
+                              <button class="btn btn-primary" (click)="resetForm()">Modificar empleado</button>
+                              <button class="btn btn-primary" (click)="resetForm()">Eliminar empleado</button>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="col">
+                            <div class="alert alert-success" *ngIf="successMessage">
+                              {{ successMessage }}
+                            </div>
+                            <div class="alert alert-danger" *ngIf="errorMessage">
+                              {{ errorMessage }}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="container-error-mensaje">Minimo 3 caracteres
-          </div>
-          </div>
-          </div>
-          <div class="col">
-            <label for="numero" class="form-label">Casa/piso/numero/depto</label>
-            <input type="text" class="form-control" id="numero" formControlName="numero" required minlength="3" placeholder="P.ej.524 piso 5 depto 6">
-            <!-- <div class="alert alert-danger" *ngIf="formu.controls.numero.invalid && formu.controls.numero.touched">
-              El dato es incorrecto o incompleto.
-          </div> -->
-          <div class="alert alert-danger" *ngIf="numero.invalid && (numero.dirty || numero.touched)">
-            <div class="container-error-mensaje">El dato es requerido.
-            </div>
-            <div class="container-error-mensaje">El dato puede ser alfanumerico
           </div>
         </div>
       </div>
     </div>
-          <div class="col">
-            <label for="provincia" class="form-label">Provincia</label>
-            <input type="text"
-              class="form-control" id="provincia" formControlName="provincia" required minlength="3" placeholder="P.ej. Madrid">
-              <!-- <div class="alert alert-danger" *ngIf="formu.controls.provincia.invalid && formu.controls.provincia.touched">
-                El dato es incorrecto o incompleto.
-            </div> -->
-            <div class="alert alert-danger" *ngIf="provincia.invalid && (provincia.dirty || provincia.touched)">
-              <div class="container-error-mensaje">El dato es requerido.
-              </div>
-              <div class="container-error-mensaje">El dato solo requiere letras
-            </div>
-          </div>
-        </div>
-          <div class="row">
-            <div class="col">
-              <label for="email" class="form-label">Email</label>
-              <input type="email" class="form-control" id="email" formControlName="email" placeholder="name@example.com" required minlength="3">
-              <!-- <div class="alert alert-danger" *ngIf="formu.controls.email.invalid && formu.controls.email.touched">
-                El dato es incorrecto o incompleto.
-            </div> -->
-            <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
-              <div class="container-error-mensaje">El dato es requerido.
-              </div>
-              <div class="container-error-mensaje">El dato requiere el formato name@example.com
-            </div>
-        </div>
-      </div>
-            <div class="col">
-              <label for="telefono" class="form-label">Telefono</label>
-              <input type="number" class="form-control" id="telefono" formControlName="telefono" required placeholder="P.ej.84202">
-              <!-- <div class="alert alert-danger" *ngIf="formu.controls.telefono.invalid && formu.controls.telefono.touched">
-                El dato es incorrecto o incompleto.
-            </div> -->
-            <div class="alert alert-danger" *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)">
-              <div class="container-error-mensaje">El dato es requerido.
-              </div>
-              <div class="container-error-mensaje">El dato requiere numeros
-              </div>
-            </div>
-          </div>
-        </div>
-          <div class="row">
-            <div class="col">
-            <label for="cargo" class="form-label">Cargo</label>
-            <input type="text" class="form-control" id="cargo" formControlName="cargo" required minlength="3" placeholder="P.ej. Asesor comercial">
-            <!-- <div class="alert alert-danger" *ngIf="formu.controls.cargo.invalid && formu.controls.cargo.touched">
-              El dato es incorrecto o incompleto.
-          </div> -->
-          <div class="alert alert-danger" *ngIf="cargo.invalid && (cargo.dirty || cargo.touched)">
-            <div class="container-error-mensaje">El dato es requerido.
-            </div>
-            <div class="container-error-mensaje">El dato puede ser alfanumerico
-          </div>
-      </div>
-    </div>
-        <div class="col">
-            <div class="mb-3">
-            <label for="categoria" class="form-label">Categoria</label>
-            <input type="text" class="form-control" id="categoria" formControlName="categoria" required minlength="3" placeholder="P.ej. Administrativo tipo c">
-            <!-- <div class="alert alert-danger" *ngIf="formu.controls.categoria.invalid && formu.controls.categoria.touched">
-              El dato es incorrecto o incompleto.
-          </div> -->
-          <div class="alert alert-danger" *ngIf="categoria.invalid && (categoria.dirty || categoria.touched)">
-            <div class="container-error-mensaje">El dato es requerido.
-            </div>
-            <div class="container-error-mensaje">El dato puede ser alfanumerico
-          </div>
-      </div>
-    </div>
+  </form>
+</div>
+<div class="">
+  <div *ngIf="mostrarTabla">
+    <fieldset>Listado de empleados</fieldset>
+    <table class="table table-responsive-sm">
+      <thead>
+        <tr>
+          <th>Legajo</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Cargo</th>
+          <th>Categoría</th>
+          <th>Cuil</th>
+          <th>Ingreso</th>
+          <th>Provincia</th>
+          <th>Ciudad</th>
+          <th>Calle</th>
+          <th>Numero</th>
+          <th class="text-center">Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let empleado of listaEmpleados">
+          <td>{{ empleado.legajo }}</td>
+          <td>{{ empleado.nombre }}</td>
+          <td>{{ empleado.apellido }}</td>
+          <td>{{ empleado.cargo }}</td>
+          <td>{{ empleado.categoria }}</td>
+          <td>{{ empleado.cuil_empleado }}</td>
+          <td>{{ empleado.fecha_ingreso }}</td>
+          <td>{{ empleado.provincia }}</td>
+          <td>{{ empleado.ciudad }}</td>
+          <td>{{ empleado.calle }}</td>
+          <td>{{ empleado.casa_piso_numero }}</td>
+          <td>{{ empleado.email }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
-    <div class="row">
-      <div class="col">
-          <label for="fecha_ingreso" class="form-label">Fecha de ingreso</label>
-          <input type="date" class="form-control" id="fecha_ingreso" formControlName="fecha_ingreso" required>
-          <!-- <div class="alert alert-danger" *ngIf="formu.controls.fecha_ingreso.invalid && formu.controls.fecha_ingreso.touched">
-            El dato es incorrecto o incompleto.
-      </div> -->
-      <div class="alert alert-danger" *ngIf="fecha_ingreso.invalid && (fecha_ingreso.dirty || fecha_ingreso.touched)">
-        <div class="container-error-mensaje">El dato es requerido.
-        </div>
-        <div class="container-error-mensaje">El dato requiere el formato dd/mm/aaaa
-      </div>
-    </div>
-    </div>
-        <div class="col">
-          <label for="fecha_nacimiento" class="form-label">Fecha de nacimiento</label>
-          <input type="date" class="form-control" id="fecha_nacimiento" formControlName="fecha_nacimiento" required>
-          <!-- <div class="alert alert-danger" *ngIf="formu.controls.fecha_nacimiento.invalid && formu.controls.fecha_nacimiento.touched">
-            El dato es incorrecto o incompleto.
-        </div> -->
-        <div class="alert alert-danger" *ngIf="fecha_nacimiento.invalid && (fecha_nacimiento.dirty || fecha_nacimiento.touched)">
-          <div class="container-error-mensaje">El dato es requerido.
-          </div>
-          <div class="container-error-mensaje">El dato requiere el formato dd/mm/aaaa
-        </div>
-      </div>
-    </div>
-  </div>
-      <div class="row">
-        <div class="col">
-        <label for="cuil_empleado" class="form-label">CUIL</label>
-        <input type="number" class="form-control" id="cuil_empleado" formControlName="cuil_empleado" required placeholder="P.ej.84202">
-      <!--   <div class="alert alert-danger" *ngIf="formu.controls.cuil_empleado.invalid && formu.controls.cuil_empleado.touched">
-          El dato es incorrecto o incompleto.
-      </div> -->
-      <div class="alert alert-danger" *ngIf="cuil_empleado.invalid && (cuil_empleado.dirty || cuil_empleado.touched)">
-        <div class="container-error-mensaje">El dato es requerido.
-        </div>
-        <div class="container-error-mensaje">El dato debe ser numerico
-      </div>
-    </div>
-  </div>
-      <div class="col">
-            <label for="obra_social" class="form-label">Obra social</label>
-            <input type="text" class="form-control" id="obra_social" formControlName="obra_social" required minlength="3" placeholder="P.ej. Galeno 210">
-            <!-- <div class="alert alert-danger" *ngIf="formu.controls.obra_social.invalid && formu.controls.obra_social.touched">
-              El dato es incorrecto o incompleto.
-          </div> -->
-        <div class="alert alert-danger" *ngIf="obra_social.invalid && (obra_social.dirty || obra_social.touched)">
-          <div class="container-error-mensaje">El dato es requerido.
-          </div>
-          <div class="container-error-mensaje">El dato puede ser de caracter alfanumerico
-        </div>
-      </div>
-    </div>
-          <div class="col">
-            <label for="art" class="form-label">ART</label>
-            <input type="text" class="form-control" id="art" formControlName="art" required minlength="3" placeholder="P.ej.Patagonia art">
-           <!--  <div class="alert alert-danger" *ngIf="formu.controls.art.invalid && formu.controls.art.touched">
-              El dato es incorrecto o incompleto.
-          </div> -->
-        <div class="alert alert-danger" *ngIf="art.invalid && (art.dirty || art.touched)">
-          <div class="container-error-mensaje">El dato es requerido.
-          </div>
-          <div class="container-error-mensaje">El dato puede ser de caracter alfanumerico
-        </div>
-      </div>
-
-          <br>
-          <br>
-        </div>
-        <div class="conteinerTres">
-          <div class="row">
-          <div class="d-grid gap-2 col-4 mx-auto d-md-flex justify-content-md-center p-3 m-2">
-              <button class="btn btn-primary" (click) ="guardarRegistro()" type = "submit">Guardar</button>
-              <button class="btn btn-primary" (click) ="verRegistro()">Ver</button>
-              <button class="btn btn-primary" (click) ="modificarRegistro()">Modificar</button>
-              <button class="btn btn-primary" (click)="resetFormulario()">Borrar</button>
-            </div>
-
-
-            <div *ngIf="mostrarDatos" class="mt-3">
-              <h3>Datos del empleado</h3>
-              <p>LEGAJO {{ formu.value.legajo }}</p>
-              <p>Nombre: {{ formu.value.nombre }}</p>
-              <p>Apellido: {{ formu.value.apellido}}</p>
-              <p>Calle: {{ formu.value.calle }}</p>
-              <p>Numero: {{ formu.value.numero }}</p>
-              <p>Provincia: {{ formu.value.provincia }}</p>
-              <p>Email: {{ formu.value.email }}</p>
-              <p>Telefono: {{ formu.value.telefono }}</p>
-              <p>Cargo: {{ formu.value.cargo }}</p>
-              <p>Categoria: {{ formu.value.categoria }}</p>
-              <p>Telefono: {{ formu.value.telefono }}</p>
-              <p>Fecha de ingreso: {{ formu.value.fecha_ingreso}}</p>
-              <p>Fecha de nacimiento: {{ formu.value.fecha_nacimiento }}</p>
-              <p>Obra social: {{ formu.value.obra_social}}</p>
-              <p>Art: {{ formu.value.art }}</p>
-
-
-
-            </div>
-
-
+</div>
