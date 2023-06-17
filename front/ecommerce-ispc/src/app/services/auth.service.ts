@@ -9,7 +9,7 @@ import { ModalService } from './modal.service';
   providedIn: 'root'
 })
 export class AuthService {
-  private isAuthenticated = false;
+  public isAuthenticated = false;
   private loggedInUserEmail = '';
 
   constructor(private http: HttpClient, private router: Router, private modalService: ModalService) { }
