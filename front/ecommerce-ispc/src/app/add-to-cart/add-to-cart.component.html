@@ -28,7 +28,7 @@
                                         <div class="d-flex justify-content-between">
                                             <div class="d-flex flex-row align-items-center">
                                                 <div class="ms-3">
-                                                    <h5>{{ servicio.nombre }}</h5>
+                                                    <h5>{{ servicio.nombre }} - {{servicio.detalle}}</h5>
                                                 </div>
                                             </div>
                                             <div class="d-flex flex-row align-items-center">
@@ -44,11 +44,21 @@
                                     </div>
                                 </div>
 
+                                <div class="row">
+                                    <div class="col">
+                                      <div class="alert alert-success" *ngIf="successMessage">
+                                        {{ successMessage }}
+                                      </div>
+                                      <div class="alert alert-danger" *ngIf="errorMessage">
+                                        {{ errorMessage }}
+                                      </div>
+                                    </div>
+                                </div>
 
                             </div>
                             <div class="col-lg-5">
 
-                                <div class="card bg-primary text-white rounded-3">
+                                <div class="card bg-success text-white rounded-3">
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between align-items-center mb-4">
                                             <h5 class="mb-0">Detalle de compra</h5>
@@ -60,63 +70,80 @@
                                         <i class="fab fa-cc-amex fa-2x me-2"></i>
                                         <i class="fab fa-cc-paypal fa-2x"></i>
 
-                                        <form class="mt-4">
+                                        <form class="mt-4" (ngSubmit)="comprar()" [formGroup]="formulario">
                                             <div class="form-outline form-white mb-4">
-                                                <input type="text" id="typeName" class="form-control form-control-lg"
-                                                    siez="17" placeholder="Nombre de tarjeta" />
+                                                <input type="text" id="nombre_tarjeta" class="form-control form-control-lg"
+                                                    siez="17" placeholder="Nombre de tarjeta" formControlName="nombre_tarjeta" name="nombre_tarjeta"/>
                                                 <label class="form-label" for="typeName">Nombre de tarjeta</label>
+                                                <div class="alert alert-danger" *ngIf="formulario.get('nombre_tarjeta')?.invalid && (formulario.get('nombre_tarjeta')?.dirty || formulario.get('nombre_tarjeta')?.touched)">
+                                                    <div class="container-error-mensaje">El dato es requerido.</div>
+                                                    <div class="container-error-mensaje">El dato puede ser alfanumérico.</div>
+                                                </div>
                                             </div>
 
                                             <div class="form-outline form-white mb-4">
-                                                <input name="tarjeta" type="text" id="tarjeta"
+                                                <input name="tarjeta" type="text" id="numero_tarjeta"
                                                     class="form-control form-control-lg" siez="17"
-                                                    placeholder="1234 5678 9012 3457" minlength="19" maxlength="19" />
+                                                    placeholder="1234 5678 9012 3457" minlength="19" maxlength="19" formControlName="numero_tarjeta"/>
                                                 <label class="form-label" for="tarjeta">Numero de tarjeta</label>
+                                                <div class="alert alert-danger" *ngIf="formulario.get('numero_tarjeta')?.invalid && (formulario.get('numero_tarjeta')?.dirty || formulario.get('numero_tarjeta')?.touched)">
+                                                    <div class="container-error-mensaje">El dato es requerido.</div>
+                                                    <div class="container-error-mensaje">El dato debe ser numerico.</div>
+                                                </div>
                                             </div>
 
                                             <div class="row mb-4">
                                                 <div class="col-md-6">
                                                     <div class="form-outline form-white">
-                                                        <input type="text" id="typeExp"
-                                                            class="form-control form-control-lg" placeholder="MM/YYYY"
-                                                            size="7" id="exp" minlength="7" maxlength="7" />
-                                                        <label class="form-label" for="typeExp">Vencimiento</label>
+                                                        <input type="date" id="vencimiento"
+                                                            class="form-control form-control-lg" placeholder="dd/MM/YYYY Use el dia 01 para todos los vencimientos"
+                                                            formControlName="vencimiento"/>
+                                                        <label class="form-label" for="vencimiento">Vencimiento</label>
+                                                        <div class="alert alert-danger" *ngIf="formulario.get('vencimiento')?.invalid && (formulario.get('vencimiento')?.dirty || formulario.get('vencimiento')?.touched)">
+                                                            <div class="container-error-mensaje">El dato es requerido.</div>
+                                                            <div class="container-error-mensaje">El dato debe ser un fecha valida.</div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-outline form-white">
-                                                        <input type="password" id="typeText"
+                                                        <input type="password" id="number"
                                                             class="form-control form-control-lg"
-                                                            placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3"
-                                                            maxlength="3" />
-                                                        <label class="form-label" for="typeText">Cvv</label>
+                                                            placeholder="&#9679;&#9679;&#9679;"  minlength="3"
+                                                            maxlength="3" formControlName="Cvv"/>
+                                                        <label class="form-label" for="number">Cvv</label>
+                                                        <div class="alert alert-danger" *ngIf="formulario.get('Cvv')?.invalid && (formulario.get('Cvv')?.dirty || formulario.get('Cvv')?.touched)">
+                                                            <div class="container-error-mensaje">El dato es requerido.</div>
+                                                            <div class="container-error-mensaje">El dato debe ser numerico</div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                        </form>
-
-                                        <hr class="my-4">
-
-                                        <div *ngIf="productosCarrito.length > 0"
-                                            class="d-flex justify-content-between">
-                                            <p class="mb-2">Subtotal</p>
-                                            <p class="mb-2">{{ calcularSubtotal() }}</p>
-                                        </div>
 
 
-                                        <div *ngIf="productosCarrito.length > 0"
-                                        class="d-flex justify-content-between mb-4">
-                                            <p class="mb-2">Total(Incl. taxes)</p>
-                                            <p class="mb-2">{{ calcularSubtotal() }}</p>
-                                        </div>
+                                            <hr class="my-4">
 
-                                        <button type="button" class="btn btn-info btn-block btn-lg">
-                                            <div class="d-flex justify-content-between">
-                                                
-                                                <span>Checkout <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
+                                            <div *ngIf="productosCarrito.length > 0"
+                                                class="d-flex justify-content-between">
+                                                <p class="mb-2">Subtotal</p>
+                                                <p class="mb-2">{{ calcularSubtotal() }}</p>
                                             </div>
-                                        </button>
+
+
+                                            <div *ngIf="productosCarrito.length > 0"
+                                            class="d-flex justify-content-between mb-4">
+                                                <p class="mb-2">Total (Incl. IVA)</p>
+                                                <p class="mb-2">{{ calcularTotal() }}</p>
+                                            </div>
+
+                                            <button type="submit" class="btn btn-dark btn-block btn-lg">
+                                                <div class="d-flex justify-content-between">
+
+                                                    <span>Checkout <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
+                                                </div>
+                                            </button>
+                                        </form>
 
                                     </div>
                                 </div>
