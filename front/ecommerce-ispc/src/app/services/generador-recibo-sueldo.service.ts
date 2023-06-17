@@ -24,3 +24,4 @@ export class GeneradorReciboSueldoService {
     return this.http.delete(url);
   }
 }
+

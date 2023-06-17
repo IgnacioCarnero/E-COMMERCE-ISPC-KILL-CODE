@@ -12,21 +12,7 @@ export class GeneradorReciboDeSueldoComponent {
   constructor(private formService: GeneradorReciboSueldoService) {}
 
   submitForm() {
-    const formData = {
-      id_recibo: (document.getElementById('id_recibo') as HTMLInputElement).value,
-      montoBruto: (document.getElementById('montoBruto') as HTMLInputElement).value,
-      montoNeto: (document.getElementById('montoNeto') as HTMLInputElement).value,
-      periodo: (document.getElementById('periodo') as HTMLInputElement).value,
-      antiguedad: (document.getElementById('antiguedad') as HTMLInputElement).value,
-      concepto: (document.getElementById('concepto') as HTMLInputElement).value,
-      asistencia: (document.getElementById('asistencia') as HTMLInputElement).value,
-      fecha_pago: (document.getElementById('fecha_pago') as HTMLInputElement).value,
-      deduccion: (document.getElementById('deduccion') as HTMLInputElement).value,
-      extra: (document.getElementById('extra') as HTMLInputElement).value,
-      legajo_empleado: (document.getElementById('legajo_empleado') as HTMLInputElement).value
-    };
-
-    this.formService.submitForm(formData)
+    this.formService.submitForm(this.formData)
       .subscribe(
         response => {
           // Handle success response from the server
@@ -42,9 +28,9 @@ export class GeneradorReciboDeSueldoComponent {
   }
 
   modifyForm() {
-    const idRecibo = (document.getElementById('id_recibo') as HTMLInputElement).value;
+    const idRecibo = this.formData.id_recibo;
 
-    this.formService.modifyForm(parseInt(idRecibo), this.formData)
+    this.formService.modifyForm(idRecibo, this.formData)
       .subscribe(
         response => {
           // Handle success response from the server
@@ -60,9 +46,9 @@ export class GeneradorReciboDeSueldoComponent {
   }
 
   deleteForm() {
-    const idRecibo = (document.getElementById('id_recibo') as HTMLInputElement).value;
+    const idRecibo = this.formData.id_recibo;
 
-    this.formService.deleteForm(parseInt(idRecibo))
+    this.formService.deleteForm(idRecibo)
       .subscribe(
         response => {
           // Handle success response from the server

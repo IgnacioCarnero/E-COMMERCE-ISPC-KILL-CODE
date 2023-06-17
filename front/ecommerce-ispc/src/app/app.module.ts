@@ -10,11 +10,12 @@ import {HttpClientModule} from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddToCartModule } from './add-to-cart/add-to-cart.module';
 import { FormsModule } from '@angular/forms';
+import { GeneradorReciboDeSueldoComponent } from './pages/dashboard/generador-recibo-de-sueldo/generador-recibo-de-sueldo.component';
 
 
 @NgModule({
   declarations: [AppComponent],
-  providers: [],
+  providers: [GeneradorReciboDeSueldoComponent],
   bootstrap: [AppComponent],
   imports: [
     BrowserModule,
