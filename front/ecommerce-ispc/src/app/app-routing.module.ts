@@ -16,12 +16,10 @@ import { NavComponent } from './shared/nav/nav.component';
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
   { path: 'privacidad', component: PrivacidadComponent },
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] , children: [
-    // Agrega aquí las rutas hijas del módulo "Dashboard" que deseas proteger
-    { path: 'registro-empleados', component: RegistroEmpleadosComponent  },
-    { path: 'generador-recibo-de-sueldo', component: GeneradorReciboDeSueldoComponent },
-    { path: 'registro-empresa', component: RegistroEmpresaComponent }
-  ]}, 
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },   // Agrega aquí las rutas hijas del módulo "Dashboard" que deseas proteger
+  { path: 'registro-empleados', component: RegistroEmpleadosComponent, canActivate: [AuthGuard]  },
+  { path: 'generador-recibo-de-sueldo', component: GeneradorReciboDeSueldoComponent,canActivate: [AuthGuard] },
+  { path: 'registro-empresa', component: RegistroEmpresaComponent,canActivate: [AuthGuard] }, 
   { path: 'ayuda', component: AyudaComponent },
   { path: 'terminos', component: TerminosComponent },
   { path: 'servicios', component: ServiciosComponent },
