@@ -20,4 +20,18 @@ export class EmpleadoService {
         })
       );
   }
+
+  listarEmpleado(): Observable<any> {
+    return this.http.get('http://localhost:8000/api/listar-empleados/', { withCredentials: true })
+  }
+
+  eliminarEmpleado(legajo: number): Observable<any> {
+    const url = `http://localhost:8000/api/eliminar-empleado/${legajo}/`;
+    return this.http.delete(url, { withCredentials: true });
+  }
+
+  modificarEmpleado(legajo: number, empleado: any): Observable<any> {
+    const url = `http://localhost:8000/api/modificar-empleado/${legajo}/`;
+    return this.http.put(url, empleado, { withCredentials: true });
+  }
 }
