@@ -6,6 +6,7 @@ from rest_framework.permissions import IsAdminUser, AllowAny, IsAuthenticated
 from django.shortcuts import get_object_or_404
 from .models import Empleado, ObraSocial
 from databaseManager.serializer import *
+<<<<<<< HEAD
 """
 Django settings for home project.
 
@@ -165,6 +166,10 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAdminUser',
     ]
 }# Create your views here.
+=======
+from django.http import JsonResponse
+# Create your views here.
+>>>>>>> main
 
 class LoginView(APIView):
     permission_classes = [AllowAny]
@@ -189,9 +194,10 @@ class LogoutView(APIView):
     def post(self, request):
         # Borramos de la rquest la informacion de sesion
         logout(request)
-
+        # Crear una respuesta vacía
+        response = JsonResponse({}, status=status.HTTP_200_OK)
         #Devolvemos la respuesta al cliente
-        return Response(status=status.HTTP_200_OK)
+        return response
     
 class SignupView(generics.CreateAPIView):
     serializer_class = UserSerializer
@@ -230,7 +236,6 @@ class EliminarEmpleadoView(APIView):
 
     def delete(self, request, legajo):
         empleado = Empleado.objects.get(legajo=legajo)
-        serializer = EliminarEmpleadoSerializer(empleado)
         empleado.delete()
         return Response({"mensaje": "Empleado eliminado exitosamente"})
     

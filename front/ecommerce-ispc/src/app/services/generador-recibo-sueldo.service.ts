@@ -10,6 +10,7 @@ export class GeneradorReciboSueldoService {
   constructor(private http: HttpClient) { }
 
   submitForm(formData: any) {
+<<<<<<< HEAD
     const url = `${this.apiUrl}crear-recibo/`;
     return this.http.post(url, formData);
   }
@@ -25,3 +26,8 @@ export class GeneradorReciboSueldoService {
   }
 }
 
+=======
+    return this.http.post(this.apiUrl, formData)
+  }
+}
+>>>>>>> main
