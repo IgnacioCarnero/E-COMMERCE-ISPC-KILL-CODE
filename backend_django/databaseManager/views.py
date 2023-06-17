@@ -74,7 +74,6 @@ class EliminarEmpleadoView(APIView):
 
     def delete(self, request, legajo):
         empleado = Empleado.objects.get(legajo=legajo)
-        serializer = EliminarEmpleadoSerializer(empleado)
         empleado.delete()
         return Response({"mensaje": "Empleado eliminado exitosamente"})
     

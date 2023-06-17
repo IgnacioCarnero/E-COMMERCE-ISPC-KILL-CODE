@@ -57,8 +57,8 @@
                         </div>
                       </div>
                       <div class="col">
-                        <label for="numero" class="form-label">Casa/piso/numero/depto</label>
-                        <input type="text" class="form-control" id="numero" formControlName="numero" required
+                        <label for="casa_piso_numero" class="form-label">Casa/piso/numero/depto</label>
+                        <input type="number" class="form-control" id="casa_piso_numero" formControlName="casa_piso_numero" required
                           minlength="3" placeholder="P.ej.524 piso 5 depto 6">
                         <div class="alert alert-danger" *ngIf="numero.invalid && (numero.dirty || numero.touched)">
                           <div class="container-error-mensaje">El dato es requerido.
@@ -190,7 +190,7 @@
                           <div class="col">
                             <label for="obra_social" class="form-label">Obra social</label>
                             <input type="text" class="form-control" id="obra_social" formControlName="obra_social"
-                              required minlength="3" placeholder="P.ej. Galeno 210">
+                              required minlength="1" placeholder="P.ej. Galeno 210">
                             <div class="alert alert-danger"
                               *ngIf="obra_social.invalid && (obra_social.dirty || obra_social.touched)">
                               <div class="container-error-mensaje">El dato es requerido.
@@ -204,7 +204,7 @@
                           <div class="col">
                             <label for="art" class="form-label">ART</label>
                             <input type="text" class="form-control" id="art" formControlName="art" required
-                              minlength="3" placeholder="P.ej.Patagonia art">
+                              minlength="1" placeholder="P.ej.Patagonia art">
                             <div class="alert alert-danger" *ngIf="art.invalid && (art.dirty || art.touched)">
                               <div class="container-error-mensaje">El dato es requerido.
                               </div>
@@ -223,8 +223,8 @@
                               <button class="btn btn-primary" (click)="resetForm()">Reset</button>
                               <button class="btn btn-primary" (click)="verEmpleado()">Ver
                                 empleados</button>
-                              <button class="btn btn-primary" (click)="resetForm()">Modificar empleado</button>
-                              <button class="btn btn-primary" (click)="resetForm()">Eliminar empleado</button>
+                              <button class="btn btn-primary" (click)="modificarEmpleado()">Modificar empleado</button>
+                              <button class="btn btn-primary" (click)="eliminarEmpleadoSeleccionado()">Eliminar empleado</button>
                             </div>
                           </div>
                         </div>
@@ -272,7 +272,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let empleado of listaEmpleados">
+        <tr *ngFor="let empleado of listaEmpleados" [ngClass]="{'seleccionado': empleado === empleadoSeleccionado}"
+        (click)="seleccionarEmpleado(empleado)" (click)="seleccionarEmpleado(empleado)">
           <td>{{ empleado.legajo }}</td>
           <td>{{ empleado.nombre }}</td>
           <td>{{ empleado.apellido }}</td>

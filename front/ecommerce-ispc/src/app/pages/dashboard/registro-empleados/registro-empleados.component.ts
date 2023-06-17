@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { EmpleadoService } from '../../../services/empledo.service';
+import { EmpleadoService } from '../../../services/empleado.service';
 
 @Component({
   selector: 'app-registro-empleados',
@@ -20,6 +20,7 @@ export class RegistroEmpleadosComponent {
   respuesta: string = '';
   listaEmpleados: any[] = [];
   mostrarTabla: boolean = false;
+  empleadoSeleccionado: any; // Variable para almacenar el empleado seleccionado
   
   formu = new FormGroup({
     legajo: new FormControl('', [Validators.required, Validators.pattern(`^[0-9A-Za-z]+$`),]),
@@ -230,10 +231,10 @@ artValido = true;
       next: () => {
         this.resetForm();
         this.successMessage = 'El registro del empleado se guardó correctamente.';
-        setTimeout(this.resetForm.bind(this), 4000);
+        setTimeout(this.resetForm.bind(this), 5000);
       },
       error: (error) => {
-        this.errorMessage = 'Error al guardar el registro del empleado. Por favor, inténtalo nuevamente.';
+        this.errorMessage = 'Error al guardar el registro del empleado.';
       }
     }); 
   }
@@ -257,6 +258,103 @@ artValido = true;
       }
     });
   }
+
+  cargarEmpleadoSeleccionado() {
+    if (this.empleadoSeleccionado) {
+      this.formu.controls.legajo.setValue(this.empleadoSeleccionado.legajo);
+      this.formu.controls.nombre.setValue(this.empleadoSeleccionado.nombre);
+      this.formu.controls.apellido.setValue(this.empleadoSeleccionado.apellido);
+      this.formu.controls.calle.setValue(this.empleadoSeleccionado.calle);
+      this.formu.controls.casa_piso_numero.setValue(this.empleadoSeleccionado.casa_piso_numero);
+      this.formu.controls.provincia.setValue(this.empleadoSeleccionado.provincia);
+      this.formu.controls.email.setValue(this.empleadoSeleccionado.email);
+      this.formu.controls.telefono.setValue(this.empleadoSeleccionado.telefono);
+      this.formu.controls.cargo.setValue(this.empleadoSeleccionado.cargo);
+      this.formu.controls.categoria.setValue(this.empleadoSeleccionado.categoria);
+      this.formu.controls.ciudad.setValue(this.empleadoSeleccionado.ciudad);
+      this.formu.controls.fecha_ingreso.setValue(this.empleadoSeleccionado.fecha_ingreso);
+      this.formu.controls.fecha_nacimiento.setValue(this.empleadoSeleccionado.fecha_nacimiento);
+      this.formu.controls.cuil_empleado.setValue(this.empleadoSeleccionado.cuil_empleado);
+      this.formu.controls.obra_social.setValue(this.empleadoSeleccionado.obra_social);
+      this.formu.controls.art.setValue(this.empleadoSeleccionado.art);
+    }
+  }
+
+  seleccionarEmpleado(empleado: any): void {
+    this.empleadoSeleccionado = empleado; // Guardar el empleado seleccionado en la variable
+    this.cargarEmpleadoSeleccionado(); // Cargar el empleado seleccionado en los campos del formulario
+  }
+
+  eliminarEmpleadoSeleccionado(): void {
+    if (this.empleadoSeleccionado) {
+      const legajo = this.empleadoSeleccionado.legajo; // Obtener el legajo del empleado seleccionado
+      this.eliminarEmpleado(legajo); // Llamar al método eliminarEmpleado con el legajo del empleado seleccionado
+    } else {
+      console.error('No se ha seleccionado ningún empleado');
+    }
+  }
+
+  eliminarEmpleado(legajo: number): void {
+    this.empleadoService.eliminarEmpleado(legajo).subscribe({
+      next: () => {
+        // Operación de eliminación exitosa, realizar acciones adicionales si es necesario
+        console.log('Empleado eliminado correctamente');
+        // Aquí puedes realizar acciones adicionales después de la eliminación
+        // Por ejemplo, actualizar la lista de empleados llamando al método verEmpleado()
+        this.resetForm();
+        this.verEmpleado();
+        this.successMessage = 'El empleado se eliminó correctamente.';
+        setTimeout(this.resetForm.bind(this), 5000); // Muestra confirmación durante 5 segundos
+      },
+      error: (error) => {
+        // Manejar el error en caso de que ocurra
+        console.error('Error al eliminar empleado:', error);
+        this.errorMessage = 'Error al eliminar el registro del empleado.';
+      }
+    });
+  }
+
+  modificarEmpleado() {
+    const empleadoModificado = {
+      legajo: this.formu.controls.legajo.value,
+      nombre: this.formu.controls.nombre.value,
+      apellido: this.formu.controls.apellido.value,
+      calle: this.formu.controls.calle.value,
+      casa_piso_numero: this.formu.controls.casa_piso_numero.value,
+      provincia: this.formu.controls.provincia.value,
+      email: this.formu.controls.email.value,
+      telefono: this.formu.controls.telefono.value,
+      cargo: this.formu.controls.cargo.value,
+      categoria: this.formu.controls.categoria.value,
+      ciudad: this.formu.controls.ciudad.value,
+      fecha_ingreso: this.formu.controls.fecha_ingreso.value,
+      fecha_nacimiento: this.formu.controls.fecha_nacimiento.value,
+      cuil_empleado: this.formu.controls.cuil_empleado.value,
+      obra_social: this.formu.controls.obra_social.value,
+      art: this.formu.controls.art.value,
+    };
+  
+    this.empleadoService.modificarEmpleado(this.empleadoSeleccionado.legajo, empleadoModificado)
+      .subscribe({
+        next: (response) => {
+          // Manejar la respuesta del servidor
+          console.log(response);
+          // Puedes mostrar un mensaje de éxito, actualizar la lista de empleados.
+          this.resetForm();
+          this.verEmpleado();
+          this.successMessage = 'El empleado se modifico correctamente.';
+          setTimeout(this.resetForm.bind(this), 5000);
+        },
+        error: (error) => {
+          // Manejar el error
+          console.error(error);
+          // Puedes mostrar un mensaje de error o realizar alguna acción adicional
+          this.errorMessage = 'Error al modificar el registro del empleado.';
+        }
+    });
+  }
+  
+  
 }
 
 
