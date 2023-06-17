@@ -10,11 +10,11 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./servicios.component.css']
 })
 export class ServiciosComponent implements AfterViewInit, OnDestroy{
-  Personal: Servicio = new Servicio('Personal', 20000);
-  PyME: Servicio = new Servicio('PyME', 60000);
-  PremiumPyME: Servicio = new Servicio('PremiumPyME', 100000);
+  Personal: Servicio = new Servicio('Personal', 20000, '10 legajos', 1);
+  PyME: Servicio = new Servicio('PyME', 60000, '50 legajos', 2);
+  PremiumPyME: Servicio = new Servicio('PremiumPyME', 100000, '100 legajos', 2);
   isLoggedIn: boolean = false;
-  
+
   private carritoActualizadoSubscription!: Subscription;
   constructor(private cartService: CartService, private eventService: EventService, public authService: AuthService) { }
 
@@ -54,16 +54,20 @@ export class ServiciosComponent implements AfterViewInit, OnDestroy{
   getIsAuthenticated(): boolean {
     return this.authService.getIsAuthenticated();
   }
-  
+
 }
 export class Servicio {
   nombre: string;
   precio: number;
   isInCart: boolean;
-  
-  constructor(nombre: string, precio: number){
+  detalle: String;
+  id: number;
+
+  constructor(nombre: string, precio: number, detalle: String, id: number){
     this.nombre = nombre;
     this.precio = precio;
     this.isInCart = false;
+    this.detalle = detalle;
+    this.id = id;
   }
 }
