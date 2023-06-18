@@ -1,7 +1,11 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
 from django.contrib.auth.hashers import make_password
+<<<<<<< HEAD
 from .models import *
+=======
+from .models import Empleado, ObraSocial, Art, Extra, Deduccion, Recibo, Reclamo, CustomUser
+>>>>>>> 1fc73d7 (Registro de Usuario funcionando)
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -128,6 +132,7 @@ class EliminarReclamoSerializer(serializers.ModelSerializer):
         model = Reclamo
         fields = []
 
+<<<<<<< HEAD
 class CrearPedidoSerializer(serializers.ModelSerializer):
     idPedido = serializers.IntegerField()
     valorTotal = serializers.DecimalField(max_digits=8, decimal_places=2)
@@ -149,3 +154,14 @@ class ListarPedidoSerializer(serializers.ModelSerializer):
         model = Pedido
         fields = ['idPedido', 'valorTotal', 'detalle', 'Servicio', 'nombre_tarjeta', 'numero_tarjeta',
                    'vencimiento', 'Cvv', 'CustomUser', 'fechaHora']
+=======
+class CustomUserSerializer(serializers.ModelSerializer):
+    companynameregister = serializers.CharField(source='company_name')
+    emailregister = serializers.EmailField(source='email')
+    userpasswordregister = serializers.CharField(source='password')
+    confirmpasswordregister = serializers.CharField(source='confirm_password')
+
+    class Meta:
+        model = CustomUser
+        fields = ['companynameregister', 'emailregister', 'userpasswordregister', 'confirmpasswordregister']
+>>>>>>> 1fc73d7 (Registro de Usuario funcionando)
