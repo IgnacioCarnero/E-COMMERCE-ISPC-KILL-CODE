@@ -7,6 +7,7 @@ urlpatterns = [
     path('auth/login/', LoginView.as_view(), name='auth_login'),
     path('auth/logout/', LogoutView.as_view(), name='auth_logout'),
     path('auth/signup/', SignupView.as_view(), name='auth_signup'),
+    path('auth/register/', RegisterUserView.as_view(), name='register'),   
     path('crear-empleado/', CrearEmpleadoView.as_view(), name='crear-empleado'),
     path('listar-empleados/', ListarEmpleadosView.as_view(), name='listar-empleados'),
     path('modificar-empleado/<int:legajo>/', ModificarEmpleadoView.as_view(), name='modificar-empleado'),

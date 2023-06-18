@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
 from django.contrib.auth.hashers import make_password
-from .models import Empleado, ObraSocial, Art, Extra, Deduccion, Recibo, Reclamo
+from .models import Empleado, ObraSocial, Art, Extra, Deduccion, Recibo, Reclamo, CustomUser
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -127,3 +127,13 @@ class EliminarReclamoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Reclamo
         fields = []
+
+class CustomUserSerializer(serializers.ModelSerializer):
+    companynameregister = serializers.CharField(source='company_name')
+    emailregister = serializers.EmailField(source='email')
+    userpasswordregister = serializers.CharField(source='password')
+    confirmpasswordregister = serializers.CharField(source='confirm_password')
+
+    class Meta:
+        model = CustomUser
+        fields = ['companynameregister', 'emailregister', 'userpasswordregister', 'confirmpasswordregister']
