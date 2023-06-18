@@ -6,66 +6,71 @@
           <div class="card-body p-4 p-sm-5">
             <h1 class="card-title text-center mb-5 fw-bold">Registro</h1>
 
-            <form action="" [formGroup]="userRegister">
-              <div class="form-floating mb-3">
-                <div class="form-floating mb-3">
+            <form action="" [formGroup]="userRegister" class="needs-validation" (ngSubmit)="save()">
+            <div class="form-floating mb-3">
+                <div class="form-floating mb-3 ">
                   <input
                     name="Empresa"
                     type="text"
                     class="form-control"
                     id="floatingName2"
+                    [class.is-invalid]="companyNameInvalid"
                     formControlName="companynameregister"
-                    [ngClass]="{'is-invalid':companynameregister && companynameregister.invalid && companynameregister.touched} "
-
-
                     placeholder="Nombre de la Empresa"
                     required
                   />
                   <label for="floatingName2">Nombre de la empresa</label>
+                  <span *ngIf="companyNameInvalid" class="invalid-feedback mb-2">Nombre de empresa incorrecto</span>
+
                 </div>
 
-                <div class="form-floating mb-3">
+                <div class="form-floating mb-3 ">
                   <input
                     name="E-mail"
                     type="email"
                     class="form-control"
                     id="floating2"
-                    formControlName="usernameregister"
-                    [ngClass]="{'is-invalid':usernameregister && usernameregister.invalid && usernameregister.touched} "
-
+                    formControlName="emailregister"
+                    [class.is-invalid]="emailInvalid"
                     placeholder="name@example.com"
                     required
                   />
-                  <label for="floating2">Email address</label>
+                  <label for="floating2">Direccion de Email</label>
+                  <span *ngIf="emailInvalid" class="invalid-feedback mb-2">Email incorrecto</span>
                 </div>
-                <div class="form-floating mb-3">
+
+                <div class="form-floating mb-3 ">
                   <input
                     name="Pass"
                     type="password"
                     class="form-control"
                     id="floatingPassword2"
                     formControlName="userpasswordregister"
-                    [ngClass]="{'is-invalid':userpasswordregister && userpasswordregister.invalid && userpasswordregister.touched} "
-
+                    [class.is-invalid]="userPasswordInvalid"
                     placeholder="Password"
+                    minlength="8"
                     required
                   />
-                  <label for="floatingPassword2">Password</label>
+                  <label for="floatingPassword2">Contraseña</label>
+                  <span *ngIf="userPasswordInvalid" class="invalid-feedback mb-2">Contraseña incorrecta</span>
+
                 </div>
 
-                <div class="form-floating mb-3">
+                <div class="form-floating mb-3 ">
                   <input
                     name="RePass"
                     type="password"
                     class="form-control"
                     id="floatingPassword2Confirma"
                     formControlName="confirmpasswordregister"
-                    [ngClass]="{'is-invalid':confirmpasswordregister && confirmpasswordregister.invalid && confirmpasswordregister.touched} "
-
+                    [class.is-invalid]="confirmPasswordInvalid"
+                    minlength="8"
                     placeholder="Confirma Password"
                     required
                   />
-                  <label for="floatingPassword2Confirma">Confirm Password</label>
+                  <label for="floatingPassword2Confirma">Confirmar Contraseña</label>
+                  <span *ngIf="confirmPasswordInvalid" class="invalid-feedback mb-2">Las contraseñas no coinciden</span>
+
                 </div>
 
                 <div class="d-grid">
@@ -85,4 +90,3 @@
       </div>
     </div>
   </div>
-</section>
