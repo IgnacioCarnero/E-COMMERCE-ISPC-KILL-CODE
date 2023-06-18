@@ -10,9 +10,9 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./servicios.component.css']
 })
 export class ServiciosComponent implements AfterViewInit, OnDestroy{
-  Personal: Servicio = new Servicio('Personal', '$20000');
-  PyME: Servicio = new Servicio('PyME', '$60000');
-  PremiumPyME: Servicio = new Servicio('PremiumPyME', '$100000');
+  Personal: Servicio = new Servicio('Personal', 20000);
+  PyME: Servicio = new Servicio('PyME', 60000);
+  PremiumPyME: Servicio = new Servicio('PremiumPyME', 100000);
   isLoggedIn: boolean = false;
   
   private carritoActualizadoSubscription!: Subscription;
@@ -58,10 +58,10 @@ export class ServiciosComponent implements AfterViewInit, OnDestroy{
 }
 export class Servicio {
   nombre: string;
-  precio: string;
+  precio: number;
   isInCart: boolean;
   
-  constructor(nombre: string, precio: string){
+  constructor(nombre: string, precio: number){
     this.nombre = nombre;
     this.precio = precio;
     this.isInCart = false;
