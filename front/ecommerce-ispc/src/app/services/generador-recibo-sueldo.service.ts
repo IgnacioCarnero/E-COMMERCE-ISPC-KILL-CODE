@@ -4,30 +4,21 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class GeneradorReciboSueldoService {
-  private apiUrl = 'http://localhost:8000/api/';
+export class GeneradorReciboDeSueldoService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  submitForm(formData: any) {
-<<<<<<< HEAD
-    const url = `${this.apiUrl}crear-recibo/`;
-    return this.http.post(url, formData);
+  enviarDatosADjango(datos: any) {
+    const url = 'http://localhost:8000/api/crear-recibo/'; // Reemplaza con la URL de tu API de Django
+    return this.http.post(url, datos);
   }
 
-  modifyForm(idRecibo: number, formData: any) {
-    const url = `${this.apiUrl}modificar-recibo/${idRecibo}/`;
-    return this.http.put(url, formData);
+  modificarDatosEnDjango(idRecibo: string, datos: any) {
+    const url = `http://localhost:8000/api/modificar-recibo/${idRecibo}/`; // Reemplaza con la URL de tu API de Django para actualizar registros
+    return this.http.put(url, datos);
   }
 
-  deleteForm(idRecibo: number) {
-    const url = `${this.apiUrl}eliminar-recibo/${idRecibo}/`;
+  eliminarDatosEnDjango(idRecibo: string) {
+    const url = `http://localhost:8000/api/eliminar-recibo/${idRecibo}/`; // Reemplaza con la URL de tu API de Django para eliminar registros
     return this.http.delete(url);
   }
 }
-
-=======
-    return this.http.post(this.apiUrl, formData)
-  }
-}
->>>>>>> main

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { GeneradorReciboSueldoService } from 'src/app/services/generador-recibo-sueldo.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { GeneradorReciboDeSueldoService } from 'src/app/services/generador-recibo-sueldo.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-generador-recibo-de-sueldo',
@@ -7,59 +9,77 @@ import { GeneradorReciboSueldoService } from 'src/app/services/generador-recibo-
   styleUrls: ['./generador-recibo-de-sueldo.component.css']
 })
 export class GeneradorReciboDeSueldoComponent {
-  formData: any = {};
+  rsForm: FormGroup;
+  formularioEnviado: boolean = false;
 
-  constructor(private formService: GeneradorReciboSueldoService) {}
-
-  submitForm() {
-    this.formService.submitForm(this.formData)
-      .subscribe(
-        response => {
-          // Handle success response from the server
-          console.log(response);
-          alert('Enviaste tus datos con éxito');
-        },
-        error => {
-          // Handle error response from the server
-          console.error(error);
-          alert('Lamentablemente ocurrió un error');
-        }
-      );
+  constructor(
+    private reciboService: GeneradorReciboDeSueldoService,
+    private http: HttpClient
+  ) {
+    this.rsForm = new FormGroup({
+      idRecibo: new FormControl('', Validators.required),
+      montoBruto: new FormControl('', Validators.required),
+      montoNeto: new FormControl('', Validators.required),
+      periodo: new FormControl('', Validators.required),
+      antiguedad: new FormControl('', Validators.required),
+      concepto: new FormControl('', Validators.required),
+      asistencia: new FormControl('', Validators.required),
+      fechaDePago: new FormControl('', Validators.required),
+      deduccion: new FormControl('', Validators.pattern('[0-9]+(\\.[0-9]+)?')),
+      extra: new FormControl('', Validators.pattern('[0-9]+(\\.[0-9]+)?')),
+      legajoDelEmpleado: new FormControl('', Validators.required)
+    });
   }
 
-  modifyForm() {
-    const idRecibo = this.formData.id_recibo;
+  submitData() {
+    if (this.rsForm.valid) {
+      const formData = this.rsForm.value;
 
-    this.formService.modifyForm(idRecibo, this.formData)
-      .subscribe(
-        response => {
-          // Handle success response from the server
-          console.log(response);
-          alert('Datos modificados con éxito');
+      this.http.post('http://localhost:8000/api/crear-recibo/', formData).subscribe({
+        next: (response: any) => {
+          console.log('Datos enviados exitosamente a Django:', response);
+          this.formularioEnviado = true;
         },
-        error => {
-          // Handle error response from the server
-          console.error(error);
-          alert('Lamentablemente ocurrió un error');
+        error: (error: any) => {
+          console.error('Error al enviar los datos a Django:', error);
+          // Maneja el error según tus necesidades, como mostrar un mensaje de error al usuario.
         }
-      );
+      });
+    }
   }
 
-  deleteForm() {
-    const idRecibo = this.formData.id_recibo;
+  updateData() {
+    if (this.rsForm.valid) {
+      const formData = this.rsForm.value;
+      const idRecibo: string | undefined = formData.idRecibo!;
+      if (idRecibo) {
+        this.reciboService.modificarDatosEnDjango(idRecibo, formData).subscribe({
+          next: response => {
+            console.log('Datos modificados exitosamente:', response);
+            // Realiza acciones adicionales después de modificar los datos, como mostrar un mensaje de éxito, redireccionar a otra página, etc.
+          },
+          error: error => {
+            console.error('Error al modificar los datos:', error);
+            // Maneja el error según tus necesidades, como mostrar un mensaje de error al usuario.
+          }
+        });
+      }
+    }
+  }
 
-    this.formService.deleteForm(idRecibo)
-      .subscribe(
-        response => {
-          // Handle success response from the server
-          console.log(response);
-          alert('Datos eliminados con éxito');
+  deleteData() {
+    const idRecibo: string | undefined = this.rsForm.value.idRecibo!;
+    if (idRecibo) {
+      this.reciboService.eliminarDatosEnDjango(idRecibo).subscribe({
+        next: response => {
+          console.log('Datos eliminados exitosamente:', response);
+          // Realiza acciones adicionales después de eliminar los datos, como mostrar un mensaje de éxito, redireccionar a otra página, etc.
         },
-        error => {
-          // Handle error response from the server
-          console.error(error);
-          alert('Lamentablemente ocurrió un error');
+        error: error => {
+          console.error('Error al eliminar los datos:', error);
+          // Maneja el error según tus necesidades, como mostrar un mensaje de error al usuario.
         }
-      );
+      });
+    }
   }
 }
