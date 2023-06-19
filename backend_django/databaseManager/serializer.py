@@ -149,3 +149,12 @@ class ListarPedidoSerializer(serializers.ModelSerializer):
         model = Pedido
         fields = ['idPedido', 'valorTotal', 'detalle', 'Servicio', 'nombre_tarjeta', 'numero_tarjeta',
                    'vencimiento', 'Cvv', 'CustomUser', 'fechaHora']
+class CustomUserSerializer(serializers.ModelSerializer):
+    companynameregister = serializers.CharField(source='company_name')
+    emailregister = serializers.EmailField(source='email')
+    userpasswordregister = serializers.CharField(source='password')
+    confirmpasswordregister = serializers.CharField(source='confirm_password')
+
+    class Meta:
+        model = CustomUser
+        fields = ['companynameregister', 'emailregister', 'userpasswordregister', 'confirmpasswordregister']
