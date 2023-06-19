@@ -7,3 +7,5 @@ Proyecto Fullstack de ISPC.
 ##### Primer cuatrimestre de 2023.
 
 ##### Videos con la presentacion del proyecto
+
+Ignacio Carnero: https://drive.google.com/file/d/1WBQ5NY0OQjoG6brnqY__hyvMcGVvCuqy/view
