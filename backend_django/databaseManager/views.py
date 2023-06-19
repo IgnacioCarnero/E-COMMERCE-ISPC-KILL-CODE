@@ -148,3 +148,21 @@ class EliminarReclamoView(APIView):
         serializer = EliminarReclamoSerializer(reclamo)
         reclamo.delete()
         return Response({"mensaje": "Reclamo eliminado exitosamente"})
+    
+class CrearPedidoView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        serializer = CrearPedidoSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({"mensaje": "Pedido creado exitosamente"})
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+class VerPedidoView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        pedidos = Pedido.objects.all()
+        serializer = ListarPedidoSerializer(pedidos, many=True)
+        return Response(serializer.data)

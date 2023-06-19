@@ -49,8 +49,8 @@ class ServicioKillCodeAdmin(admin.ModelAdmin):
 
 
 class PedidoAdmin(admin.ModelAdmin):
-    list_display = ('idPedido', 'valorTotal', 'detalle', 'cantidad',
-                    'Servicio', 'medioDePago', 'Empresa', 'fechaHora')
+    list_display = ('idPedido', 'valorTotal', 'detalle', 'Servicio',
+                    'nombre_tarjeta', 'numero_tarjeta', 'vencimiento', 'Cvv', 'CustomUser', 'fechaHora')
 
 
 class FacturaAdmin(admin.ModelAdmin):
