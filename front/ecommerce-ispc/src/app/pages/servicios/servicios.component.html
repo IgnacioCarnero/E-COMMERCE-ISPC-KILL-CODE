@@ -29,7 +29,7 @@
               <li>Formularios AFIP</li>
             </ul>
             <button  (click)="agregarAlCarrito(Personal)"
-            type="button"
+            type="button" *ngIf="isLoggedIn"
             [class]="cambioDeBoton(Personal).class">{{ cambioDeBoton(Personal).text }}</button>
           </div>
         </div>
@@ -52,7 +52,7 @@
               <li>Recibo digital</li>
               <li>Formularios AFIP</li>
             </ul>
-            <button  (click)="agregarAlCarrito(PyME)"
+            <button  (click)="agregarAlCarrito(PyME)" *ngIf="isLoggedIn"
             type="button"
             [class]="cambioDeBoton(PyME).class">{{ cambioDeBoton(PyME).text }}</button>
           </div>
@@ -77,13 +77,13 @@
               <li>Formularios AFIP</li>
             </ul>
             <button  (click)="agregarAlCarrito(PremiumPyME)"
-            type="button"
+            type="button" *ngIf="isLoggedIn"
             [class]="cambioDeBoton(PremiumPyME).class">{{ cambioDeBoton(PremiumPyME).text }}</button>
           </div>
         </div>
       </div>
       <div class="d-grid gap-2 d-md-block">
-        <button  
+        <button  *ngIf="isLoggedIn"
           type="button"
           data-bs-toggle="modal"
           data-bs-target="#serviceModal"

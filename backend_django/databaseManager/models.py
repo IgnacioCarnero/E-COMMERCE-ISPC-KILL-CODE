@@ -140,7 +140,7 @@ class CategoriaServicios(models.Model):
 
 
 class Pedido(models.Model):
-    idPedido = models.IntegerField(primary_key=True)
+    idPedido = models.AutoField(primary_key=True)
     valorTotal = models.DecimalField(max_digits=8, decimal_places=2)
     detalle = models.CharField('detalle de pedidos', max_length=200)
     Servicio = models.ForeignKey(ServiciosKillCode, blank=True, null=True, on_delete=models.CASCADE)

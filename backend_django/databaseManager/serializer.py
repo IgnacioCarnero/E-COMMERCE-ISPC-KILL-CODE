@@ -11,7 +11,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = get_user_model()
-        fields = ('email', 'username', 'password')
+        fields = ('email', 'username', 'password', 'id')
 
 
     def validate_password(self, value):
@@ -129,15 +129,14 @@ class EliminarReclamoSerializer(serializers.ModelSerializer):
         fields = []
 
 class CrearPedidoSerializer(serializers.ModelSerializer):
-    idPedido = serializers.IntegerField()
     valorTotal = serializers.DecimalField(max_digits=8, decimal_places=2)
     detalle = serializers.CharField(max_length=200)
-    Servicio = serializers.SlugRelatedField(slug_field='idServicio', queryset=ServiciosKillCode.objects.all())
+    Servicio = serializers.PrimaryKeyRelatedField(queryset=ServiciosKillCode.objects.all())
     nombre_tarjeta = serializers.CharField(max_length=200)
     numero_tarjeta = serializers.CharField(max_length=200)
     vencimiento = serializers.DateField()
     Cvv = serializers.IntegerField()
-    CustomUser = serializers.SlugRelatedField(slug_field='id', queryset=CustomUser.objects.all())
+    CustomUser = serializers.PrimaryKeyRelatedField(queryset=CustomUser.objects.all())
     fechaHora = serializers.DateTimeField()
 
     class Meta:
@@ -149,6 +148,7 @@ class ListarPedidoSerializer(serializers.ModelSerializer):
         model = Pedido
         fields = ['idPedido', 'valorTotal', 'detalle', 'Servicio', 'nombre_tarjeta', 'numero_tarjeta',
                    'vencimiento', 'Cvv', 'CustomUser', 'fechaHora']
+
 class CustomUserSerializer(serializers.ModelSerializer):
     companynameregister = serializers.CharField(source='company_name')
     emailregister = serializers.EmailField(source='email')
@@ -157,4 +157,4 @@ class CustomUserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = CustomUser
-        fields = ['companynameregister', 'emailregister', 'userpasswordregister', 'confirmpasswordregister']
+        fields = ['id','companynameregister', 'emailregister', 'userpasswordregister', 'confirmpasswordregister']
