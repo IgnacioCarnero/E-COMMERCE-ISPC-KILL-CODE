@@ -178,11 +178,13 @@ class CrearPedidoView(APIView):
     permission_classes = [IsAuthenticated]
 
     def post(self, request):
+        print(request.data)
         serializer = CrearPedidoSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response({"mensaje": "Pedido creado exitosamente"})
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        print(request.data)
+        return Response(request.data, status=status.HTTP_400_BAD_REQUEST)
     
 class VerPedidoView(APIView):
     permission_classes = [IsAuthenticated]
