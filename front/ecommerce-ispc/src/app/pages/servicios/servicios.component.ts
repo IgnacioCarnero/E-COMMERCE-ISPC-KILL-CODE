@@ -62,7 +62,6 @@ export class Servicio {
   isInCart: boolean;
   detalle: String;
   id: number;
-
   constructor(nombre: string, precio: number, detalle: String, id: number){
     this.nombre = nombre;
     this.precio = precio;
