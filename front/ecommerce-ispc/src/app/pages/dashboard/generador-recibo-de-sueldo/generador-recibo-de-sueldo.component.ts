@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { GeneradorReciboDeSueldoService } from 'src/app/services/generador-recibo-sueldo.service';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-generador-recibo-de-sueldo',
@@ -10,76 +9,111 @@ import { HttpClient } from '@angular/common/http';
 })
 export class GeneradorReciboDeSueldoComponent {
   rsForm: FormGroup;
-  formularioEnviado: boolean = false;
+  formularioEnviado = false;
 
   constructor(
-    private reciboService: GeneradorReciboDeSueldoService,
-    private http: HttpClient
+    private fb: FormBuilder,
+    private reciboService: GeneradorReciboDeSueldoService
   ) {
-    this.rsForm = new FormGroup({
-      idRecibo: new FormControl('', Validators.required),
-      montoBruto: new FormControl('', Validators.required),
-      montoNeto: new FormControl('', Validators.required),
-      periodo: new FormControl('', Validators.required),
-      antiguedad: new FormControl('', Validators.required),
-      concepto: new FormControl('', Validators.required),
-      asistencia: new FormControl('', Validators.required),
-      fechaDePago: new FormControl('', Validators.required),
-      deduccion: new FormControl('', Validators.pattern('[0-9]+(\\.[0-9]+)?')),
-      extra: new FormControl('', Validators.pattern('[0-9]+(\\.[0-9]+)?')),
-      legajoDelEmpleado: new FormControl('', Validators.required)
+    this.rsForm = this.fb.group({
+      idRecibo: ['', [Validators.required, Validators.pattern(/^[0-9]+$/)]],
+      montoBruto: ['', [Validators.required, Validators.pattern('[0-9]+(\\.[0-9]+)?')]],
+      montoNeto: ['', [Validators.required, Validators.pattern('[0-9]+(\\.[0-9]+)?')]],
+      periodo: ['', Validators.required],
+      antiguedad: ['', Validators.required],
+      concepto: ['', Validators.required],
+      asistencia: ['', Validators.required],
+      fechaDePago: ['', Validators.required],
+      deduccion: ['', Validators.pattern('[0-9]+(\\.[0-9]+)?')],
+      extra: ['', Validators.required],
+      legajoDelEmpleado: ['', Validators.required]
     });
   }
 
-  submitData() {
+  enviarDatos() {
     if (this.rsForm.valid) {
       const formData = this.rsForm.value;
+      formData.periodo = this.formatFecha(formData.periodo);
+      formData.fechaDePago = this.formatFecha(formData.fechaDePago);
 
-      this.http.post('http://localhost:8000/api/crear-recibo/', formData).subscribe({
+      this.reciboService.enviarDatosADjango(formData).subscribe({
         next: (response: any) => {
           console.log('Datos enviados exitosamente a Django:', response);
           this.formularioEnviado = true;
         },
         error: (error: any) => {
           console.error('Error al enviar los datos a Django:', error);
-          // Maneja el error según tus necesidades, como mostrar un mensaje de error al usuario.
+          // Manejar el error según tus necesidades, como mostrar un mensaje de error al usuario.
         }
       });
     }
   }
 
-  updateData() {
+  actualizarDatos() {
     if (this.rsForm.valid) {
       const formData = this.rsForm.value;
-      const idRecibo: string | undefined = formData.idRecibo!;
+      formData.periodo = this.formatFecha(formData.periodo);
+      formData.fechaDePago = this.formatFecha(formData.fechaDePago);
+      const idRecibo: string = formData.idRecibo;
       if (idRecibo) {
         this.reciboService.modificarDatosEnDjango(idRecibo, formData).subscribe({
-          next: response => {
+          next: (response: any) => {
             console.log('Datos modificados exitosamente:', response);
-            // Realiza acciones adicionales después de modificar los datos, como mostrar un mensaje de éxito, redireccionar a otra página, etc.
+            // Realizar acciones adicionales después de modificar los datos, como mostrar un mensaje de éxito, redireccionar a otra página, etc.
           },
-          error: error => {
+          error: (error: any) => {
             console.error('Error al modificar los datos:', error);
-            // Maneja el error según tus necesidades, como mostrar un mensaje de error al usuario.
+            // Manejar el error según tus necesidades, como mostrar un mensaje de error al usuario.
           }
         });
       }
     }
   }
 
-  deleteData() {
-    const idRecibo: string | undefined = this.rsForm.value.idRecibo!;
+  eliminarDatos() {
+    const idRecibo: string = this.rsForm.value.idRecibo;
     if (idRecibo) {
       this.reciboService.eliminarDatosEnDjango(idRecibo).subscribe({
-        next: response => {
+        next: (response: any) => {
           console.log('Datos eliminados exitosamente:', response);
-          // Realiza acciones adicionales después de eliminar los datos, como mostrar un mensaje de éxito, redireccionar a otra página, etc.
+          // Realizar acciones adicionales después de eliminar los datos, como mostrar un mensaje de éxito, redireccionar a otra página, etc.
         },
-        error: error => {
+        error: (error: any) => {
           console.error('Error al eliminar los datos:', error);
-          // Maneja el error según tus necesidades, como mostrar un mensaje de error al usuario.
+          // Manejar el error según tus necesidades, como mostrar un mensaje de error al usuario.
         }
       });
     }
   }
+
+  listarDatos() {
+    this.reciboService.listarDatosEnDjango().subscribe({
+      next: (response: any) => {
+        console.log('Recibos obtenidos exitosamente:', response);
+        // Realizar acciones adicionales después de obtener los recibos, como mostrarlos en una lista, etc.
+      },
+      error: (error: any) => {
+        console.error('Error al obtener los recibos:', error);
+        // Manejar el error según tus necesidades, como mostrar un mensaje de error al usuario.
+      }
+    });
+  }
+
+  private formatFecha(fecha: any): string {
+  // Implement your own date formatting logic here
+  // Example: return format(fecha, 'yyyy-MM-dd');
+
+  // Here's an example of converting a date to the desired format:
+  const date = new Date(fecha);
+
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+
+  // Format the date as yyyy-MM-dd
+  const formattedDate = `${year}-${month}-${day}`;
+
+  return formattedDate;
+}
+
 }

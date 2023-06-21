@@ -1,6 +1,6 @@
 <div class="container">
   <h1 class="py-5">Configure su recibo del sueldo</h1>
-  <form [formGroup]="rsForm" (ngSubmit)="submitData()">
+  <form [formGroup]="rsForm" (ngSubmit)="enviarDatos()">
     <!-- Campo idRecibo -->
     <div class="form-group">
       <label for="idRecibo">ID del Recibo:</label>
@@ -31,7 +31,7 @@
     <!-- Campo periodo -->
     <div class="form-group">
       <label for="periodo">Período:</label>
-      <input type="date" id="periodo" formControlName="periodo" class="form-control" required>
+      <input type="date" id="periodo" formControlName="periodo" class="form-control" required [value]="rsForm.get('periodo')?.value | date:'yyyy-MM-dd'">
       <div class="alert alert-danger" *ngIf="rsForm.get('periodo')?.invalid && rsForm.get('periodo')?.touched">
         <div *ngIf="rsForm.get('periodo')?.errors?.['required']">Este campo es requerido.</div>
       </div>
@@ -67,7 +67,7 @@
     <!-- Campo fechaDePago -->
     <div class="form-group">
       <label for="fechaDePago">Fecha de Pago:</label>
-      <input type="date" placeholder="Fecha de Pago" id="fechaDePago" formControlName="fechaDePago" class="form-control" required>
+      <input type="date" placeholder="Fecha de Pago" id="fechaDePago" formControlName="fechaDePago" class="form-control" required [value]="rsForm.get('periodo')?.value | date:'yyyy-MM-dd'">
       <div class="alert alert-danger" *ngIf="rsForm.get('fechaDePago')?.invalid && rsForm.get('fechaDePago')?.touched">
         <div *ngIf="rsForm.get('fechaDePago')?.errors?.['required']">Este campo es requerido.</div>
       </div>
@@ -76,7 +76,7 @@
     <!-- Campo deduccion -->
     <div class="form-group">
       <label for="deduccion">Deducción:</label>
-      <input type="number" placeholder="Deducción" id="deduccion" formControlName="deduccion" class="form-control" required>
+      <input type="number" placeholder="Deducción" id="deduccion" formControlName="deduccion" class="form-control" required >
       <div class="alert alert-danger" *ngIf="rsForm.get('deduccion')?.invalid && rsForm.get('deduccion')?.touched">
         <div *ngIf="rsForm.get('deduccion')?.errors?.['required']">Este campo es requerido.</div>
       </div>
@@ -102,15 +102,10 @@
 
     <!-- Botones de enviar, modificar y eliminar -->
     <div class="row">
-      <div class="column">
-        <button type="submit" (click)="submitData" [disabled]="!rsForm.valid">Enviar</button>
-      </div>
-      <div class="column">
-        <button type="button" (click)="updateData()" [disabled]="!rsForm.valid">Modificar</button>
-      </div>
-      <div class="column">
-        <button type="button" (click)="deleteData()" [disabled]="!rsForm.valid">Eliminar</button>
-      </div>
+      <button class="custom-button" (click)="enviarDatos()" [disabled]="!rsForm.valid">Crear Recibo de Sueldo</button>
+      <button class="custom-button" (click)="actualizarDatos()" [disabled]="!rsForm.valid">Modificar Recibo de Sueldo</button>
+      <button class="custom-button" (click)="eliminarDatos()" [disabled]="!rsForm.valid">Eliminar Recibo de Sueldo</button>
+      <button class="custom-button" (click)="listarDatos()">Listar Recibo de Sueldo</button>
     </div>
 
     <!-- Mensaje de éxito -->

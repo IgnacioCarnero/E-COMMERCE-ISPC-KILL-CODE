@@ -7,6 +7,7 @@ from django.shortcuts import get_object_or_404
 from .models import Empleado, ObraSocial
 from databaseManager.serializer import *
 from django.http import JsonResponse
+from rest_framework.decorators import api_view
 # Create your views here.
 
 class LoginView(APIView):
@@ -76,7 +77,8 @@ class EliminarEmpleadoView(APIView):
         empleado = Empleado.objects.get(legajo=legajo)
         empleado.delete()
         return Response({"mensaje": "Empleado eliminado exitosamente"})
-    
+
+
 class CrearReciboView(APIView):
     permission_classes = [IsAuthenticated]
     def post(self, request):
@@ -85,6 +87,7 @@ class CrearReciboView(APIView):
             serializer.save()
             return Response({"mensaje": "Recibo creado exitosamente"})
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 class ListarReciboView(APIView):
     permission_classes = [IsAuthenticated]
