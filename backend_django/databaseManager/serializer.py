@@ -1,7 +1,11 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
 from django.contrib.auth.hashers import make_password
+<<<<<<< HEAD
+from .models import Empleado, ObraSocial, Art, Extra, Deduccion, Recibo, Reclamo, Empresa
+=======
 from .models import *
+>>>>>>> main
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -127,6 +131,10 @@ class EliminarReclamoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Reclamo
         fields = []
+<<<<<<< HEAD
+        
+
+=======
 
 class CrearPedidoSerializer(serializers.ModelSerializer):
     valorTotal = serializers.DecimalField(max_digits=8, decimal_places=2)
@@ -158,3 +166,4 @@ class CustomUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
         fields = ['id','companynameregister', 'emailregister', 'userpasswordregister', 'confirmpasswordregister']
+>>>>>>> main
