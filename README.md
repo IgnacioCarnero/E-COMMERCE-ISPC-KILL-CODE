@@ -14,3 +14,6 @@ Ignacio Carnero: https://drive.google.com/file/d/1WBQ5NY0OQjoG6brnqY__hyvMcGVvCu
 
 <p>Leo-Farran: Registro de Empleados</p>
 <p>https://drive.google.com/file/d/1ge_3EF6RTGNL4jL3o9xg_AIIebBAsnWi/view?usp=sharing</p>
+
+<p> Romina Herrera: Agrego video grupal </p>
+<p>https://drive.google.com/file/d/1ard8GiiO3pWNOTlbu8UefRV6HGdRTAW3/view?usp=sharing</p>
