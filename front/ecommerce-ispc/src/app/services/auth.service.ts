@@ -2,8 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { ModalService } from './modal.service';
-
-
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +10,18 @@ import { ModalService } from './modal.service';
 export class AuthService {
   public isAuthenticated = false;
   private loggedInUserEmail = '';
+  private userIdSubject: BehaviorSubject<number | null> = new BehaviorSubject<number | null>(null);
+  userId$: Observable<number | null> = this.userIdSubject.asObservable();
 
-  constructor(private http: HttpClient, private router: Router, private modalService: ModalService) { }
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private modalService: ModalService
+  ) { }
+
+  setUserId(userId: number) {
+    this.userIdSubject.next(userId);
+  }
 
   login(email: string, password: string): void {
     const loginData = {
@@ -27,12 +36,14 @@ export class AuthService {
           this.loggedInUserEmail = email;
           this.isAuthenticated = true;
           console.log(response); // Puedes imprimir la respuesta en la consola para verificarla
+          this.setUserId(response.id); // Almacenar el ID del usuario
+
           // Cierra el modal utilizando el servicio ModalService después de un retraso de 0ms
           setTimeout(() => {
             this.modalService.closeModal();
           }, 0);
 
-        // Redirigir a otra página, guardar el token de autenticación, etc.
+          // Redirigir a otra página, guardar el token de autenticación, etc.
           this.router.navigate(['/dashboard']);
         }
       },

@@ -3,6 +3,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 
+
 # Create your models here.
 
 
@@ -144,17 +145,17 @@ class CategoriaServicios(models.Model):
 
 
 class Pedido(models.Model):
-    idPedido = models.IntegerField(primary_key=True)
+    idPedido = models.AutoField(primary_key=True)
     valorTotal = models.DecimalField(max_digits=8, decimal_places=2)
     detalle = models.CharField('detalle de pedidos', max_length=200)
-    cantidad = models.IntegerField()
-    Servicio = models.ForeignKey(
-        ServiciosKillCode, blank=True, null=True, on_delete=models.CASCADE)
-    medioDePago = models.CharField(
-        'medio de pago para pedidos', max_length=200)
-    Empresa = models.OneToOneField(
-        Empresa, blank=True, null=True, on_delete=models.CASCADE)
+    Servicio = models.ForeignKey(ServiciosKillCode, blank=True, null=True, on_delete=models.CASCADE)
+    nombre_tarjeta = models.CharField('nombre de tarjeta de crédito', max_length=200)
+    numero_tarjeta = models.CharField(max_length=200)
+    vencimiento = models.DateField('fecha de vencimiento de tarjeta')
+    Cvv = models.IntegerField()
+    CustomUser = models.OneToOneField('CustomUser', on_delete=models.CASCADE)
     fechaHora = models.DateTimeField()
+    
 
     def __str__(self):
         return f"{self.idPedido}"
@@ -189,9 +190,19 @@ class Contacto(models.Model):
 
     def __str__(self):
         return f"{self.email}"
+<<<<<<< HEAD
 
 # Acá va el código para registro y login
 
 
 class CustomUser(AbstractUser):
     empresa = models.CharField(max_length=255)
+=======
+ 
+class CustomUser(AbstractUser):
+    email = models.EmailField(max_length=150, unique=True)
+    confirm_password = models.CharField(max_length=128, default="")
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['username']
+    
+>>>>>>> main

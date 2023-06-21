@@ -1,7 +1,11 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
 from django.contrib.auth.hashers import make_password
+<<<<<<< HEAD
 from .models import Empleado, ObraSocial, Art, Extra, Deduccion, Recibo, Reclamo, Empresa
+=======
+from .models import *
+>>>>>>> main
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -11,7 +15,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = get_user_model()
-        fields = ('email', 'username', 'password')
+        fields = ('email', 'username', 'password', 'id')
 
 
     def validate_password(self, value):
@@ -127,5 +131,39 @@ class EliminarReclamoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Reclamo
         fields = []
+<<<<<<< HEAD
         
 
+=======
+
+class CrearPedidoSerializer(serializers.ModelSerializer):
+    valorTotal = serializers.DecimalField(max_digits=8, decimal_places=2)
+    detalle = serializers.CharField(max_length=200)
+    Servicio = serializers.PrimaryKeyRelatedField(queryset=ServiciosKillCode.objects.all())
+    nombre_tarjeta = serializers.CharField(max_length=200)
+    numero_tarjeta = serializers.CharField(max_length=200)
+    vencimiento = serializers.DateField()
+    Cvv = serializers.IntegerField()
+    CustomUser = serializers.PrimaryKeyRelatedField(queryset=CustomUser.objects.all())
+    fechaHora = serializers.DateTimeField()
+
+    class Meta:
+        model = Pedido
+        fields = '__all__'
+
+class ListarPedidoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Pedido
+        fields = ['idPedido', 'valorTotal', 'detalle', 'Servicio', 'nombre_tarjeta', 'numero_tarjeta',
+                   'vencimiento', 'Cvv', 'CustomUser', 'fechaHora']
+
+class CustomUserSerializer(serializers.ModelSerializer):
+    companynameregister = serializers.CharField(source='company_name')
+    emailregister = serializers.EmailField(source='email')
+    userpasswordregister = serializers.CharField(source='password')
+    confirmpasswordregister = serializers.CharField(source='confirm_password')
+
+    class Meta:
+        model = CustomUser
+        fields = ['id','companynameregister', 'emailregister', 'userpasswordregister', 'confirmpasswordregister']
+>>>>>>> main

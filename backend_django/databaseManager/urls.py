@@ -7,6 +7,7 @@ urlpatterns = [
     path('auth/login/', LoginView.as_view(), name='auth_login'),
     path('auth/logout/', LogoutView.as_view(), name='auth_logout'),
     path('auth/signup/', SignupView.as_view(), name='auth_signup'),
+    path('auth/register/', RegisterUserView.as_view(), name='register'),   
     path('crear-empleado/', CrearEmpleadoView.as_view(), name='crear-empleado'),
     path('listar-empleados/', ListarEmpleadosView.as_view(), name='listar-empleados'),
     path('modificar-empleado/<int:legajo>/', ModificarEmpleadoView.as_view(), name='modificar-empleado'),
@@ -19,4 +20,10 @@ urlpatterns = [
     path('listar-reclamos/', ListarReclamoView.as_view(), name='listar-reclamos'),
     path('modificar-reclamo/<int:id_recla>/', ModificarReclamoView.as_view(), name='modificar-reclamo'),    
     path('eliminar-reclamo/<int:id_recla>/', EliminarReclamoView.as_view(), name='eliminar-reclamo'),   
+<<<<<<< HEAD
 ]
+=======
+    path('hacer-pedido/', CrearPedidoView.as_view(), name='hacer-pedido'),
+    path('ver-pedido/', VerPedidoView.as_view(), name='ver-pedido'),
+]
+>>>>>>> main
