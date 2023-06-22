@@ -37,12 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_auth',
     'rest_framework',
     'rest_framework.authentication',
     'ABM_ISPC',
     'databaseManager',
     'corsheaders',
-    'rest_auth',
 ]
 
 
@@ -58,7 +58,8 @@ MIDDLEWARE = [
 ]
 
 CORS_ORIGIN_WHITELIST = ["http://localhost:4200",]
-CORS_ALLOW_CREDENTIALS = True
+CORS_ORIGIN_ALLOW_ALL = True
+
 
 ROOT_URLCONF = 'ABM_ISPC.urls'
 
@@ -91,8 +92,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ecommercekillcodeproject',
         'USER': 'root',
-        'PASSWORD': '1005Mateo',
-        'HOST': '127.0.0.1',
+        'PASSWORD': 'killcoders10',
+        'HOST': 'localhost',
         'PORT': '3306'
     }
 }
@@ -132,18 +133,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#CORS_ALLOW_CREDENTIALS = True
-#SESSION_COOKIE_SAMESITE = 'None'
-#SESSION_COOKIE_SECURE = True
-#SESSION_COOKIE_NAME = 'sessionid'
-#SESSION_COOKIE_DOMAIN = 'http://localhost:4200/'
+CORS_ALLOW_CREDENTIALS = True
+SESSION_COOKIE_SAMESITE = 'None'
+SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_NAME = 'sessionid'
+SESSION_COOKIE_DOMAIN = 'http://localhost:4200/'
 
 AUTH_USER_MODEL = 'databaseManager.CustomUser'
 
@@ -156,4 +157,8 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
         'rest_framework.permissions.IsAdminUser',
     ]
+    
+   
 }
+
+

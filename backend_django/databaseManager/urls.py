@@ -20,6 +20,10 @@ urlpatterns = [
     path('listar-reclamos/', ListarReclamoView.as_view(), name='listar-reclamos'),
     path('modificar-reclamo/<int:id_recla>/', ModificarReclamoView.as_view(), name='modificar-reclamo'),    
     path('eliminar-reclamo/<int:id_recla>/', EliminarReclamoView.as_view(), name='eliminar-reclamo'),   
+<<<<<<< HEAD
+]
+=======
     path('hacer-pedido/', CrearPedidoView.as_view(), name='hacer-pedido'),
     path('ver-pedido/', VerPedidoView.as_view(), name='ver-pedido'),
 ]
+>>>>>>> main
