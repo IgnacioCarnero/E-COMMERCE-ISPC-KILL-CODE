@@ -31,7 +31,7 @@ export class AddToCartComponent {
   errorMessageNumeroTarjeta: string | null = null;;
   errorMessageCvvTarjeta: string | null = null;;
   errorMessageVencimientoTarjeta: string | null = null;;
-  
+
 
   constructor(private router: Router, private cartService: CartService, private eventService: EventService, private formBuilder: FormBuilder, private login: AuthService) {
     this.productosCarrito = this.cartService.getProductosCarrito();
@@ -98,7 +98,7 @@ export class AddToCartComponent {
     } else {
       this.nombre_tarjetaValido = true;
     }
-  
+
     if (this.numeroTarjeta.invalid && this.numeroTarjeta.touched) {
       this.numero_tarjetaValido = false;
       console.log('El campo numero_tarjeta tiene errores de validación');
@@ -107,7 +107,7 @@ export class AddToCartComponent {
     } else {
       this.numero_tarjetaValido = true;
     }
-  
+
     if (this.cvvTarjeta.invalid && this.cvvTarjeta.touched) {
       this.cvvValido = false;
       console.log('El campo Cvv tiene errores de validación');
@@ -116,7 +116,7 @@ export class AddToCartComponent {
     } else {
       this.cvvValido = true;
     }
-  
+
     if (this.vencimientoTarjeta.invalid && this.vencimientoTarjeta.touched) {
       this.vencimientoValido = false;
       console.log('El campo vencimiento tiene errores de validación');
@@ -125,7 +125,7 @@ export class AddToCartComponent {
     } else {
       this.vencimientoValido = true;
     }
-  
+
     if (this.formulario.invalid) {
       console.log('El formulario tiene errores de validación');
       console.log(this.formulario.errors);
@@ -133,7 +133,7 @@ export class AddToCartComponent {
       return;
     }
   }
-  
+
   // armamos el objeto pedido que enviaremos en la request
   console.log(this.userId);
   const detalles = this.productosCarrito.map(servicio => servicio.detalle);

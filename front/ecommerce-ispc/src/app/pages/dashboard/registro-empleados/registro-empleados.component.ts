@@ -21,7 +21,7 @@ export class RegistroEmpleadosComponent {
   listaEmpleados: any[] = [];
   mostrarTabla: boolean = false;
   empleadoSeleccionado: any; // Variable para almacenar el empleado seleccionado
-  
+
   formu = new FormGroup({
     legajo: new FormControl('', [Validators.required, Validators.pattern(`^[0-9A-Za-z]+$`),]),
     nombre: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]),
@@ -118,8 +118,8 @@ fechaIngresoValido = true;
 fechaNacimientoValido = true;
 obraSocialValido = true;
 artValido = true;
-  
-  
+
+
   submitData(): void {
     this.submitted = true;
     if (this.formu.invalid) {
@@ -129,9 +129,9 @@ artValido = true;
       this.errorMessage = 'El formulario tiene errores de validación';
       return;
     }
-  
+
     const valores = this.formu.value;
-    
+
     // Validar campo legajo
           if (this.formu.controls.legajo.invalid && this.formu.controls.legajo.touched) {
             this.legajoValido = false;
@@ -224,8 +224,8 @@ artValido = true;
             this.obraSocialValido = true;
           }
 
-        
-  
+
+
     this.empleadoService.guardarRegistroEmpleado(valores)
     .subscribe({
       next: () => {
@@ -236,7 +236,7 @@ artValido = true;
       error: (error) => {
         this.errorMessage = 'Error al guardar el registro del empleado.';
       }
-    }); 
+    });
   }
   resetForm(): void {
     this.formu.reset();
@@ -333,7 +333,7 @@ artValido = true;
       obra_social: this.formu.controls.obra_social.value,
       art: this.formu.controls.art.value,
     };
-  
+
     this.empleadoService.modificarEmpleado(this.empleadoSeleccionado.legajo, empleadoModificado)
       .subscribe({
         next: (response) => {
@@ -353,8 +353,8 @@ artValido = true;
         }
     });
   }
-  
-  
+
+
 }
 
 
