@@ -38,7 +38,7 @@ export class CartService {
 hacerPedido(pedido: any): Observable<any> {
   return this.http.post('http://localhost:8000/api/hacer-pedido/', pedido, { withCredentials: true }).pipe(
     map((response) => {
-      // Se utiliza esta estructura para en un futuro poder manejar la respuesta y transformarla 
+      // Se utiliza esta estructura para en un futuro poder manejar la respuesta y transformarla
       // con los metodos pipe y map
       return response;
     })
@@ -50,5 +50,4 @@ hacerPedido(pedido: any): Observable<any> {
     return this.http.get('http://localhost:8000/api/ver-pedido/', { withCredentials: true });
   }
 }
-
 

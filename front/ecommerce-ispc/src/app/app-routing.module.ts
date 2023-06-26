@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },   // Agrega aquí las rutas hijas del módulo "Dashboard" que deseas proteger
   { path: 'registro-empleados', component: RegistroEmpleadosComponent, canActivate: [AuthGuard]  },
   { path: 'generador-recibo-de-sueldo', component: GeneradorReciboDeSueldoComponent,canActivate: [AuthGuard] },
-  { path: 'registro-empresa', component: RegistroEmpresaComponent,canActivate: [AuthGuard] }, 
+  { path: 'registro-empresa', component: RegistroEmpresaComponent,canActivate: [AuthGuard] },
   { path: 'ayuda', component: AyudaComponent },
   { path: 'terminos', component: TerminosComponent },
   { path: 'servicios', component: ServiciosComponent },

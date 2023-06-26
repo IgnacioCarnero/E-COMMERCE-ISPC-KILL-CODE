@@ -1,258 +1,115 @@
 <div class="container">
   <h1 class="py-5">Configure su recibo del sueldo</h1>
-  <form name="formulario" method="get">
-    <h3>Ingrese sus detalles sobre la empresa</h3>
+  <form [formGroup]="rsForm" (ngSubmit)="enviarDatos()">
+    <!-- Campo idRecibo -->
+    <div class="form-group">
+      <label for="idRecibo">ID del Recibo:</label>
+      <input type="number" placeholder="Id Recibo" id="idRecibo" formControlName="idRecibo" class="form-control" required>
+      <div class="alert alert-danger" *ngIf="rsForm.get('idRecibo')?.invalid && rsForm.get('idRecibo')?.touched">
+        <div *ngIf="rsForm.get('idRecibo')?.errors?.['required']">Este campo es requerido.</div>
+      </div>
+    </div>
+
+    <!-- Campo montoBruto -->
+    <div class="form-group">
+      <label for="montoBruto">Monto Bruto:</label>
+      <input type="number" placeholder="Monto Bruto" id="montoBruto" formControlName="montoBruto" class="form-control" required>
+      <div class="alert alert-danger" *ngIf="rsForm.get('montoBruto')?.invalid && rsForm.get('montoBruto')?.touched">
+        <div *ngIf="rsForm.get('montoBruto')?.errors?.['required']">Este campo es requerido.</div>
+      </div>
+    </div>
+
+    <!-- Campo montoNeto -->
+    <div class="form-group">
+      <label for="montoNeto">Monto Neto:</label>
+      <input type="number" placeholder="Monto Neto" id="montoNeto" formControlName="montoNeto" class="form-control" required>
+      <div class="alert alert-danger" *ngIf="rsForm.get('montoNeto')?.invalid && rsForm.get('montoNeto')?.touched">
+        <div *ngIf="rsForm.get('montoNeto')?.errors?.['required']">Este campo es requerido.</div>
+      </div>
+    </div>
+
+    <!-- Campo periodo -->
+    <div class="form-group">
+      <label for="periodo">Período:</label>
+      <input type="date" id="periodo" formControlName="periodo" class="form-control" required [value]="rsForm.get('periodo')?.value | date:'yyyy-MM-dd'">
+      <div class="alert alert-danger" *ngIf="rsForm.get('periodo')?.invalid && rsForm.get('periodo')?.touched">
+        <div *ngIf="rsForm.get('periodo')?.errors?.['required']">Este campo es requerido.</div>
+      </div>
+    </div>
+
+    <!-- Campo antiguedad -->
+    <div class="form-group">
+      <label for="antiguedad">Antigüedad:</label>
+      <input type="number" placeholder="Antigüedad" id="antiguedad" formControlName="antiguedad" class="form-control" required>
+      <div class="alert alert-danger" *ngIf="rsForm.get('antiguedad')?.invalid && rsForm.get('antiguedad')?.touched">
+        <div *ngIf="rsForm.get('antiguedad')?.errors?.['required']">Este campo es requerido.</div>
+      </div>
+    </div>
+
+    <!-- Campo concepto -->
+    <div class="form-group">
+      <label for="concepto">Concepto:</label>
+      <input type="text" placeholder="Concepto" id="concepto" formControlName="concepto" class="form-control" required>
+      <div class="alert alert-danger" *ngIf="rsForm.get('concepto')?.invalid && rsForm.get('concepto')?.touched">
+        <div *ngIf="rsForm.get('concepto')?.errors?.['required']">Este campo es requerido.</div>
+      </div>
+    </div>
+
+    <!-- Campo asistencia -->
+    <div class="form-group">
+      <label for="asistencia">Asistencia:</label>
+      <input type="number" placeholder="Asistencia" id="asistencia" formControlName="asistencia" class="form-control" required>
+      <div class="alert alert-danger" *ngIf="rsForm.get('asistencia')?.invalid && rsForm.get('asistencia')?.touched">
+        <div *ngIf="rsForm.get('asistencia')?.errors?.['required']">Este campo es requerido.</div>
+      </div>
+    </div>
+
+    <!-- Campo fechaDePago -->
+    <div class="form-group">
+      <label for="fechaDePago">Fecha de Pago:</label>
+      <input type="date" placeholder="Fecha de Pago" id="fechaDePago" formControlName="fechaDePago" class="form-control" required [value]="rsForm.get('periodo')?.value | date:'yyyy-MM-dd'">
+      <div class="alert alert-danger" *ngIf="rsForm.get('fechaDePago')?.invalid && rsForm.get('fechaDePago')?.touched">
+        <div *ngIf="rsForm.get('fechaDePago')?.errors?.['required']">Este campo es requerido.</div>
+      </div>
+    </div>
+
+    <!-- Campo deduccion -->
+    <div class="form-group">
+      <label for="deduccion">Deducción:</label>
+      <input type="number" placeholder="Deducción" id="deduccion" formControlName="deduccion" class="form-control" required >
+      <div class="alert alert-danger" *ngIf="rsForm.get('deduccion')?.invalid && rsForm.get('deduccion')?.touched">
+        <div *ngIf="rsForm.get('deduccion')?.errors?.['required']">Este campo es requerido.</div>
+      </div>
+    </div>
+
+    <!-- Campo extra -->
+    <div class="form-group">
+      <label for="extra">Extra:</label>
+      <input type="number" placeholder="Extra" id="extra" formControlName="extra" class="form-control" required>
+      <div class="alert alert-danger" *ngIf="rsForm.get('extra')?.invalid && rsForm.get('extra')?.touched">
+        <div *ngIf="rsForm.get('extra')?.errors?.['required']">Este campo es requerido.</div>
+      </div>
+    </div>
+
+    <!-- Campo legajoDelEmpleado -->
+    <div class="form-group">
+      <label for="legajoDelEmpleado">Legajo Empleado:</label>
+      <input type="number" placeholder="Legajo Empleado" id="legajoDelEmpleado" formControlName="legajoDelEmpleado" class="form-control" required>
+      <div class="alert alert-danger" *ngIf="rsForm.get('legajoDelEmpleado')?.invalid && rsForm.get('legajoDelEmpleado')?.touched">
+        <div *ngIf="rsForm.get('legajoDelEmpleado')?.errors?.['required']">Este campo es requerido.</div>
+      </div>
+    </div>
+
+    <!-- Botones de enviar, modificar y eliminar -->
     <div class="row">
-      <div class="column">
-        <label for="nombreDeEmpresa">Nombre de empresa</label>
-        <input
-          type="text"
-          id="nombreDeEmpresa"
-          minlength="3"
-          maxlength="20"
-          placeholder="P. ej. BBVA"
-        />
-      </div>
-      <div class="column">
-        <label for="dirección">Dirección</label>
-        <input
-          type="text"
-          id="dirección"
-          minlength="17"
-          maxlength="25"
-          placeholder="P. ej. General bustos 232"
-        />
-      </div>
+      <button class="custom-button" (click)="enviarDatos()" [disabled]="!rsForm.valid">Crear Recibo de Sueldo</button>
+      <button class="custom-button" (click)="actualizarDatos()" [disabled]="!rsForm.valid">Modificar Recibo de Sueldo</button>
+      <button class="custom-button" (click)="eliminarDatos()" [disabled]="!rsForm.valid">Eliminar Recibo de Sueldo</button>
+      <button class="custom-button" (click)="listarDatos()">Listar Recibo de Sueldo</button>
     </div>
-    <div class="row">
-      <div class="column">
-        <label for="cuidad">Cuidad</label>
-        <input
-          type="text"
-          id="cuidad"
-          minlength="3"
-          maxlength="15"
-          placeholder="P. ej. Córdoba"
-        />
-      </div>
-      <div class="column">
-        <label for="códigoPostal">Código postal</label>
-        <input
-          type="text"
-          id="códigoPostal"
-          minlength="5"
-          maxlength="5"
-          placeholder="P. ej. B5000"
-        />
-      </div>
-    </div>
-    <div class="row">
-      <div class="column">
-        <label for="país">País</label>
-        <select id="país">
-          <option value="Argentina">Argentina</option>
-          <option value="Alemania">Alemania</option>
-          <option value="España">España</option>
-          <option value="Brasil">Brasil</option>
-          <option value="Uruguay">Uruguay</option>
-          <option value="Chile">Chile</option>
-        </select>
-      </div>
-      <div class="column">
-        <label for="provincia">Provincia</label>
-        <input
-          type="text"
-          id="provincia"
-          minlength="3"
-          maxlength="12"
-          placeholder="P. ej. Chubut"
-        />
-      </div>
-    </div>
-    <h3>Ingrese sus detalles sobre sus empleados</h3>
-    <div class="row">
-      <div class="column">
-        <label for="primerNombre">Primer nombre</label>
-        <input
-          type="text"
-          id="primerNombre"
-          minlenght="3"
-          maxlength="10"
-          placeholder="P. ej. Martín"
-        />
-      </div>
-      <div class="column">
-        <label for="apellido">Apellido</label>
-        <input
-          type="text"
-          id="apellido"
-          minlenght="3"
-          maxlength="15"
-          placeholder="P. ej. Díaz"
-        />
-      </div>
-    </div>
-    <div class="row">
-      <div class="column">
-        <label for="email">E-mail</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="P. ej.martin12@gmail.com"
-        />
-      </div>
-      <div class="column">
-        <label for="cuilDelEmpleado">Cuil del empleado</label>
-        <input
-          type="number"
-          id="cuilDelEmpleado"
-          min="1000000000000"
-          max="9999999999999"
-          placeholder="P. ej. 20-05854965-3"
-        />
-      </div>
-    </div>
-    <div class="row">
-      <div class="column">
-        <label for="dirección_two">Dirección</label>
-        <input
-          type="text"
-          id="dirección_two"
-          minlength="17"
-          maxlength="25"
-          placeholder="P. ej. General bustos 232"
-        />
-      </div>
-      <div class="column">
-        <label for="cuidad_two">Cuidad</label>
-        <input
-          type="text"
-          id="cuidad_two"
-          minlength="3"
-          maxlength="15"
-          placeholder="P. ej. Córdoba"
-        />
-      </div>
-    </div>
-    <div class="row">
-      <div class="column">
-        <label for="códigoPostal_two">Código postal</label>
-        <input
-          type="text"
-          id="códigoPostal_two"
-          minlength="5"
-          maxlength="5"
-          placeholder="P. ej. B5000"
-        />
-      </div>
-      <div class="column">
-        <label for="país_two">País</label>
-        <select id="país_two">
-          <option value="Argentina">Argentina</option>
-          <option value="Alemania">Alemania</option>
-          <option value="España">España</option>
-          <option value="Brasil">Brasil</option>
-          <option value="Uruguay">Uruguay</option>
-          <option value="Chile">Chile</option>
-        </select>
-      </div>
-    </div>
-    <div class="row">
-      <div class="column">
-        <label for="provincia_two">Provincia/Cantón</label>
-        <input
-          type="text"
-          id="provincia_two"
-          minlength="3"
-          maxlength="12"
-          placeholder="P. ej. Chubut"
-        />
-      </div>
-      <div class="column">
-        <label for="dni">DNI</label>
-        <input
-          type="number"
-          id="dni"
-          min="10000000"
-          max="99999999"
-          placeholder="P. ej. 43235876"
-        />
-      </div>
-    </div>
-    <h3>Ingrese sus datos sobre los ingresos</h3>
-    <div class="row">
-      <div class="column">
-        <label for="díaDelPago">Día del pago</label>
-        <input
-          type="date"
-          min="1950-01-02"
-          max="2022-12-31"
-          placeholder="P. ej.Día del Pago"
-          id="díaDelPago"
-        />
-      </div>
-      <div class="column">
-        <label for="finDelPago">Fin del pago</label>
-        <input
-          type="date"
-          min="1950-01-02"
-          max="2022-12-31"
-          placeholder="P. ej. Fin del Pago"
-          id="finDelPago"
-        />
-      </div>
-    </div>
-    <div class="row">
-      <div class="column">
-        <label for="cantidadDePagos">Cuántas veces es el pago?</label>
-        <select id="cantidadDePagos" name="cantidadDePagos">
-          <option value="En todas 2 Semanas">En todas 2 Semanas</option>
-          <option value="Semanalmente">Semanalmente</option>
-          <option value="Por medio Mes">Por medio Mes</option>
-          <option value="Por Mes">Por Mes</option>
-          <option value="Por un Cuarto del Año">Por un Cuarto del Año</option>
-          <option value="Por medio Año">Por medio Año</option>
-          <option value="Por año">Por año</option>
-        </select>
-      </div>
-      <div class="column">
-        <label for="ingresoAnual">Ingreso anual</label>
-        <input
-          type="number"
-          min="100"
-          max="1000000"
-          placeholder="P. ej. 600000"
-          id="ingresoAnual"
-        />
-      </div>
-    </div>
-    <h3>Ingrese información sobre sus Retenciones</h3>
-    <div class="row">
-      <div class="column">
-        <label for="causaPorLaRetención">Causa por la retención</label>
-        <input
-          type="text"
-          maxlength="35"
-          id="causaPorLaRetención"
-          placeholder="P. ej. Impuestos"
-        />
-      </div>
-      <div class="column">
-        <label for="cantidadDeRetenciones">Cantidad de retenciones</label>
-        <input
-          type="number"
-          id="cantidadDeRetenciones"
-          min="100"
-          max="1000000"
-          placeholder="P. ej. 5 Retenciones"
-        />
-      </div>
-    </div>
-    <div class="container-button">
-      <input type="submit" id="btn" value="Crear el recibo del sueldo" />
-      <input type="reset" value="Restablecer el recibo del sueldo" />
-    </div>
+
+    <!-- Mensaje de éxito -->
+    <div class="alert alert-success" *ngIf="formularioEnviado">Datos enviados exitosamente.</div>
   </form>
-  <script src="../js/configurador-De-Recibo-Del-Sueldo/configuraciónDeReciboDelSueldo.js"></script>
 </div>
+
