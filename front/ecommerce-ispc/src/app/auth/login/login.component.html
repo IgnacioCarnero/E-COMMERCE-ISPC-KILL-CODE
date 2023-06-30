@@ -64,6 +64,7 @@
                   Login
                 </button>
               </div>
+              <div *ngIf="errorMessage" class="mt-4 alert alert-danger">{{ errorMessage }}</div>
               <hr class="my-4" />
               <div class="d-flex flex-column">
                 <a routerLink="">¿Olvidó su contraseña?</a>

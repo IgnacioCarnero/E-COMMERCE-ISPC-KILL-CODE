@@ -9,6 +9,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class AuthService {
   public isAuthenticated = false;
+  public errorMessage:string =''
   private loggedInUserEmail = '';
   private userIdSubject: BehaviorSubject<number | null> = new BehaviorSubject<number | null>(null);
   userId$: Observable<number | null> = this.userIdSubject.asObservable();
@@ -51,6 +52,7 @@ export class AuthService {
         console.error(error);
         // Manejo de errores en caso de que la autenticación falle
         // Puedes mostrar un mensaje de error al usuario, por ejemplo.
+        this.errorMessage='Credenciales incorrectas. Por favor, verifica tu correo electrónico y contraseña.'
       }
     });
   }

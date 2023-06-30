@@ -31,12 +31,13 @@
                     class="form-control"
                     id="floating2"
                     formControlName="emailregister"
-                    [class.is-invalid]="emailInvalid"
+                    [class.is-invalid]="emailInvalid || userRegister.get('emailregister')?.errors?.['duplicateEmail']"
                     placeholder="name@example.com"
                     required
                   />
                   <label for="floating2">Direccion de Email</label>
                   <span *ngIf="emailInvalid" class="invalid-feedback mb-2">Email incorrecto</span>
+                  <span *ngIf="userRegister.get('emailregister')?.errors?.['duplicateEmail']" class="invalid-feedback mb-2">El correo electrónico ya está registrado</span>
                 </div>
 
                 <div class="form-floating mb-3 ">
@@ -82,6 +83,9 @@
                     Registrar usuario
                   </button>
                 </div>
+
+                <div *ngIf="registerSucces" class="mt-2 succes">{{registerSucces}}</div>
+                <div *ngIf="registerFailed" class="mt-2 alert alert-danger">{{registerFailed}}</div>
                 <hr class="my-4" />
               </div>
             </form>

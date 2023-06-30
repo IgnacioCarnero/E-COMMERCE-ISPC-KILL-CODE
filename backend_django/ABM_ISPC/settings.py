@@ -91,7 +91,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ecommercekillcodeproject',
         'USER': 'root',
-        'PASSWORD': '1005Mateo',
+        'PASSWORD': '',
         'HOST': '127.0.0.1',
         'PORT': '3306'
     }
@@ -139,11 +139,11 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#CORS_ALLOW_CREDENTIALS = True
-#SESSION_COOKIE_SAMESITE = 'None'
-#SESSION_COOKIE_SECURE = True
-#SESSION_COOKIE_NAME = 'sessionid'
-#SESSION_COOKIE_DOMAIN = 'http://localhost:4200/'
+CORS_ALLOW_CREDENTIALS = True
+SESSION_COOKIE_SAMESITE = 'None'
+SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_NAME = 'sessionid'
+SESSION_COOKIE_DOMAIN = 'http://localhost:4200/'
 
 AUTH_USER_MODEL = 'databaseManager.CustomUser'
 

@@ -1,6 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { RegisterService } from 'src/app/services/register.service';
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
   selector: 'app-register',
@@ -8,12 +10,15 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
+
+  public registerFailed = '';
+  public registerSucces='';
+
   userRegister!: FormGroup;
 
-  constructor(private fb: FormBuilder, private http:HttpClient) {
+  constructor(private fb: FormBuilder, private registerService: RegisterService, private router: Router, private modalService: ModalService) {
     this.createForm();
   }
-
   createForm() {
     this.userRegister = this.fb.group({
       companynameregister: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
@@ -50,20 +55,32 @@ export class RegisterComponent {
     }
 
     // Enviar los datos al backend
-    const formData = this.userRegister.value;
-    this.http.post('http://localhost:8000/api/auth/register/', formData).subscribe(
-      (response) => {
-        // Éxito en la creación del usuario
-        console.log('Usuario creado:', response);
-        // Realizar acciones adicionales, como redireccionar a la página de inicio de sesión
-      },
-      (error) => {
-        // Error en la creación del usuario
-        console.error('Error al crear el usuario:', error);
+  const formData = this.userRegister.value;
+  this.registerService.register(formData).subscribe(
+    (response) => {
+      // Éxito en la creación del usuario
+      console.log('Usuario creado:', response);
 
+      setTimeout(() => {
+        this.modalService.closeModal();
+      }, 2000);
+      this.router.navigate(['']);
+      // Realizar acciones adicionales, como redireccionar a la página de inicio de sesión
+
+      this.registerSucces='Usuario creado con exito. Sera redirigido al inicio.'
+    },
+    (error) => {
+      // Error en la creación del usuario
+      if (error.status === 400 && error.error.error === 'El correo electrónico ya está registrado') {
+        // Mostrar mensaje de error en el formulario
+        this.userRegister.get('emailregister')?.setErrors({ duplicateEmail: true });
+        this.registerFailed='El correo electrónico ya está registrado'
+      } else {
+        this.registerFailed='Error al crear el usuario.'
       }
-    );
-  }
+    }
+  );
+}
 
 
 

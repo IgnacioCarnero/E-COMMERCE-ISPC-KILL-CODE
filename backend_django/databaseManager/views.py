@@ -62,7 +62,10 @@ class RegisterUserView(APIView):
                 user = CustomUser.objects.create_user(username=email, email=email, password=password)
                 return Response({'message': 'Usuario creado exitosamente'}, status=status.HTTP_201_CREATED)
             except IntegrityError as e:
-                return Response({'error': 'Error al crear el usuario: {}'.format(str(e))}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+                if 'UNIQUE constraint' in str(e) and 'email' in str(e):
+                    return Response({'error': 'El correo electrónico ya está registrado'}, status=status.HTTP_400_BAD_REQUEST)
+                else:
+                    return Response({'error': 'Error al crear el usuario: {}'.format(str(e))}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
