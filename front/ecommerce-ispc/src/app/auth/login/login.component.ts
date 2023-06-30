@@ -20,8 +20,13 @@ export class LoginComponent {
     this.dynamicIdSuffix++;
   }
 
+  get errorMessage():string {
+    return this.authService.errorMessage
+  }
+
   submited = false
   loggedInUserEmail: string = '';
+
   //validaciones
 
   userLogin = new FormGroup({
@@ -29,17 +34,17 @@ export class LoginComponent {
     userpassword : new FormControl('', [Validators.required, Validators.minLength(8)])
 
   });
-  
+
   submitData(): void {
     this.submited = true;
-  
+
     if (this.userLogin.invalid) {
       return;
     }
-  
+
     const email = this.userLogin.value.email;
     const password = this.userLogin.value.userpassword;
-  
+
     if(email && password){
       this.authService.login(email, password);
     }

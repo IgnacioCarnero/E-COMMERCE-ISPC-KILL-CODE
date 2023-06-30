@@ -1,4 +1,14 @@
 .card-title {
     font-size: 32px;
   }
-  
+
+
+  .succes{
+    color: rgb(0, 133, 0);
+    font-weight: bold;
+    background-color: rgb(185, 241, 185);
+    border: none;
+    text-align: center;
+    border-radius: 2px;
+  }
+
