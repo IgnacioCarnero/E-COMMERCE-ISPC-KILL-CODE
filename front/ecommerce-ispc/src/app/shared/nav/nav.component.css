@@ -1,0 +1,9 @@
+.logo{
+    width: 18%;
+}
+.orange{
+    background-color: #FF6106;
+}
+.orange:hover{
+    background-color: #da5203;
+}
