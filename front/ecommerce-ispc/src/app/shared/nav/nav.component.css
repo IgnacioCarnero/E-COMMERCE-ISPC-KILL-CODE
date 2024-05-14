@@ -5,5 +5,5 @@
     background-color: #FF6106;
 }
 .orange:hover{
-    background-color: #da5203;
+    border: solid 0.5px black;
 }
