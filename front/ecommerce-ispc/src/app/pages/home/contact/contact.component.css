@@ -2,3 +2,13 @@
     height: 100px;
     resize: none;
 }
+.orange{
+    background-color: #FF6106;
+}
+.orange:hover{
+    background-color: #da5203;
+}
+.formulario{
+    border: solid 0.5px #535252;
+    border-radius: 25px;
+}
