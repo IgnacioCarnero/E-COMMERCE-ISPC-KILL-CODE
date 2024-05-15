@@ -11215,6 +11215,80 @@ html {
     "Segoe UI Symbol", "Noto Color Emoji" !important;
 }
 
+.titulos {
+  color: black;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3.5em;
+  margin-bottom: 20px;
+}
+
+.titulos_2{
+  color: #595959;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5em;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.titulos_3{
+  
+  color: #fcfcfc;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5em;
+  margin-bottom: 40px;
+  text-align: right;
+}
+
+.subtitulo_section{
+  color: #ff6106;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+
+.img-dashboard{
+  width: 80%;
+  height: auto;
+}
+
+.img-logo-circular{
+  margin-top: 50px;
+  width: 100px;
+  height: auto;
+}
+
+.btn-contactanos-section {
+  /* Estilos por defecto */
+  background-color: #FF6106; /* Color de fondo del botón */
+  color: #1d1d1d; /* Color del texto */
+  padding: 10px 20px; /* Espaciado interno del botón */
+  border: none; /* Elimina el borde */
+  border-radius: 5px; /* Borde redondeado */
+  text-decoration: none; /* Elimina la subrayado del texto */
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s; /* Transición suave */
+}
+
+.btn-contactanos-section:hover {
+  border: 3px solid #1d1d1d; /* Nuevo color de borde al hacer hover */
+  color: #1d1d1d; /* Nuevo color del texto al hacer hover */
+}
+
+
+.text-section-2{
+  color: #ffffff;
+  font-size: 18px;
+  text-align: left;
+}
+
+
+.text-section {
+  color: #595959;
+  font-size: 18px;
+  text-align: left;
+}
+
 .text-gradient {
   background: -webkit-linear-gradient(#2937f0, #9f1ae2);
   background-clip: text;
@@ -11325,22 +11399,12 @@ section {
 section.cta {
   position: relative;
   padding: 15rem 0;
-  background-image: url("https://source.unsplash.com/5g41N3uRPf8/1500x800");
-  background-position: center;
-  background-size: cover;
+  background: linear-gradient(to left, #595959 40%, #B4B3B3);
 }
+
 section.cta .cta-content {
   position: relative;
   z-index: 1;
-}
-section.cta:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
 }
 
 .icon-feature {
