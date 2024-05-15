@@ -33,7 +33,8 @@ export class AddToCartComponent {
   errorMessageVencimientoTarjeta: string | null = null;;
 
 
-  constructor(private router: Router, private cartService: CartService, private eventService: EventService, private formBuilder: FormBuilder, private login: AuthService) {
+  constructor(private router: Router, private cartService: CartService, private eventService: EventService, 
+    private formBuilder: FormBuilder, private login: AuthService) {
     this.productosCarrito = this.cartService.getProductosCarrito();
     this.calcularSubtotal();
     this.fechaHoraActual = new Date();
