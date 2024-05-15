@@ -1,16 +1,28 @@
-<section id="contact">
-  <div class="container px-5">
-    <form class="col-sm-9 col-md-9 col-lg-10 mx-auto">
-      <h3 class="mb-3">Contactanos</h3>
+<section id="contact" class="row">
+  <div class="container col-lg-4 px-5 formulario">
+    <form class="mt-4">
+      <h3 class="mb-3 contactanos">Contactanos</h3>
+      <p class="mb-0">Nombre</p>
       <div class="form-floating mb-3">
         <input
           type="text"
           class="form-control"
           id="floatingContact"
-          placeholder="name@example.com"
+          
         />
-        <label for="floatingContact">Nombre</label>
+        <label for="floatingContact"></label>
       </div>
+      <p class="mb-0">Teléfono</p>
+      <div class="form-floating mb-3">
+        <input
+          type="number"
+          class="form-control"
+          id="floatingContact"
+         
+        />
+        <label for="floatingContact"></label>
+      </div>
+      <p class="mb-0">Email</p>
       <div class="form-floating mb-3">
         <input
           type="email"
@@ -18,26 +30,44 @@
           id="floatingInput"
           placeholder="name@example.com"
         />
-        <label for="floatingInput">Ingrese su Email</label>
+        <label for="floatingInput"></label>
       </div>
+      <p class="mb-0">Mensaje</p>
       <div class="form-floating mb-3">
         <textarea
           class="form-control"
           placeholder="Leave a comment here"
           id="floatingTextarea2"
         ></textarea>
-        <label for="floatingTextarea2">Comentarios</label>
+        <label for="floatingTextarea2"></label>
       </div>
 
-      <div class="d-grid">
+      <div class="d-grid mb-5">
         <button
-          class="btn btn-primary btn-login text-uppercase fw-bold"
+          class="btn orange btn-login text-uppercase fw-bold"
           type="submit"
         >
           Enviar
         </button>
       </div>
-      <hr class="my-4" />
+      
     </form>
+  </div>
+  <div class="container  contacto col-lg-3">
+    <img class="logo" src="assets\image\KillCodeNC.png" alt="">
+    <ul>
+      <li>
+        <img src="assets\image\marcador-de-posicion.png" alt=""><p>Av. Mayo 555</p>
+        </li>
+      <li>
+        <img src="assets\image\correo-electronico-vacio.png" alt=""><p>info&#64;killcode.com</p>
+      </li>
+      <li>
+        <img src="assets\image\llamada-telefonica.png" alt=""><p>+54 9 115 555 5555</p>
+      </li>
+      <li>
+        <img src="assets\image\instagram.png" alt=""><p>Seguinos!</p>
+      </li>
+    </ul>
   </div>
 </section>

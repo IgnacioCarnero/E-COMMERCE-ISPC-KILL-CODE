@@ -2,3 +2,37 @@
     height: 100px;
     resize: none;
 }
+.orange{
+    background-color: #FF6106;
+}
+.orange:hover{
+    
+    border: solid 0.5px black;
+}
+.formulario{
+    border: solid 0.5px #535252;
+    border-radius: 25px;
+}
+.contactanos{
+    color: #090909;
+    font-family: "Montserrat";
+    font-style: normal;
+}
+
+.logo{
+    width: 30%;  
+    margin-bottom: 20px; margin-left: 60px;
+}
+li img{
+    width: 24px;
+}
+ul{
+    list-style: none;
+}
+li p{
+    display: inline-flex;
+    margin-left: 25px;
+}
+.formulario p{
+    color: #c0bfbe;
+}

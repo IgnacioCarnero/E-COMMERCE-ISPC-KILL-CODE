@@ -4,7 +4,7 @@
 >
   <div class="container px-5">
     <a class="navbar-brand" href="#"
-      >KILL CODE</a
+      ><img src="\assets\image\KillCodeNC.png" alt="" class="logo"></a
     >
     <button
       class="navbar-toggler"
@@ -51,7 +51,7 @@
           >
         </li>
       </ul>
-      <button *ngIf="!getIsAuthenticated()" (click)="openLoginModal()" type="button" class="btn btn-primary">
+      <button *ngIf="!getIsAuthenticated()" (click)="openLoginModal()" type="button" class="btn orange">
         <span class="d-flex align-items-center">
           <!-- <i class="bi-chat-text-fill me-2"></i> -->
           <span class="small">Iniciar Sesión</span>
@@ -63,7 +63,7 @@
         <button class="btn btn-primary mx-2" (click)="logout()">Cerrar sesión</button>
       </div>
 
-      <button *ngIf="!getIsAuthenticated()" (click)="openRegisterModal()" type="button" class="btn btn-primary mx-2">
+      <button *ngIf="!getIsAuthenticated()" (click)="openRegisterModal()" type="button" class="btn orange mx-2">
         <span class="d-flex align-items-center">
           <!-- <i class="bi-chat-text-fill me-2"></i> -->
           <span class="small">Registro</span>
