@@ -1,3 +1,10 @@
 .card{
     width: 20rem;
 }
+
+.img-aplicaciones {
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    height: 60vh; /* Puedes ajustar la altura según tus necesidades */
+  }
