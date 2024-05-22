@@ -1,115 +1,119 @@
-<div class="container">
-  <h1 class="py-5">Configure su recibo del sueldo</h1>
+<div class="container-fluid2">
+  <h2 class="mt-4">Configure su recibo de sueldo</h2>
   <form [formGroup]="rsForm" (ngSubmit)="enviarDatos()">
-    <!-- Campo idRecibo -->
-    <div class="form-group">
-      <label for="idRecibo">ID del Recibo:</label>
-      <input type="number" placeholder="Id Recibo" id="idRecibo" formControlName="idRecibo" class="form-control" required>
-      <div class="alert alert-danger" *ngIf="rsForm.get('idRecibo')?.invalid && rsForm.get('idRecibo')?.touched">
-        <div *ngIf="rsForm.get('idRecibo')?.errors?.['required']">Este campo es requerido.</div>
+    <div class="">
+      <div class="">
+        <!-- Campo idRecibo -->
+        <div class="form-group">
+          <label for="idRecibo">ID del Recibo:</label>
+          <input type="number" placeholder="Id Recibo" id="idRecibo" formControlName="idRecibo" class="form-control" required>
+          <div class="alert alert-danger" *ngIf="rsForm.get('idRecibo')?.invalid && rsForm.get('idRecibo')?.touched">
+            <div *ngIf="rsForm.get('idRecibo')?.errors?.['required']">Este campo es requerido.</div>
+          </div>
+        </div>
+
+        <!-- Campo montoBruto -->
+        <div class="form-group">
+          <label for="montoBruto">Monto Bruto:</label>
+          <input type="number" placeholder="Monto Bruto" id="montoBruto" formControlName="montoBruto" class="form-control" required>
+          <div class="alert alert-danger" *ngIf="rsForm.get('montoBruto')?.invalid && rsForm.get('montoBruto')?.touched">
+            <div *ngIf="rsForm.get('montoBruto')?.errors?.['required']">Este campo es requerido.</div>
+          </div>
+        </div>
+
+        <!-- Campo montoNeto -->
+        <div class="form-group">
+          <label for="montoNeto">Monto Neto:</label>
+          <input type="number" placeholder="Monto Neto" id="montoNeto" formControlName="montoNeto" class="form-control" required>
+          <div class="alert alert-danger" *ngIf="rsForm.get('montoNeto')?.invalid && rsForm.get('montoNeto')?.touched">
+            <div *ngIf="rsForm.get('montoNeto')?.errors?.['required']">Este campo es requerido.</div>
+          </div>
+        </div>
+
+        <!-- Campo periodo -->
+        <div class="form-group">
+          <label for="periodo">Período:</label>
+          <input type="date" id="periodo" formControlName="periodo" class="form-control" required [value]="rsForm.get('periodo')?.value | date:'yyyy-MM-dd'">
+          <div class="alert alert-danger" *ngIf="rsForm.get('periodo')?.invalid && rsForm.get('periodo')?.touched">
+            <div *ngIf="rsForm.get('periodo')?.errors?.['required']">Este campo es requerido.</div>
+          </div>
+        </div>
+
+        <!-- Campo antiguedad -->
+        <div class="form-group">
+          <label for="antiguedad">Antigüedad:</label>
+          <input type="number" placeholder="Antigüedad" id="antiguedad" formControlName="antiguedad" class="form-control" required>
+          <div class="alert alert-danger" *ngIf="rsForm.get('antiguedad')?.invalid && rsForm.get('antiguedad')?.touched">
+            <div *ngIf="rsForm.get('antiguedad')?.errors?.['required']">Este campo es requerido.</div>
+          </div>
+        </div>
+
+        <!-- Campo concepto -->
+        <div class="form-group">
+          <label for="concepto">Concepto:</label>
+          <input type="text" placeholder="Concepto" id="concepto" formControlName="concepto" class="form-control" required>
+          <div class="alert alert-danger" *ngIf="rsForm.get('concepto')?.invalid && rsForm.get('concepto')?.touched">
+            <div *ngIf="rsForm.get('concepto')?.errors?.['required']">Este campo es requerido.</div>
+          </div>
+        </div>
+
+        <!-- Campo asistencia -->
+        <div class="form-group">
+          <label for="asistencia">Asistencia:</label>
+          <input type="number" placeholder="Asistencia" id="asistencia" formControlName="asistencia" class="form-control" required>
+          <div class="alert alert-danger" *ngIf="rsForm.get('asistencia')?.invalid && rsForm.get('asistencia')?.touched">
+            <div *ngIf="rsForm.get('asistencia')?.errors?.['required']">Este campo es requerido.</div>
+          </div>
+        </div>
+
+        <!-- Campo fechaDePago -->
+        <div class="form-group">
+          <label for="fechaDePago">Fecha de Pago:</label>
+          <input type="date" placeholder="Fecha de Pago" id="fechaDePago" formControlName="fechaDePago" class="form-control" required [value]="rsForm.get('periodo')?.value | date:'yyyy-MM-dd'">
+          <div class="alert alert-danger" *ngIf="rsForm.get('fechaDePago')?.invalid && rsForm.get('fechaDePago')?.touched">
+            <div *ngIf="rsForm.get('fechaDePago')?.errors?.['required']">Este campo es requerido.</div>
+          </div>
+        </div>
+
+        <!-- Campo deduccion -->
+        <div class="form-group">
+          <label for="deduccion">Deducción:</label>
+          <input type="number" placeholder="Deducción" id="deduccion" formControlName="deduccion" class="form-control" required >
+          <div class="alert alert-danger" *ngIf="rsForm.get('deduccion')?.invalid && rsForm.get('deduccion')?.touched">
+            <div *ngIf="rsForm.get('deduccion')?.errors?.['required']">Este campo es requerido.</div>
+          </div>
+        </div>
+
+        <!-- Campo extra -->
+        <div class="form-group">
+          <label for="extra">Extra:</label>
+          <input type="number" placeholder="Extra" id="extra" formControlName="extra" class="form-control" required>
+          <div class="alert alert-danger" *ngIf="rsForm.get('extra')?.invalid && rsForm.get('extra')?.touched">
+            <div *ngIf="rsForm.get('extra')?.errors?.['required']">Este campo es requerido.</div>
+          </div>
+        </div>
+
+        <!-- Campo legajoDelEmpleado -->
+        <div class="form-group">
+          <label for="legajoDelEmpleado">Legajo Empleado:</label>
+          <input type="number" placeholder="Legajo Empleado" id="legajoDelEmpleado" formControlName="legajoDelEmpleado" class="form-control" required>
+          <div class="alert alert-danger" *ngIf="rsForm.get('legajoDelEmpleado')?.invalid && rsForm.get('legajoDelEmpleado')?.touched">
+            <div *ngIf="rsForm.get('legajoDelEmpleado')?.errors?.['required']">Este campo es requerido.</div>
+          </div>
+        </div>
+
+        <!-- Botones de enviar, modificar y eliminar -->
+        <div class="row">
+          <button class="custom-button" (click)="enviarDatos()" [disabled]="!rsForm.valid">Crear Recibo de Sueldo</button>
+          <button class="custom-button" (click)="actualizarDatos()" [disabled]="!rsForm.valid">Modificar Recibo de Sueldo</button>
+          <button class="custom-button" (click)="eliminarDatos()" [disabled]="!rsForm.valid">Eliminar Recibo de Sueldo</button>
+          <button class="custom-button" (click)="listarDatos()">Listar Recibo de Sueldo</button>
+        </div>
+
+        <!-- Mensaje de éxito -->
+        <div class="alert alert-success" *ngIf="formularioEnviado">Datos enviados exitosamente.</div>
       </div>
     </div>
-
-    <!-- Campo montoBruto -->
-    <div class="form-group">
-      <label for="montoBruto">Monto Bruto:</label>
-      <input type="number" placeholder="Monto Bruto" id="montoBruto" formControlName="montoBruto" class="form-control" required>
-      <div class="alert alert-danger" *ngIf="rsForm.get('montoBruto')?.invalid && rsForm.get('montoBruto')?.touched">
-        <div *ngIf="rsForm.get('montoBruto')?.errors?.['required']">Este campo es requerido.</div>
-      </div>
-    </div>
-
-    <!-- Campo montoNeto -->
-    <div class="form-group">
-      <label for="montoNeto">Monto Neto:</label>
-      <input type="number" placeholder="Monto Neto" id="montoNeto" formControlName="montoNeto" class="form-control" required>
-      <div class="alert alert-danger" *ngIf="rsForm.get('montoNeto')?.invalid && rsForm.get('montoNeto')?.touched">
-        <div *ngIf="rsForm.get('montoNeto')?.errors?.['required']">Este campo es requerido.</div>
-      </div>
-    </div>
-
-    <!-- Campo periodo -->
-    <div class="form-group">
-      <label for="periodo">Período:</label>
-      <input type="date" id="periodo" formControlName="periodo" class="form-control" required [value]="rsForm.get('periodo')?.value | date:'yyyy-MM-dd'">
-      <div class="alert alert-danger" *ngIf="rsForm.get('periodo')?.invalid && rsForm.get('periodo')?.touched">
-        <div *ngIf="rsForm.get('periodo')?.errors?.['required']">Este campo es requerido.</div>
-      </div>
-    </div>
-
-    <!-- Campo antiguedad -->
-    <div class="form-group">
-      <label for="antiguedad">Antigüedad:</label>
-      <input type="number" placeholder="Antigüedad" id="antiguedad" formControlName="antiguedad" class="form-control" required>
-      <div class="alert alert-danger" *ngIf="rsForm.get('antiguedad')?.invalid && rsForm.get('antiguedad')?.touched">
-        <div *ngIf="rsForm.get('antiguedad')?.errors?.['required']">Este campo es requerido.</div>
-      </div>
-    </div>
-
-    <!-- Campo concepto -->
-    <div class="form-group">
-      <label for="concepto">Concepto:</label>
-      <input type="text" placeholder="Concepto" id="concepto" formControlName="concepto" class="form-control" required>
-      <div class="alert alert-danger" *ngIf="rsForm.get('concepto')?.invalid && rsForm.get('concepto')?.touched">
-        <div *ngIf="rsForm.get('concepto')?.errors?.['required']">Este campo es requerido.</div>
-      </div>
-    </div>
-
-    <!-- Campo asistencia -->
-    <div class="form-group">
-      <label for="asistencia">Asistencia:</label>
-      <input type="number" placeholder="Asistencia" id="asistencia" formControlName="asistencia" class="form-control" required>
-      <div class="alert alert-danger" *ngIf="rsForm.get('asistencia')?.invalid && rsForm.get('asistencia')?.touched">
-        <div *ngIf="rsForm.get('asistencia')?.errors?.['required']">Este campo es requerido.</div>
-      </div>
-    </div>
-
-    <!-- Campo fechaDePago -->
-    <div class="form-group">
-      <label for="fechaDePago">Fecha de Pago:</label>
-      <input type="date" placeholder="Fecha de Pago" id="fechaDePago" formControlName="fechaDePago" class="form-control" required [value]="rsForm.get('periodo')?.value | date:'yyyy-MM-dd'">
-      <div class="alert alert-danger" *ngIf="rsForm.get('fechaDePago')?.invalid && rsForm.get('fechaDePago')?.touched">
-        <div *ngIf="rsForm.get('fechaDePago')?.errors?.['required']">Este campo es requerido.</div>
-      </div>
-    </div>
-
-    <!-- Campo deduccion -->
-    <div class="form-group">
-      <label for="deduccion">Deducción:</label>
-      <input type="number" placeholder="Deducción" id="deduccion" formControlName="deduccion" class="form-control" required >
-      <div class="alert alert-danger" *ngIf="rsForm.get('deduccion')?.invalid && rsForm.get('deduccion')?.touched">
-        <div *ngIf="rsForm.get('deduccion')?.errors?.['required']">Este campo es requerido.</div>
-      </div>
-    </div>
-
-    <!-- Campo extra -->
-    <div class="form-group">
-      <label for="extra">Extra:</label>
-      <input type="number" placeholder="Extra" id="extra" formControlName="extra" class="form-control" required>
-      <div class="alert alert-danger" *ngIf="rsForm.get('extra')?.invalid && rsForm.get('extra')?.touched">
-        <div *ngIf="rsForm.get('extra')?.errors?.['required']">Este campo es requerido.</div>
-      </div>
-    </div>
-
-    <!-- Campo legajoDelEmpleado -->
-    <div class="form-group">
-      <label for="legajoDelEmpleado">Legajo Empleado:</label>
-      <input type="number" placeholder="Legajo Empleado" id="legajoDelEmpleado" formControlName="legajoDelEmpleado" class="form-control" required>
-      <div class="alert alert-danger" *ngIf="rsForm.get('legajoDelEmpleado')?.invalid && rsForm.get('legajoDelEmpleado')?.touched">
-        <div *ngIf="rsForm.get('legajoDelEmpleado')?.errors?.['required']">Este campo es requerido.</div>
-      </div>
-    </div>
-
-    <!-- Botones de enviar, modificar y eliminar -->
-    <div class="row">
-      <button class="custom-button" (click)="enviarDatos()" [disabled]="!rsForm.valid">Crear Recibo de Sueldo</button>
-      <button class="custom-button" (click)="actualizarDatos()" [disabled]="!rsForm.valid">Modificar Recibo de Sueldo</button>
-      <button class="custom-button" (click)="eliminarDatos()" [disabled]="!rsForm.valid">Eliminar Recibo de Sueldo</button>
-      <button class="custom-button" (click)="listarDatos()">Listar Recibo de Sueldo</button>
-    </div>
-
-    <!-- Mensaje de éxito -->
-    <div class="alert alert-success" *ngIf="formularioEnviado">Datos enviados exitosamente.</div>
   </form>
 </div>
 

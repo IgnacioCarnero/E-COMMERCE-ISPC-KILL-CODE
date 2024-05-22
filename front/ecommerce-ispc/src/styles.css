@@ -11336,6 +11336,14 @@ section {
   color: #2937f0;
 }
 
+.nav-link {
+  color: white; /* Cambia 'blue' por el color que prefieras */
+}
+
+.nav-link:hover {
+  color: red; /* Color al pasar el cursor sobre el enlace */
+}
+
 /*!
  * html5-device-mockups (https://github.com/pixelsign/html5-device-mockups)
  * Copyright 2013 - 2017 pixelsign
