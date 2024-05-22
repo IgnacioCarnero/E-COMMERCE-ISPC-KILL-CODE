@@ -138,7 +138,7 @@ class Migration(migrations.Migration):
                 ('cantidad', models.IntegerField()),
                 ('medioDePago', models.CharField(max_length=200, verbose_name='medio de pago para pedidos')),
                 ('fechaHora', models.DateTimeField()),
-                ('Empresa', models.OneToOneField(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='databaseManager.empresa')),
+                ('Empresa', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='databaseManager.empresa')),
                 ('Servicio', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='databaseManager.servicioskillcode')),
             ],
         ),

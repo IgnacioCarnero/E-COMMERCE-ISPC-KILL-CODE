@@ -148,7 +148,7 @@ class Pedido(models.Model):
     numero_tarjeta = models.CharField(max_length=200)
     vencimiento = models.DateField('fecha de vencimiento de tarjeta')
     Cvv = models.IntegerField()
-    CustomUser = models.OneToOneField('CustomUser', on_delete=models.CASCADE)
+    CustomUser = models.ForeignKey('CustomUser', on_delete=models.CASCADE)
     fechaHora = models.DateTimeField()
     
 
