@@ -37,8 +37,12 @@ img {
   border-left: 5px solid red;
 } */
 
-.h2 .text-muted {
-  margin-top: 5px;
+h2 {
+  flex: auto;
+  font-size: 35px;
+  margin-left: 25px;
+  color: #001133;
+  font-family: sans-serif;
 }
 
 /* .ng-valid.ng-touched {
@@ -60,4 +64,12 @@ img {
 
 .ng-invalid.ng-touched .form-control {
   border-color: red;
+}
+
+.container-fluid2 {
+  margin-top: 115px; /* Ajusta este valor según la altura de tu navbar */
+}
+
+.container-fluid2 h2 {
+  color: black; /* Cambia 'black' por el color que prefieras */
 }

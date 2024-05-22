@@ -11336,6 +11336,14 @@ section {
   color: #2937f0;
 }
 
+.nav-link {
+  color: white; /* Cambia 'blue' por el color que prefieras */
+}
+
+.nav-link:hover {
+  color: red; /* Color al pasar el cursor sobre el enlace */
+}
+
 /*!
  * html5-device-mockups (https://github.com/pixelsign/html5-device-mockups)
  * Copyright 2013 - 2017 pixelsign
@@ -11566,6 +11574,20 @@ footer a:focus {
 .masthead .masthead-device-mockup .device-wrapper {
   max-width: 10rem;
 }
+
+.masthead-gradient {
+  background: rgb(89,89,89);
+  background: linear-gradient(90deg, rgba(89,89,89,1) 0%, rgba(180,179,179,1) 100%);
+}
+
+.masthead-gradient h5 {
+  color: #fff; /* Asegura que el texto sea visible sobre el gradiente */
+}
+
+.masthead-gradient .fa-trash-alt {
+  color: #ff0000; /* Icono de basura en rojo */
+}
+
 @media (min-width: 576px) {
   .masthead .masthead-device-mockup .circle {
     width: 70%;

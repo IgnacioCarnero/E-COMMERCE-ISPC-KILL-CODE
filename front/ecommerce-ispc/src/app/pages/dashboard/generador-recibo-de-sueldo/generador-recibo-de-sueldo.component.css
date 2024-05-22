@@ -58,6 +58,14 @@ h3 {
   margin-top: 50px;
 }
 
+h2 {
+  flex: auto;
+  font-size: 35px;
+  margin-left: 25px;
+  color: #001133;
+  font-family: sans-serif;
+}
+
 .container h1 {
   text-align: center;
   margin-top: 50px;
@@ -448,4 +456,12 @@ button {
   color: white;
   font-weight: bold;
   /* Agrega otros estilos personalizados según tus preferencias */
+}
+
+.container-fluid2 {
+  margin-top: 115px; /* Ajusta este valor según la altura de tu navbar */
+}
+
+.container-fluid2 h2 {
+  color: black; /* Cambia 'black' por el color que prefieras */
 }
