@@ -1,3 +1,4 @@
+from rest_framework import generics
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
 from django.contrib.auth.hashers import make_password
@@ -158,3 +159,35 @@ class CustomUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
         fields = ['id','companynameregister', 'emailregister', 'userpasswordregister', 'confirmpasswordregister']
+
+
+class ServicioSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ServiciosKillCode
+        fields = ['idServicio', 'valor', 'detalle', 'nombreServicio', 'categoria', 'token']
+        read_only_fields = ['token']
+
+    def create(self, validated_data):
+        return super().create(validated_data)
+    
+class CategoriaServiciosSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CategoriaServicios
+        fields = '__all__'
+
+
+class CategoriaServiciosListView(generics.ListAPIView):
+    queryset = CategoriaServicios.objects.all()
+    serializer_class = CategoriaServiciosSerializer
+
+class CategoriaServiciosRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = CategoriaServicios.objects.all()
+    serializer_class = CategoriaServiciosSerializer
+
+class ServiciosKillCodeListView(generics.ListCreateAPIView):
+    queryset = ServiciosKillCode.objects.all()
+    serializer_class = ServicioSerializer
+
+class ServiciosKillCodeRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = ServiciosKillCode.objects.all()
+    serializer_class = ServicioSerializer

@@ -1,7 +1,22 @@
 footer{
-  background-color: #001133;
+  background-color: #595959;
 }
+.copy{
+  width: 2.5%;
+}
+.logo-github{
+  width: 2.8%;
+}
+.linea{
+  color:#9F9A9A;
+  border-width: 0.5px;
 
-.svg-footer{
-  fill:white
+}
+footer a,
+footer p{
+  text-decoration: none;
+  color: #9F9A9A;
+}
+footer a:hover{
+  color: aliceblue;
 }

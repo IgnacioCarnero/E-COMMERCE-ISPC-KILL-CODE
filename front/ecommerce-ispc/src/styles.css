@@ -100,7 +100,12 @@
     scroll-behavior: smooth;
   }
 }
-
+.mobile{
+  display: none;
+}
+.none{
+  display: flex;
+}
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
@@ -136,17 +141,17 @@ h1,
 .h1 {
   margin-top: 0;
   margin-bottom: 0.5rem;
-  font-family: "Newsreader", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-weight: 600;
-  line-height: 1.2;
+  font-family: "Montserrat";
+  font-weight: 400;
+  line-height: 1.1;
+  color: white;
 }
 
 h1,
 .h1 {
   font-size: calc(1.375rem + 1.5vw);
 }
+
 @media (min-width: 1200px) {
   h1,
   .h1 {
@@ -524,10 +529,16 @@ progress {
 [hidden] {
   display: none !important;
 }
+.leads{
+  font-size: 1.25rem;
+  font-weight: 200;
+  color: white;
+}
 
 .lead {
   font-size: 1.25rem;
-  font-weight: 300;
+  font-weight: 400;
+  color: white;
 }
 
 .display-1 {
@@ -691,14 +702,31 @@ progress {
   .container-sm,
   .container {
     max-width: 720px;
-  }
+  } 
 }
+/* @media only screen and (min-width: 768px) {
+ .none{
+  display: none;
+ }
+} */
 @media (min-width: 992px) {
   .container-lg,
   .container-md,
   .container-sm,
   .container {
     max-width: 960px;
+  }
+  
+}
+@media (max-width: 991px){
+  .none{
+    display: none;
+  }
+  .mobile{
+    display: flex;
+  }
+  .lead{
+    margin-top: 48px;
   }
 }
 @media (min-width: 1200px) {
@@ -4352,6 +4380,7 @@ fieldset:disabled .btn {
 
 .card-title {
   margin-bottom: var(--bs-card-title-spacer-y);
+  color: black
 }
 
 .card-subtitle {
@@ -11187,6 +11216,80 @@ html {
     "Segoe UI Symbol", "Noto Color Emoji" !important;
 }
 
+.titulos {
+  color: black;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3.5em;
+  margin-bottom: 20px;
+}
+
+.titulos_2{
+  color: #595959;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5em;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.titulos_3{
+  
+  color: #fcfcfc;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5em;
+  margin-bottom: 40px;
+  text-align: right;
+}
+
+.subtitulo_section{
+  color: #ff6106;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+}
+
+
+.img-dashboard{
+  width: 80%;
+  height: auto;
+}
+
+.img-logo-circular{
+  margin-top: 50px;
+  width: 100px;
+  height: auto;
+}
+
+.btn-contactanos-section {
+  /* Estilos por defecto */
+  background-color: #FF6106; /* Color de fondo del botón */
+  color: #1d1d1d; /* Color del texto */
+  padding: 10px 20px; /* Espaciado interno del botón */
+  border: none; /* Elimina el borde */
+  border-radius: 5px; /* Borde redondeado */
+  text-decoration: none; /* Elimina la subrayado del texto */
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s; /* Transición suave */
+}
+
+.btn-contactanos-section:hover {
+  border: 3px solid #1d1d1d; /* Nuevo color de borde al hacer hover */
+  color: #1d1d1d; /* Nuevo color del texto al hacer hover */
+}
+
+
+.text-section-2{
+  color: #ffffff;
+  font-size: 18px;
+  text-align: left;
+}
+
+
+.text-section {
+  color: #595959;
+  font-size: 18px;
+  text-align: left;
+}
+
 .text-gradient {
   background: -webkit-linear-gradient(#2937f0, #9f1ae2);
   background-clip: text;
@@ -11231,6 +11334,14 @@ section {
 }
 #mainNav .navbar-nav .nav-item .nav-link.active {
   color: #2937f0;
+}
+
+.nav-link {
+  color: white; /* Cambia 'blue' por el color que prefieras */
+}
+
+.nav-link:hover {
+  color: red; /* Color al pasar el cursor sobre el enlace */
 }
 
 /*!
@@ -11297,22 +11408,12 @@ section {
 section.cta {
   position: relative;
   padding: 15rem 0;
-  background-image: url("https://source.unsplash.com/5g41N3uRPf8/1500x800");
-  background-position: center;
-  background-size: cover;
+  background: linear-gradient(to left, #595959 40%, #B4B3B3);
 }
+
 section.cta .cta-content {
   position: relative;
   z-index: 1;
-}
-section.cta:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
 }
 
 .icon-feature {
@@ -11430,7 +11531,8 @@ footer a:focus {
 }
 
 .masthead {
-  background-color: #f8f9fa;
+  background: rgb(89,89,89);
+  background: linear-gradient(90deg, rgba(89,89,89,1) 0%, rgba(180,179,179,1) 100%);
   padding-top: 9.5rem;
   padding-bottom: 5rem;
 }
@@ -11472,6 +11574,20 @@ footer a:focus {
 .masthead .masthead-device-mockup .device-wrapper {
   max-width: 10rem;
 }
+
+.masthead-gradient {
+  background: rgb(89,89,89);
+  background: linear-gradient(90deg, rgba(89,89,89,1) 0%, rgba(180,179,179,1) 100%);
+}
+
+.masthead-gradient h5 {
+  color: #fff; /* Asegura que el texto sea visible sobre el gradiente */
+}
+
+.masthead-gradient .fa-trash-alt {
+  color: #ff0000; /* Icono de basura en rojo */
+}
+
 @media (min-width: 576px) {
   .masthead .masthead-device-mockup .circle {
     width: 70%;

@@ -196,3 +196,19 @@ class VerPedidoView(APIView):
         pedidos = Pedido.objects.all()
         serializer = ListarPedidoSerializer(pedidos, many=True)
         return Response(serializer.data)
+    
+class ServiciosListCreateView(generics.ListCreateAPIView):
+    queryset = ServiciosKillCode.objects.all()
+    serializer_class = ServicioSerializer
+
+class ServiciosRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = ServiciosKillCode.objects.all()
+    serializer_class = ServicioSerializer
+
+class CategoriaServiciosListCreateView(generics.ListCreateAPIView):
+    queryset = CategoriaServicios.objects.all()
+    serializer_class = CategoriaServiciosSerializer
+
+class CategoriaServiciosRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = CategoriaServicios.objects.all()
+    serializer_class = CategoriaServiciosSerializer

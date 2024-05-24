@@ -25,7 +25,8 @@ SECRET_KEY = 'django-insecure-7t(^whe5hz!n$*wsc=pn3$ay4gad_5iuo$hiw&*%rr@cv1#ll(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+LOGIN_REDIRECT_URL = '/admin/'
 
 
 # Application definition
@@ -49,6 +50,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -91,7 +93,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ecommercekillcodeproject',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': 'Luca2705',
         'HOST': '127.0.0.1',
         'PORT': '3306'
     }
@@ -144,6 +146,7 @@ SESSION_COOKIE_SAMESITE = 'None'
 SESSION_COOKIE_SECURE = True
 SESSION_COOKIE_NAME = 'sessionid'
 SESSION_COOKIE_DOMAIN = 'http://localhost:4200/'
+CSRF_COOKIE_SECURE = True
 
 AUTH_USER_MODEL = 'databaseManager.CustomUser'
 
