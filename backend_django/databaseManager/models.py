@@ -1,3 +1,4 @@
+import uuid
 from django.db.models import Sum
 from django.db import models
 from django.contrib.auth.models import AbstractUser
@@ -121,12 +122,13 @@ class Reclamo(models.Model):
     
 class ServiciosKillCode(models.Model):
     idServicio = models.IntegerField(primary_key=True)
-    valor = models.DecimalField(max_digits=8, decimal_places=2)
+    valor = models.DecimalField(max_digits=12, decimal_places=2)
     detalle = models.CharField(
         'detalle de servicio de kill code', max_length=200)
     nombreServicio = models.CharField(
         'nombre de servicio de kill code', max_length=200)
     categoria = models.ForeignKey('CategoriaServicios', on_delete=models.CASCADE, related_name='categoria') 
+    token = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
 
     def __str__(self):
         return f"{self.nombreServicio}"
