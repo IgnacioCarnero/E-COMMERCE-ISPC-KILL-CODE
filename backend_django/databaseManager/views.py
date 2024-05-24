@@ -212,3 +212,19 @@ class CategoriaServiciosListCreateView(generics.ListCreateAPIView):
 class CategoriaServiciosRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = CategoriaServicios.objects.all()
     serializer_class = CategoriaServiciosSerializer
+
+class ObraSocialListCreateView(generics.ListCreateAPIView):
+    queryset = ObraSocial.objects.all()
+    serializer_class = ObraSocialSerializer
+
+class ObraSocialRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = ObraSocial.objects.all()
+    serializer_class = ObraSocialSerializer
+
+class ArtListCreateView(generics.ListCreateAPIView):
+    queryset = Art.objects.all()
+    serializer_class = ArtSerializer
+
+class ArtRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Art.objects.all()
+    serializer_class = ArtSerializer

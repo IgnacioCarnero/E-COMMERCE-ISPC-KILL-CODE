@@ -23,7 +23,11 @@ urlpatterns = [
     path('hacer-pedido/', CrearPedidoView.as_view(), name='hacer-pedido'),
     path('ver-pedido/', VerPedidoView.as_view(), name='ver-pedido'),
     path('servicios/', ServiciosListCreateView.as_view(), name='servicio-list-create'),
-    path('servicios/<int:pk>/', ServiciosKillCodeRetrieveUpdateDestroyView.as_view(), name='servicio-detail'),
+    path('servicios/<int:pk>/', ServiciosRetrieveUpdateDestroyView.as_view(), name='servicio-detail'),
     path('categorias/', CategoriaServiciosListCreateView.as_view(), name='categoria-list-create'),
     path('categorias/<int:pk>/', CategoriaServiciosRetrieveUpdateDestroyView.as_view(), name='categoria-detail'),
+    path('obra-social/', ObraSocialListCreateView.as_view(), name='obra-social-list-create'),
+    path('obra-social/<int:pk>/', ObraSocialRetrieveUpdateDestroyView.as_view(), name='obra-social-detail'),
+    path('art/', ArtListCreateView.as_view(), name='art-list-create'),
+    path('art/<int:pk>/', ArtRetrieveUpdateDestroyView.as_view(), name='art-detail'),
 ]
