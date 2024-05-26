@@ -16,9 +16,9 @@
             alt="Persona usando tablet"
           />
           <div class="card-body">
-            <h5 class="card-title text-center h3">Personal</h5>
+            <h5 class="card-title text-center h3">{{ servicioPersonal.nombreServicio }}</h5>
             <ul class="card-text-start">
-              <li>10 legajos</li>
+              <li>{{ servicioPersonal.detalle }}</li>
               <li>1 usuario</li>
               <li>Libro de sueldo digital</li>
               <li>Conceptos personalizables</li>
@@ -26,9 +26,9 @@
               <li>Recibo digital</li>
               <li>Formularios AFIP</li>
             </ul>
-            <button  (click)="agregarAlCarrito(Personal)"
+            <button  (click)="agregarAlCarrito(servicioPersonal)"
             type="button" *ngIf="isLoggedIn"
-            [class]="cambioDeBoton(Personal).class">{{ cambioDeBoton(Personal).text }}</button>
+            [class]="cambioDeBoton(servicioPersonal).class">{{ cambioDeBoton(servicioPersonal).text }}</button>
           </div>
         </div>
       </div>
@@ -40,9 +40,9 @@
             alt="Trabajando en oficina"
           />
           <div class="card-body">
-            <h5 class="card-title text-center h3">PyME</h5>
+            <h5 class="card-title text-center h3">{{ servicioPyME.nombreServicio }}</h5>
             <ul class="card-text-start">
-              <li>50 legajos</li>
+              <li>{{ servicioPyME.detalle }}</li>
               <li>2 usuarios</li>
               <li>Libro de sueldo digital</li>
               <li>Conceptos personalizables</li>
@@ -50,9 +50,9 @@
               <li>Recibo digital</li>
               <li>Formularios AFIP</li>
             </ul>
-            <button  (click)="agregarAlCarrito(PyME)" *ngIf="isLoggedIn"
+            <button  (click)="agregarAlCarrito(servicioPyME)" *ngIf="isLoggedIn"
             type="button"
-            [class]="cambioDeBoton(PyME).class">{{ cambioDeBoton(PyME).text }}</button>
+            [class]="cambioDeBoton(servicioPyME).class">{{ cambioDeBoton(servicioPyME).text }}</button>
           </div>
         </div>
       </div>
@@ -64,9 +64,9 @@
             alt="Reunion directorio"
           />
           <div class="card-body">
-            <h5 class="card-title text-center h3">Premium PyME</h5>
+            <h5 class="card-title text-center h3">{{ servicioPremiumPyME.nombreServicio }}</h5>
             <ul class="card-text-start">
-              <li>100 legajos</li>
+              <li>{{ servicioPremiumPyME.detalle }}</li>
               <li>4 usuarios</li>
               <li>Libro de sueldo digital</li>
               <li>Conceptos personalizables</li>
@@ -74,9 +74,9 @@
               <li>Recibo digital</li>
               <li>Formularios AFIP</li>
             </ul>
-            <button  (click)="agregarAlCarrito(PremiumPyME)"
+            <button  (click)="agregarAlCarrito(servicioPremiumPyME)"
             type="button" *ngIf="isLoggedIn"
-            [class]="cambioDeBoton(PremiumPyME).class">{{ cambioDeBoton(PremiumPyME).text }}</button>
+            [class]="cambioDeBoton(servicioPremiumPyME).class">{{ cambioDeBoton(servicioPremiumPyME).text }}</button>
           </div>
         </div>
       </div>

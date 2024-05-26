@@ -143,7 +143,7 @@ class CategoriaServicios(models.Model):
 
 class Pedido(models.Model):
     idPedido = models.AutoField(primary_key=True)
-    valorTotal = models.DecimalField(max_digits=8, decimal_places=2)
+    valorTotal = models.DecimalField(max_digits=12, decimal_places=2)
     detalle = models.CharField('detalle de pedidos', max_length=200)
     Servicio = models.ForeignKey(ServiciosKillCode, blank=True, null=True, on_delete=models.CASCADE)
     nombre_tarjeta = models.CharField('nombre de tarjeta de crédito', max_length=200)
