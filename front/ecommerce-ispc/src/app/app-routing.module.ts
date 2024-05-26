@@ -12,6 +12,7 @@ import { GeneradorReciboDeSueldoComponent } from './pages/dashboard/generador-re
 import { ContactComponent } from './pages/home/contact/contact.component';
 import { RegistroEmpresaComponent } from './pages/dashboard/registro-empresa/registro-empresa.component';
 import { NavComponent } from './shared/nav/nav.component';
+import { ServiciosResolver } from './services/ServiciosResolver';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: HomeComponent },
@@ -22,7 +23,7 @@ const routes: Routes = [
   { path: 'registro-empresa', component: RegistroEmpresaComponent,canActivate: [AuthGuard] },
   { path: 'ayuda', component: AyudaComponent },
   { path: 'terminos', component: TerminosComponent },
-  { path: 'servicios', component: ServiciosComponent },
+  { path: 'servicios', component: ServiciosComponent, resolve: {servicios: ServiciosResolver }},
   { path: 'contact', component: ContactComponent },
 ];
 

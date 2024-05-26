@@ -177,25 +177,13 @@ class EliminarReclamoView(APIView):
         reclamo.delete()
         return Response({"mensaje": "Reclamo eliminado exitosamente"})
     
-class CrearPedidoView(APIView):
-    permission_classes = [IsAuthenticated]
+class PedidoListCreateView(generics.ListCreateAPIView):
+    queryset = Pedido.objects.all()
+    serializer_class = CrearPedidoSerializer
 
-    def post(self, request):
-        print(request.data)
-        serializer = CrearPedidoSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response({"mensaje": "Pedido creado exitosamente"})
-        print(request.data)
-        return Response(request.data, status=status.HTTP_400_BAD_REQUEST)
-    
-class VerPedidoView(APIView):
-    permission_classes = [IsAuthenticated]
-
-    def get(self, request):
-        pedidos = Pedido.objects.all()
-        serializer = ListarPedidoSerializer(pedidos, many=True)
-        return Response(serializer.data)
+class PedidoRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Pedido.objects.all()
+    serializer_class = CrearPedidoSerializer
     
 class ServiciosListCreateView(generics.ListCreateAPIView):
     queryset = ServiciosKillCode.objects.all()
@@ -212,3 +200,19 @@ class CategoriaServiciosListCreateView(generics.ListCreateAPIView):
 class CategoriaServiciosRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = CategoriaServicios.objects.all()
     serializer_class = CategoriaServiciosSerializer
+
+class ObraSocialListCreateView(generics.ListCreateAPIView):
+    queryset = ObraSocial.objects.all()
+    serializer_class = ObraSocialSerializer
+
+class ObraSocialRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = ObraSocial.objects.all()
+    serializer_class = ObraSocialSerializer
+
+class ArtListCreateView(generics.ListCreateAPIView):
+    queryset = Art.objects.all()
+    serializer_class = ArtSerializer
+
+class ArtRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Art.objects.all()
+    serializer_class = ArtSerializer

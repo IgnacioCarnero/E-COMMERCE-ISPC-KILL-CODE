@@ -75,7 +75,7 @@ export class AddToCartComponent {
 
   calcularSubtotal() {
     this.subtotal = this.productosCarrito.reduce(
-      (total, servicio) => total.plus(servicio.precio),
+      (total, servicio) => total.plus(servicio.valor),
       new Decimal(0)
     );
     return this.subtotal;
@@ -131,6 +131,9 @@ export class AddToCartComponent {
       console.log('El formulario tiene errores de validación');
       console.log(this.formulario.errors);
       this.errorMessage = 'El formulario tiene errores de validación';
+      setTimeout(() => {
+        this.errorMessage = ''; // Opcional: para limpiar el mensaje después de 5 segundos
+      }, 5000);
       return;
     }
   }
@@ -138,7 +141,7 @@ export class AddToCartComponent {
   // armamos el objeto pedido que enviaremos en la request
   console.log(this.userId);
   const detalles = this.productosCarrito.map(servicio => servicio.detalle);
-  const ids = this.productosCarrito.map(servicio => servicio.id);
+  const ids = this.productosCarrito.map(servicio => servicio.idServicio);
   const totalDecimal = new Decimal(this.total);
   const cvvNumber = Number(this.cvvTarjeta.value);
   const pedido = {
@@ -157,6 +160,8 @@ export class AddToCartComponent {
     this.cartService.hacerPedido(pedido)
     .subscribe({
       next: (response) => {
+        // Eliminar el servicio del carrito
+        this.eliminarDelCarrito(this.productosCarrito[0]);
         this.resetForm();
         this.successMessage = 'El pedido se realizó correctamente.';
         // despues del mensaje de respuesta, reseteamos el form y borramos el mensaje
@@ -167,6 +172,9 @@ export class AddToCartComponent {
       },
       error: (error) => {
         this.errorMessage = 'Error al realizar el pedido.';
+        setTimeout(() => {
+          this.errorMessage = ''; // Opcional: para limpiar el mensaje después de 5 segundos
+        }, 5000);
       }
     });
   }
