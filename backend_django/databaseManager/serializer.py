@@ -1,3 +1,4 @@
+from attr import field
 from rest_framework import generics
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
@@ -130,7 +131,7 @@ class EliminarReclamoSerializer(serializers.ModelSerializer):
         fields = []
 
 class CrearPedidoSerializer(serializers.ModelSerializer):
-    valorTotal = serializers.DecimalField(max_digits=8, decimal_places=2)
+    valorTotal = serializers.DecimalField(max_digits=12, decimal_places=2)
     detalle = serializers.CharField(max_length=200)
     Servicio = serializers.PrimaryKeyRelatedField(queryset=ServiciosKillCode.objects.all())
     nombre_tarjeta = serializers.CharField(max_length=200)
@@ -143,12 +144,6 @@ class CrearPedidoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pedido
         fields = '__all__'
-
-class ListarPedidoSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Pedido
-        fields = ['idPedido', 'valorTotal', 'detalle', 'Servicio', 'nombre_tarjeta', 'numero_tarjeta',
-                   'vencimiento', 'Cvv', 'CustomUser', 'fechaHora']
 
 class CustomUserSerializer(serializers.ModelSerializer):
     companynameregister = serializers.CharField(source='company_name')
@@ -175,19 +170,12 @@ class CategoriaServiciosSerializer(serializers.ModelSerializer):
         model = CategoriaServicios
         fields = '__all__'
 
+class ObraSocialSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ObraSocial
+        fields = '__all__'
 
-class CategoriaServiciosListView(generics.ListAPIView):
-    queryset = CategoriaServicios.objects.all()
-    serializer_class = CategoriaServiciosSerializer
-
-class CategoriaServiciosRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = CategoriaServicios.objects.all()
-    serializer_class = CategoriaServiciosSerializer
-
-class ServiciosKillCodeListView(generics.ListCreateAPIView):
-    queryset = ServiciosKillCode.objects.all()
-    serializer_class = ServicioSerializer
-
-class ServiciosKillCodeRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = ServiciosKillCode.objects.all()
-    serializer_class = ServicioSerializer
+class ArtSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Art
+        fields = '__all__'

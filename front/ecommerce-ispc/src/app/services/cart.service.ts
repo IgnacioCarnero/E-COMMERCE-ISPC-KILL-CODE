@@ -24,30 +24,28 @@ export class CartService {
   }
 
   servicioEstaEnCarrito(servicio: Servicio): boolean {
-    return this.productosCarrito.some((item) => item.nombre === servicio.nombre);
+    return this.productosCarrito.some((item) => item.nombreServicio === servicio.nombreServicio);
   }
 
   eliminarDelCarrito(servicio: Servicio) {
-    const index = this.productosCarrito.findIndex((item) => item.nombre === servicio.nombre);
+    const index = this.productosCarrito.findIndex((item) => item.nombreServicio === servicio.nombreServicio);
     if (index !== -1) {
       this.productosCarrito.splice(index, 1);
     }
   }
 
-
-hacerPedido(pedido: any): Observable<any> {
-  return this.http.post('http://localhost:8000/api/hacer-pedido/', pedido, { withCredentials: true }).pipe(
-    map((response) => {
-      // Se utiliza esta estructura para en un futuro poder manejar la respuesta y transformarla
-      // con los metodos pipe y map
-      return response;
-    })
-  );
-}
-
+  hacerPedido(pedido: any): Observable<any> {
+    return this.http.post('http://localhost:8000/api/pedidos/', pedido, { withCredentials: true }).pipe(
+      map((response) => {
+        // Se utiliza esta estructura para en un futuro poder manejar la respuesta y transformarla
+        // con los metodos pipe y map
+        return response;
+      })
+    );
+  }
 
   listarPedido(): Observable<any> {
-    return this.http.get('http://localhost:8000/api/ver-pedido/', { withCredentials: true });
+    return this.http.get('http://localhost:8000/api/pedidos/', { withCredentials: true });
   }
 }
 

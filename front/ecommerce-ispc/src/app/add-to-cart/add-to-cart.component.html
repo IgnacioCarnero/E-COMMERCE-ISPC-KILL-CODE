@@ -28,15 +28,15 @@
                                         <div class="d-flex justify-content-between">
                                             <div class="d-flex flex-row align-items-center">
                                                 <div class="ms-3">
-                                                    <h5>{{ servicio.nombre }} - {{servicio.detalle}}</h5>
+                                                    <h5>{{ servicio.nombreServicio }} - {{servicio.detalle}}</h5>
                                                 </div>
                                             </div>
                                             <div class="d-flex flex-row align-items-center">
                                                 <div class="mx-3">
-                                                    <h5><span class="align-middle">{{ servicio.precio }}</span></h5>
+                                                    <h5><span class="align-middle">{{ servicio.valor }}</span></h5>
                                                 </div>
                                                 <a name="eliminar" (click)="eliminarDelCarrito(servicio)">
-                                                    <p class="d-none">{{ servicio.nombre }}</p>
+                                                    <p class="d-none">{{ servicio.nombreServicio }}</p>
                                                     <i class="fas fa-trash-alt"></i>
                                                 </a>
                                             </div>
