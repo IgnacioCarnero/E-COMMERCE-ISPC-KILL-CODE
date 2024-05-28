@@ -4,6 +4,9 @@ import { EventService } from 'src/app/services/event.service';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../../services/auth.service';
 import { ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+declare var bootstrap: any;
 
 @Component({
   selector: 'app-servicios',
@@ -16,10 +19,15 @@ export class ServiciosComponent implements OnInit, OnDestroy {
   servicioPyME!: Servicio;
   servicioPremiumPyME!: Servicio;
   isLoggedIn: boolean = false;
-
+  tokenForm: FormGroup;
   private carritoActualizadoSubscription!: Subscription;
 
-  constructor(private route: ActivatedRoute, private cartService: CartService, private eventService: EventService, public authService: AuthService) { }
+  constructor(private route: ActivatedRoute, private cartService: CartService,
+     private eventService: EventService, public authService: AuthService, private fb: FormBuilder)
+      { // Inicializar el formulario del token
+        this.tokenForm = this.fb.group({
+          token: ['', Validators.required]
+        }); }
 
   ngOnInit() {
     this.isLoggedIn = this.authService.getIsAuthenticated();
@@ -73,6 +81,31 @@ export class ServiciosComponent implements OnInit, OnDestroy {
   getIsAuthenticated(): boolean {
     return this.authService.getIsAuthenticated();
   }
+
+  submitToken() {
+    const token = this.tokenForm.get('token')?.value;
+    const servicio = this.servicios.find(s => s.token === token);
+    if (servicio) {
+      this.cartService.agregarAlCarrito(servicio);
+      this.tokenForm.reset();
+      // Cerrar el modal después de agregar el servicio al carrito
+      const tokenModalElement = document.getElementById('tokenModal');
+      if (tokenModalElement) {
+        const tokenModalInstance = bootstrap.Modal.getInstance(tokenModalElement);
+        tokenModalInstance?.hide();
+        tokenModalElement.addEventListener('hidden.bs.modal', () => {
+          // Abrir el modal del carrito una vez que el modal del token se ha cerrado
+          const cartModalElement = document.getElementById('serviceModal');
+          if (cartModalElement) {
+            const cartModalInstance = new bootstrap.Modal(cartModalElement);
+            cartModalInstance.show();
+          }
+        }, { once: true });
+      }
+    } else {
+      alert('Token no válido');
+    }
+  }
 }
 
 export class Servicio {
@@ -82,13 +115,15 @@ export class Servicio {
   detalle: String;
   idServicio: number;
   token: string;
+  categoria: number;
 
-  constructor(nombreServicio: string, valor: number, detalle: String, idServicio: number, token: string) {
+  constructor(nombreServicio: string, valor: number, detalle: String, idServicio: number, token: string, categoria: number) {
     this.nombreServicio = nombreServicio;
     this.valor = valor;
     this.isInCart = false;
     this.detalle = detalle;
     this.idServicio = idServicio;
     this.token = token;
+    this.categoria = categoria;
   }
 }

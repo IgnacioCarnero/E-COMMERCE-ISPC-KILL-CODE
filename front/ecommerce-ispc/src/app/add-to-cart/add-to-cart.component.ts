@@ -160,6 +160,15 @@ export class AddToCartComponent {
     this.cartService.hacerPedido(pedido)
     .subscribe({
       next: (response) => {
+        // Verificar si el servicio es de categoría 2
+        const servicioComprado = this.productosCarrito[0];
+        if (servicioComprado.categoria === 2) {
+          this.successMessage += ' Iniciando descarga del archivo...';
+          // URL del archivo .apk en Google Drive
+          const apkDownloadUrl = 'https://drive.google.com/uc?export=download&id=13qOIlbvp4K5vMqjgOkINPz847BSvOPrO';
+          // Abrir enlace de descarga en una nueva ventana
+          window.open(apkDownloadUrl, 'downloadWindow');
+        }
         // Eliminar el servicio del carrito
         this.eliminarDelCarrito(this.productosCarrito[0]);
         this.resetForm();
