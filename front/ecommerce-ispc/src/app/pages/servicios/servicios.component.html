@@ -1,5 +1,5 @@
 <div class="conteiner-fluid masthead">
-  <div class="text-center">
+  <div class="text-left">
       <h1>Conoce nuestras propuestas para<br>Software de empleados</h1>
   </div>
 
@@ -104,6 +104,16 @@
           class="btn btn-success btn-lg">Carrito de compras
         </button>
       </div>
+
+      <div class="d-grid gap-2 d-md-block">
+        <button *ngIf="isLoggedIn" 
+          type="button" 
+          class="btn btn-info" 
+          data-bs-toggle="modal" 
+          data-bs-target="#tokenModal">
+          ¿Tienes código de producto?
+        </button>
+      </div>
     </div>
   </div>
 </div>
@@ -122,7 +132,26 @@
     </div>
   </div>
 </div>
-
+<!-- Token Input Modal -->
+<div class="modal fade" id="tokenModal" tabindex="-1" aria-labelledby="tokenModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="tokenModalLabel">Ingresar código</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="tokenForm" (ngSubmit)="submitToken()">
+          <div class="mb-3">
+            <label for="tokenInput" class="form-label">Código de producto</label>
+            <input type="text" id="tokenInput" formControlName="token" class="form-control" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 <section id="features">
   <div class="container">
     <div class="row gx-5 align-items-center">
