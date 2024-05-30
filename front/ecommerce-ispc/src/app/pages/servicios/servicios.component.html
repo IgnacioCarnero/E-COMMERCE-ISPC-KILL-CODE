@@ -94,6 +94,22 @@
             type="button" *ngIf="isLoggedIn"
             [class]="cambioDeBoton(servicioPremiumPyME).class">{{ cambioDeBoton(servicioPremiumPyME).text }}</button>
           </div>
+
+          <div class="card-body">
+            <h5 class="card-title text-center h3">Desarrollo a medida</h5>
+            <ul class="card-text-start">
+              <li>100 legajos</li>
+              <li>4 usuarios</li>
+              <li>Libro de sueldo digital</li>
+              <li>Conceptos personalizables</li>
+              <li>Automatizacion de novedades</li>
+              <li>Recibo digital</li>
+              <li>Formularios AFIP</li>
+            </ul>
+            <button  (click)="agregarAlCarrito(PremiumPyME)"
+            type="button" *ngIf="isLoggedIn"
+            [class]="cambioDeBoton(PremiumPyME).class">{{ cambioDeBoton(PremiumPyME).text }}</button>
+          </div>
         </div>
       </div>
 
