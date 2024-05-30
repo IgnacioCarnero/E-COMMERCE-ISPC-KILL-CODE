@@ -33,7 +33,7 @@
                                             </div>
                                             <div class="d-flex flex-row align-items-center">
                                                 <div class="mx-3">
-                                                    <h5><span class="align-middle">{{ servicio.valor }}</span></h5>
+                                                    <h5><span class="align-middle">{{'$' + servicio.valor }}</span></h5>
                                                 </div>
                                                 <a name="eliminar" (click)="eliminarDelCarrito(servicio)">
                                                     <p class="d-none">{{ servicio.nombreServicio }}</p>
@@ -127,14 +127,14 @@
                                             <div *ngIf="productosCarrito.length > 0"
                                                 class="d-flex justify-content-between">
                                                 <p class="mb-2">Subtotal</p>
-                                                <p class="mb-2">{{ calcularSubtotal() }}</p>
+                                                <p class="mb-2">{{'$' + calcularSubtotal() }}</p>
                                             </div>
 
 
                                             <div *ngIf="productosCarrito.length > 0"
                                             class="d-flex justify-content-between mb-4">
                                                 <p class="mb-2">Total (Incl. IVA)</p>
-                                                <p class="mb-2">{{ calcularTotal() }}</p>
+                                                <p class="mb-2">{{ '$' + calcularTotal() }}</p>
                                             </div>
 
                                             <button type="submit" class="btn btn-dark btn-block btn-lg">

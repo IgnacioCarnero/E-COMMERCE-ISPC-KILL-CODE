@@ -1,8 +1,24 @@
 <div class="conteiner-fluid masthead">
-  <div class="text-left">
-      <h1>Conoce nuestras propuestas para<br>Software de empleados</h1>
-  </div>
-
+  <div class="text-left d-flex justify-content-between align-items-center">
+    <h1 class="mx-3">Conoce nuestras propuestas para<br>Software de empleados</h1>
+    <div>
+      <button *ngIf="isLoggedIn"
+        type="button"
+        data-bs-toggle="modal"
+        data-bs-target="#serviceModal"
+        class="btn btn-success btn-lg">
+        Carrito de compras
+      </button>
+  
+      <button *ngIf="isLoggedIn" 
+        type="button" 
+        class="btn btn-info btn-lg mx-2" 
+        data-bs-toggle="modal" 
+        data-bs-target="#tokenModal">
+        ¿Tienes código de producto?
+      </button>
+    </div>
+  </div>  
 
 <!-- tarjetas -->
 <div class="container text mb-4">
@@ -80,24 +96,7 @@
           </div>
         </div>
       </div>
-      <div class="d-grid gap-2 d-md-block">
-        <button  *ngIf="isLoggedIn"
-          type="button"
-          data-bs-toggle="modal"
-          data-bs-target="#serviceModal"
-          class="btn btn-success btn-lg">Carrito de compras
-        </button>
-      </div>
 
-      <div class="d-grid gap-2 d-md-block">
-        <button *ngIf="isLoggedIn" 
-          type="button" 
-          class="btn btn-info" 
-          data-bs-toggle="modal" 
-          data-bs-target="#tokenModal">
-          ¿Tienes código de producto?
-        </button>
-      </div>
     </div>
   </div>
 </div>
