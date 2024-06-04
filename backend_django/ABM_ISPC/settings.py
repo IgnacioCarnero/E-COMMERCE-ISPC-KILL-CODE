@@ -93,7 +93,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ecommercekillcodeproject',
         'USER': 'root',
-        'PASSWORD': 'root',
+        'PASSWORD': '12Python34*',
         'HOST': '127.0.0.1',
         'PORT': '3306'
     }
