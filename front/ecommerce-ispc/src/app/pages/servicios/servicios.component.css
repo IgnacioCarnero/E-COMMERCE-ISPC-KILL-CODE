@@ -15,3 +15,10 @@
     align-items: center; /* Centrar verticalmente */
     height: 60vh; /* Puedes ajustar la altura según tus necesidades */
 }
+
+.img-cart3{
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 60vh; /
+}
