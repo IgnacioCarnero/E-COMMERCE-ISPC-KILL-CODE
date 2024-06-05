@@ -97,8 +97,7 @@ class Reclamo:
         reclamos = [
 
         ]
-    def eliminarReclamos(self):
-        print("Reclamo eliminado")
+    
 
         
     
